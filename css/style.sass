@@ -20,6 +20,7 @@ a
 nav
     display: flex
     justify-content: space-between
+    align-items: center
 
 .links
     display: flex
@@ -29,11 +30,18 @@ ul li
     display: flex
     align-items: center
     justify-content: space-between
+    a
+        max-width: 60%
     .publish-date
         font-size: 80%
+        text-align: right
 
 body
     margin: 10vh 20vw
     display: flex
     flex-direction: column
     gap: 3rem
+
+@media (max-width: 800px)
+    body
+        margin: 5vh 5vw

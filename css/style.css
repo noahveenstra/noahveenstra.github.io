@@ -95,6 +95,7 @@ a:hover {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .links {
@@ -107,8 +108,12 @@ ul li {
   align-items: center;
   justify-content: space-between;
 }
+ul li a {
+  max-width: 60%;
+}
 ul li .publish-date {
   font-size: 80%;
+  text-align: right;
 }
 
 body {
@@ -116,4 +121,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+@media (max-width: 800px) {
+  body {
+    margin: 5vh 5vw;
+  }
 }/*# sourceMappingURL=style.css.map */
