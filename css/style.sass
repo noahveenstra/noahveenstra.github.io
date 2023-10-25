@@ -59,8 +59,12 @@ section
     margin: 5% 5% 10% 5%
     position: relative
     height: 80vh
+$tl-pos: ellipse at top left
+$tl-first-color: rgb(205, 255, 89) 0%
+$tl-second-color: rgb(0, 253, 198) 30%
 .case-showcase
     height: 100vh
+    background: radial-gradient($tl-pos, $tl-first-color, $tl-second-color, transparent 80%), radial-gradient(ellipse at bottom right, rgb(126, 87, 255) 0%, rgb(190, 147, 255) 30%, transparent 80%)
     width: 100vw
     margin: 0
     padding: 5%
@@ -87,18 +91,18 @@ section
         transition: all .3s ease-in-out
         p
             font-size: 1.5rem
-            text-overflow: ellipsis
             overflow: hidden
-            display: -webkit-box
+            max-height: 90px
             color: #3E3E3E
-            -webkit-line-clamp: 3
-            -webkit-box-orient: vertical
-
+            transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out
             .word
                 transform: translateY(0)
         &:hover p
-            -webkit-line-clamp: 40
-            max-height: 100%
+            max-height: 3000px
+            height: max-content
+            color: black
+            transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out
+
 .projects
     position: absolute
     bottom: 0

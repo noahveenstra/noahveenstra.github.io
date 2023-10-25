@@ -158,6 +158,7 @@ section {
 
 .case-showcase {
   height: 100vh;
+  background: radial-gradient(ellipse at top left, rgb(205, 255, 89) 0%, rgb(0, 253, 198) 30%, transparent 80%), radial-gradient(ellipse at bottom right, rgb(126, 87, 255) 0%, rgb(190, 147, 255) 30%, transparent 80%);
   width: 100vw;
   margin: 0;
   padding: 5%;
@@ -190,19 +191,20 @@ section {
 }
 .case-showcase .abstract p {
   font-size: 1.5rem;
-  text-overflow: ellipsis;
   overflow: hidden;
-  display: -webkit-box;
+  max-height: 90px;
   color: #3E3E3E;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out;
 }
 .case-showcase .abstract p .word {
   transform: translateY(0);
 }
 .case-showcase .abstract:hover p {
-  -webkit-line-clamp: 40;
-  max-height: 100%;
+  max-height: 3000px;
+  height: -moz-max-content;
+  height: max-content;
+  color: black;
+  transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out;
 }
 
 .projects {
