@@ -64,7 +64,7 @@ $tl-first-color: rgb(205, 255, 89) 0%
 $tl-second-color: rgb(0, 253, 198) 30%
 .case-showcase
     height: 100vh
-    background: radial-gradient($tl-pos, $tl-first-color, $tl-second-color, transparent 80%), radial-gradient(ellipse at bottom right, rgb(126, 87, 255) 0%, rgb(190, 147, 255) 30%, transparent 80%)
+    // background: radial-gradient($tl-pos, $tl-first-color, $tl-second-color, transparent 80%), radial-gradient(ellipse at bottom right, rgb(126, 87, 255) 0%, rgb(190, 147, 255) 30%, transparent 80%)
     width: 100vw
     margin: 0
     padding: 5%
@@ -88,20 +88,23 @@ $tl-second-color: rgb(0, 253, 198) 30%
         text-align: right
         clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0)
         max-width: 25%
-        transition: all .3s ease-in-out
+        transition: all .3s
+        transition-timing-function: cubic-bezier(0.4,0,0,1)
         p
             font-size: 1.5rem
             overflow: hidden
             max-height: 90px
             color: #3E3E3E
-            transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out
+            transition: max-height 2s, color 2s
+            transition-timing-function: cubic-bezier(0.4,0,0,1)
             .word
                 transform: translateY(0)
         &:hover p
             max-height: 3000px
             height: max-content
             color: black
-            transition: max-height 1.3s ease-in-out, color 1.3s ease-in-out
+            transition: max-height 4s, color 2s
+            transition-timing-function: cubic-bezier(0.4,0,0,1)
 
 .projects
     position: absolute

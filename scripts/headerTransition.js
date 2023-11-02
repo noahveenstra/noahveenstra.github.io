@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger: head,
         start: "top center",
         end: "bottom center",
-        // markers: true,
       },
     });
   });
