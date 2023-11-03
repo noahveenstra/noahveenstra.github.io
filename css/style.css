@@ -205,17 +205,29 @@ footer a:hover {
 
 .about-me {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .about-me .content {
-  max-width: 50%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: space-between;
+}
+.about-me .content div {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 .about-me img {
+  display: block;
   max-width: 30%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  width: auto;
+  height: auto;
   border-radius: 10px;
 }
 
@@ -228,8 +240,8 @@ footer a:hover {
   display: flex;
 }
 .listening .albums a {
-  margin: -50px;
   transform: perspective(400px) rotateY(-45deg);
+  margin: -50px;
 }
 .listening .albums a img {
   max-width: 100%;
@@ -237,5 +249,5 @@ footer a:hover {
 }
 .listening .albums a:hover {
   transform: perspective(0) rotateY(0);
-  z-index: 10;
+  z-index: 10 !important;
 }/*# sourceMappingURL=style.css.map */
