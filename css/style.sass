@@ -1,121 +1,134 @@
-@import 'fonts'
-
+@import fonts
+@import colors
 *
+    font-family: Montreal
+    background-color: $background
+    color: $primary
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: Montreal
+body
+    margin: 100px 200px
+    display: flex
+    flex-direction: column
+    gap: 10vh
 h1
-    font-size: 9rem
+    font-size: $large
+h3
+    font-size: $medlarge
     font-weight: 500
-    text-transform: uppercase
-    position: absolute
-    .line
-        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0)
-#hook
-    bottom: 0
-#projects-head
-    top: 5%
-    right: 10%
-    max-width: 45%
-    text-align: right
-.word
-    transform: translateY(100%)
-    transition: transform 0.5s
-.fadeIn
-    opacity: 0
-#body-text .line
-    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0)
-    opacity: 0
-    transform: translateY(100%)
-    transition: opacity 0.75s
-    transition: transform 0.75s
-    .word
-        transform: translateY(0)
+    color: $secondary
+h4
+    font-weight: 400
+    font-size: $medlarge
+header
+    display: flex
+    gap: 20px
+    flex-direction: column
 nav
-    position: absolute
-    right: 10%
-    top: 25%
-    ul
-        li
-            list-style: none
-            a
-                color: black
-                text-decoration: none
-                text-transform: uppercase
-                font-size: $medium
-                font-weight: 500
-
-#copy
-    font-size: $small
-#about
-    position: absolute
-    right: 10%
+    display: flex
+    gap: 40px
+    margin-bottom: 5vh
+    .active
+        color: $primary
+    // &::before
+        // content: "●"
+        // position: absolute
+        // font-size: 15pt
+        // top: 50%
+        // margin-left: -35px
+    a
+        text-decoration: none
+        h4
+            color: $inactive
+.projects
+    // border: 1px solid red
+    display: flex
+    flex-direction: column
+    gap: 50px
+    position: relative
+    a
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        // border: 1px solid white
+        border-radius: 10px
+        text-decoration: none
+        padding: 30px
+        // margin-top: 20px
+        transition: padding .5s ease-in-out, margin-top .5s ease-in-out, box-shadow .5s ease-in-out
+        .info
+            align-self: center
+            .title
+                font-size: $medlarge
+            .title, .date
+                color: $inactive
+                transition: color .5s ease-in-out
+        img
+            width: 100px
+            height: 70px
+            opacity: 30%
+            align-self: center
+            transition: opacity .5s ease-in-out
+.study-cell:hover
+    // padding: 30px
+    box-shadow: 1px 4px 15px 4px rgba(48,48,48,.5)
+    -webkit-box-shadow: 1px 4px 15px 4px rgba(48,48,48,.5)
+    -moz-box-shadow: 1px 4px 15px 4px rgba(48,48,48,.5)
+    // margin-top: 0
+    transition: padding .5s ease-in-out, margin-top .5s ease-in-out, box-shadow .5s ease-in-out
+    .info
+        .title
+            color: $primary
+            transition: color .5s ease-in-out
+        .date
+            color: $primary
+            transition: color .5s ease-in-out
+    img
+        opacity: 100%
+        transition: opacity .5s ease-in-out
+footer
+    display: flex
+    flex-direction: column
+    gap: 5vh
+    hr
+        border-color: $secondary
+    div, .jsb, .site-directory a
+        color: $secondary
+    a:hover
+        text-decoration: underline
+.jsb
     display: flex
     flex-direction: row
-    gap: 10%
-    max-width: 30%
-section
-    margin: 5% 5% 10% 5%
-    position: relative
-    height: 80vh
-$tl-pos: ellipse at top left
-$tl-first-color: rgb(205, 255, 89) 0%
-$tl-second-color: rgb(0, 253, 198) 30%
-.case-showcase
-    height: 100vh
-    // background: radial-gradient($tl-pos, $tl-first-color, $tl-second-color, transparent 80%), radial-gradient(ellipse at bottom right, rgb(126, 87, 255) 0%, rgb(190, 147, 255) 30%, transparent 80%)
-    width: 100vw
-    margin: 0
-    padding: 5%
-    h1
-        position: relative
-        max-width: 75%
-    .subtitle, .skills, .abstract h4
-        color: #3E3E3E
-        font-size: 2rem
-        text-transform: uppercase
-        font-weight: 500
-    .skills
-        position: absolute
-        bottom: 5%
-        left: 5%
-        max-width: 60%
-    .abstract
-        position: absolute
-        bottom: 5%
-        right: 5%
-        text-align: right
-        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0)
-        max-width: 25%
-        transition: all .3s
-        transition-timing-function: cubic-bezier(0.4,0,0,1)
-        p
-            font-size: 1.5rem
-            overflow: hidden
-            max-height: 90px
-            color: #3E3E3E
-            transition: max-height 2s, color 2s
-            transition-timing-function: cubic-bezier(0.4,0,0,1)
-            .word
-                transform: translateY(0)
-        &:hover p
-            max-height: 3000px
-            height: max-content
-            color: black
-            transition: max-height 4s, color 2s
-            transition-timing-function: cubic-bezier(0.4,0,0,1)
-
-.projects
-    position: absolute
-    bottom: 0
+    justify-content: space-between
+.site-directory
+    gap: 20px
+    a
+        text-decoration: none
+.about-me
     display: flex
-    width: 100%
-    flex-direction: column
-    .row
+    flex-direction: row
+    justify-content: space-between
+    .content
+        max-width: 50%
         display: flex
-        flex-grow: 1
-        flex-direction: row
-        align-items: center
-        justify-content: space-between
-        border: 1px solid black
+        flex-direction: column
+        gap: 25px
+    img
+        max-width: 30%
+        border-radius: 10px
+.listening
+    display: flex
+    flex-direction: column
+    gap: 100px
+    .albums
+        display: flex
+        a
+            margin: -50px
+            transform: perspective(400px) rotateY(-45deg)
+            img
+                max-width: 100%
+                max-height: 200px
+        a:hover
+            transform: perspective(0) rotateY(0)
+            z-index: 10
