@@ -136,9 +136,36 @@ footer
         a
             transform: perspective(400px) rotateY(-45deg)
             margin: -50px
+            border-radius: 10px
+            width: 200px
+            height: 200px
+            transition: width .2s ease-in-out, height .2s ease-in-out
+            // transform-origin: bottom
             img
                 max-width: 100%
-                max-height: 200px
+                max-height: 100%
         a:hover
-            transform: perspective(0) rotateY(0)
+            animation: album-flip .3s
             z-index: 10 !important
+            width: 250px
+            height: 250px
+@keyframes album-flip
+    0%
+        transform: perspective(400px) rotateY(-45deg)
+    100%
+        transform: perspective(0) rotateY(0)
+.contact-content
+    display: flex
+    flex-direction: column
+    gap: 20px
+    div
+        display: flex
+        flex-direction: column
+        gap: 10px
+        a
+            color: $secondary
+            text-decoration: none
+            transition: color .3s ease-in-out
+            &:hover
+                color: $primary
+                text-decoration: underline

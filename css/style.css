@@ -242,12 +242,46 @@ footer a:hover {
 .listening .albums a {
   transform: perspective(400px) rotateY(-45deg);
   margin: -50px;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 .listening .albums a img {
   max-width: 100%;
-  max-height: 200px;
+  max-height: 100%;
 }
 .listening .albums a:hover {
-  transform: perspective(0) rotateY(0);
+  animation: album-flip 0.3s;
   z-index: 10 !important;
+  width: 250px;
+  height: 250px;
+}
+
+@keyframes album-flip {
+  0% {
+    transform: perspective(400px) rotateY(-45deg);
+  }
+  100% {
+    transform: perspective(0) rotateY(0);
+  }
+}
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-content div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-content div a {
+  color: #A0A0A0;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.contact-content div a:hover {
+  color: #e0e0e0;
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */
