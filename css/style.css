@@ -144,7 +144,6 @@ main header .line {
   writing-mode: vertical-rl;
   font-size: 2rem;
   border-radius: 0.75rem;
-  filter: opacity(0.6);
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -153,6 +152,15 @@ main header .line {
 .carousel .slide .text-container {
   padding: 1rem;
   width: 100%;
+  opacity: 1;
+}
+.carousel .slide .text-container .title {
+  font-size: 3rem;
+}
+.carousel .slide .text-container .subtitle, .carousel .slide .text-container .date, .carousel .slide .text-container .skills {
+  font-size: 1.75rem;
+  color: #121212;
+  opacity: 70%;
 }
 .carousel .slide .text-container header, .carousel .slide .text-container h2, .carousel .slide .text-container h3 {
   display: none;
@@ -169,6 +177,10 @@ main header .line {
 }
 .carousel .slide[data-active] .text-container {
   width: 65vw;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .carousel .slide[data-active] .text-container .short {
   display: none;

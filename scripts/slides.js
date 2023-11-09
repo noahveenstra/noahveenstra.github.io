@@ -6,7 +6,8 @@ let one = {
   short: "Disney",
   subtitle: "Creating a More User-Centric Experience for Disney World Guests",
   date: "November 7, 2023",
-  skills: "Low-Fi Wireframes, High-Fi Wireframes, Prototypes, User Flows",
+  skills:
+    "Skills Exhibited: Low-Fi Wireframes, High-Fi Wireframes, Prototypes, User Flows",
 };
 let two = {
   asset: "/assets/apple.jpg",
@@ -36,7 +37,8 @@ function createCarousel() {
     let slideContainer = document.createElement("div");
     let textContainer = document.createElement("div");
     let slideTitle = document.createElement("header");
-    let slideSubtitle = document.createElement("h2");
+    // let slideSubtitle = document.createElement("h2");
+    let titleDateContainer = document.createElement("div");
     let date = document.createElement("h3");
     let skills = document.createElement("h3");
     let a = document.createElement("a");
@@ -46,18 +48,19 @@ function createCarousel() {
     main.appendChild(slideContainer);
     slideContainer.appendChild(textContainer);
     slideTitle.classList.add("title");
-    textContainer.appendChild(slideTitle);
+    textContainer.appendChild(titleDateContainer);
+    titleDateContainer.appendChild(slideTitle);
     textContainer.appendChild(short);
     short.classList.add("short");
-    slideSubtitle.classList.add("subtitle");
-    textContainer.appendChild(slideSubtitle);
+    // slideSubtitle.classList.add("subtitle");
+    // textContainer.appendChild(slideSubtitle);
     date.classList.add("date");
-    textContainer.appendChild(date);
+    titleDateContainer.appendChild(date);
     skills.classList.add("skills");
     textContainer.appendChild(skills);
     slideTitle.innerHTML = slide.title;
     short.innerHTML = slide.short;
-    slideSubtitle.innerHTML = slide.subtitle;
+    // slideSubtitle.innerHTML = slide.subtitle;
     date.innerHTML = slide.date;
     skills.innerHTML = slide.skills;
     a.href = slide.link;

@@ -53,7 +53,6 @@ main
         writing-mode: vertical-rl
         font-size: 2rem
         border-radius: .75rem
-        filter: opacity(.6)
         background-position: center
         background-size: cover
         overflow: hidden
@@ -61,6 +60,13 @@ main
         .text-container
             padding: 1rem
             width: 100%
+            opacity: 1
+            .title
+                font-size: 3rem
+            .subtitle, .date, .skills
+                font-size: 1.75rem
+                color: $primary
+                opacity: 70%
             header, h2, h3
                 display: none
             .short
@@ -71,9 +77,12 @@ main
             writing-mode: horizontal-tb
             transform: rotate(0deg)
             filter: opacity(1)
-
             .text-container
                 width: 65vw
+                display: flex
+                height: 100%
+                flex-direction: column
+                justify-content: space-between
                 .short
                     display: none
                 header, h2, h3
