@@ -2,7 +2,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", function () {
   const headings = document.querySelectorAll("header");
-  console.log(headings);
   headings.forEach((head) => {
     const splitText = new SplitType(head, { type: "words,chars" });
     const wordElements = gsap.utils.toArray(splitText.words);
@@ -30,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       onComplete: function () {
         setTimeout(function () {
-          head.innerHTML = "";
-          head.opacity = 0;
+          head.remove();
+          createCarousel();
         }, 2000);
       },
     });

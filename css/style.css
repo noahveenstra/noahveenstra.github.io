@@ -83,7 +83,7 @@ body {
   margin: 100px;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 2rem;
 }
 
 h1 {
@@ -131,4 +131,48 @@ main header .word {
 main header .line {
   -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0);
           clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0);
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+.carousel .slide {
+  width: 7.5%;
+  height: 100%;
+  writing-mode: vertical-rl;
+  font-size: 2rem;
+  border-radius: 0.75rem;
+  filter: opacity(0.6);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  transition: opacity 0.35s, width 0.35s, height 0.35s, transform 0.35s, filter 0.35s, border-radius 0.35s, writing-mode 0.35s;
+}
+.carousel .slide .text-container {
+  padding: 1rem;
+  width: 100%;
+}
+.carousel .slide .text-container header, .carousel .slide .text-container h2, .carousel .slide .text-container h3 {
+  display: none;
+}
+.carousel .slide .text-container .short {
+  display: block;
+}
+.carousel .slide[data-active] {
+  width: 80%;
+  height: 100%;
+  writing-mode: horizontal-tb;
+  transform: rotate(0deg);
+  filter: opacity(1);
+}
+.carousel .slide[data-active] .text-container {
+  width: 65vw;
+}
+.carousel .slide[data-active] .text-container .short {
+  display: none;
+}
+.carousel .slide[data-active] .text-container header, .carousel .slide[data-active] .text-container h2, .carousel .slide[data-active] .text-container h3 {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

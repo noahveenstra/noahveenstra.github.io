@@ -11,7 +11,7 @@ body
     margin: 100px
     display: flex
     flex-direction: column
-    gap: 5rem
+    gap: 2rem
 h1
     font-size: $large
 h3
@@ -43,3 +43,38 @@ main
             transition: transform 0.35s
         .line
             clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0 0)
+.carousel
+    display: flex
+    flex-direction: row
+    gap: 1.25rem
+    .slide
+        width: 7.5%
+        height: 100%
+        writing-mode: vertical-rl
+        font-size: 2rem
+        border-radius: .75rem
+        filter: opacity(.6)
+        background-position: center
+        background-size: cover
+        overflow: hidden
+        transition: opacity 0.35s, width .35s, height .35s, transform 0.35s, filter 0.35s, border-radius 0.35s, writing-mode .35s
+        .text-container
+            padding: 1rem
+            width: 100%
+            header, h2, h3
+                display: none
+            .short
+                display: block
+        &[data-active]
+            width: 80%
+            height: 100%
+            writing-mode: horizontal-tb
+            transform: rotate(0deg)
+            filter: opacity(1)
+
+            .text-container
+                width: 65vw
+                .short
+                    display: none
+                header, h2, h3
+                    display: block
