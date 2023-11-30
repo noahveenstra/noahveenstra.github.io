@@ -1,6 +1,6 @@
 let slides = [];
 let one = {
-  asset: "/assets/disney.jpg",
+  // asset: "/assets/disney.jpg",
   link: "/projects/disney.html",
   title: "Reimagining My Disney Experience",
   short: "Disney",
@@ -10,7 +10,7 @@ let one = {
     "Skills Exhibited: Low-Fi Wireframes, High-Fi Wireframes, Prototypes, User Flows",
 };
 let two = {
-  asset: "/assets/apple.jpg",
+  // asset: "/assets/apple.jpg",
   link: "/projects/apple.html",
   title: "I Wish I Could Use Apple Music, So I Redesigned It",
   short: "Apple",
@@ -19,7 +19,7 @@ let two = {
   skills: "n/a",
 };
 let three = {
-  asset: "/assets/nike.jpg",
+  // asset: "/assets/nike.jpg",
   link: "/projects/nike.html",
   title: "The Unique User Experience of Nike",
   short: "Nike",
