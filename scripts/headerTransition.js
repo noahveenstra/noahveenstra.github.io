@@ -39,8 +39,8 @@ subhead.forEach((sub) => {
         start: "top center",
         end: "bottom center",
       },
-    },
-    "-=1"
+    }
+    // "-=1"
   );
 });
 let articleTl = gsap.timeline({
