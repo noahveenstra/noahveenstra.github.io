@@ -73,7 +73,6 @@
 }
 * {
   font-family: Montreal;
-  background-color: #f9f6ee;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -82,6 +81,7 @@
 body {
   flex-direction: column;
   gap: 2rem;
+  background-color: #f9f6ee;
 }
 
 h1 {
@@ -193,23 +193,27 @@ main hr {
 .projects .row .cell {
   width: 45%;
   cursor: pointer;
+  padding: 1rem;
+  transition: transform 0.5s, box-shadow 0.5s, border-radius 0.5s;
 }
-.projects .row .cell:hover img {
+.projects .row .cell:hover {
   transform: scale(1.01);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   transition: transform 0.5s, box-shadow 0.5s, border-radius 0.5s;
   border-radius: 10px;
 }
 .projects .row .cell img {
-  width: 100%;
-  min-height: 40vh;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-width: 100%;
+  min-width: 60%;
+  max-height: 40vh;
+  -o-object-fit: contain;
+     object-fit: contain;
   -o-object-position: center;
      object-position: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 0;
-  background-color: #6F6F6F;
-  transition: transform 0.5s, box-shadow 0.5s, border-radius 0.5s;
 }
 .projects .row .cell .info {
   width: inherint;
@@ -223,7 +227,6 @@ main hr {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #202020;
@@ -236,11 +239,118 @@ footer {
   font-family: machina;
   font-weight: 700;
 }
+footer .identity {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  color: inherit;
+}
+footer .identity .row {
+  display: flex;
+  justify-content: space-between;
+}
+footer .identity, footer .name-mark, footer .name, footer .row, footer aside, footer span, footer a {
+  font-family: Montreal;
+  background-color: #202020;
+  font-weight: 400;
+}
 
 .back {
   position: fixed;
   top: 3rem;
+  z-index: 100;
   left: 3rem;
   height: 100px;
   border-radius: 100px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1647058824);
+  cursor: pointer;
+  transition: left 0.5s, background-color 0.5s;
+}
+.back:hover {
+  left: 2.5rem;
+  transition: left 0.5s, background-color 0.5s;
+  background-color: #ffffff;
+}
+.back svg {
+  padding: 1rem;
+  background-color: inherit;
+  border-radius: 100px;
+}
+
+.study hgroup header, .study hgroup h3 {
+  background-color: rgba(255, 255, 255, 0);
+  z-index: 2;
+}
+.study hgroup header .line, .study hgroup header .word, .study hgroup header .char, .study hgroup h3 .line, .study hgroup h3 .word, .study hgroup h3 .char {
+  background-color: rgba(255, 255, 255, 0);
+}
+.study hgroup .hero {
+  z-index: 1;
+  position: absolute;
+  right: 10rem;
+  height: 50%;
+  width: 20%;
+  background-color: rgba(255, 255, 255, 0);
+}
+.study article section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.study article section h3 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+.study article section h4 {
+  font-style: italic;
+  font-weight: 400;
+  color: #6F6F6F;
+}
+.study article section p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.study article section .quote {
+  border-left: 2rem solid #6F6F6F;
+  border-radius: 0.5rem;
+  padding-left: 3rem;
+}
+.study article section .quote p {
+  font-size: 5rem;
+}
+.study article section .quote .signature {
+  font-style: italic;
+}
+.study article section img {
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.study article section .hstack {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+.study article section .hstack img {
+  width: 40%;
+  height: 40%;
+}
+.study article section .hstack ul {
+  list-style-type: none;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.study article section .hstack ul header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.study article section .hstack ul li {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=style.css.map */
