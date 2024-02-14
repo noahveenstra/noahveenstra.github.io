@@ -1,226 +1,45 @@
 @import fonts
 @import colors
 *
-    font-family: Montreal
-
     margin: 0
     padding: 0
     box-sizing: border-box
-body
-    flex-direction: column
-    gap: 2rem
-    background-color: $background
-h1
-    font-size: $large
-h3
-    font-size: $medlarge
-    font-weight: 400
-    color: $secondary
-h4
-    font-weight: 300
-    font-size: $medlarge
-.line
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
-article
-    margin: 1rem 0
-    display: flex
-    flex-direction: column
-    gap: 5rem
-    .container .wrapper
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
-        display: flex
-        align-items: center
-    .dot
-        height: 10px
-        width: 10px
-        border-radius: 100px
-        background-color: #000
-.identity
-    display: flex
-    justify-content: space-between
-    align-items: start
+    background: #F9F6EE
 a
     text-decoration: none
-    color: inherit
-main
-    flex-grow: 1
-    padding: 100px
-    aside
-        display: flex
-        flex-direction: column
-        width: fit-content
-        .row
-            display: flex
-            flex-direction: row
-            justify-content: space-between
-    hgroup
-        height: 80vh
-        display: flex
-        gap: 2rem
-        flex-direction: column
-        justify-content: center
-        header
-            font-size: 7rem
-            text-transform: uppercase
-            line-height: .8
-            .word
-                transform: translateY(100%)
-                transition: transform .6s
-        h3
-            max-width: 900px
-            line-height: 1.2
-            .line
-                transform: translateY(100%)
-                transition: transform .8s
-    hr
-        height: 1px
-        border-radius: 10px
-        color: $secondary
-        border: 1px solid $secondary
-.projects
-    display: flex
-    flex-direction: column
-    gap: 7.5rem
-    .row
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-        .cell
-            width: 45%
-            cursor: pointer
-            padding: 1rem
-            transition: transform .5s, box-shadow .5s, border-radius .5s
-            &:hover
-                transform: scale(1.01)
-                box-shadow: 0 0 20px 0 rgba(0,0,0,.5)
-                transition: transform .5s, box-shadow .5s, border-radius .5s
-                border-radius: 10px
-            img
-                max-width: 100%
-                min-width: 60%
-                max-height: 40vh
-                object-fit: contain
-                object-position: center
-                display: flex
-                margin-left: auto
-                margin-right: auto
-                border-radius: 0
-            .info
-                width: inherint
-                display: flex
-                flex-direction: row
-                justify-content: space-between
-                align-items: flex-end
-                h2
-                    max-width: 80%
-
-footer
-    bottom: 0
-    width: 100%
-    background-color: #202020
-    text-transform: uppercase
-    padding: 100px 0
-    text-align: center
-    left: 0
-    color: #f9f6ee
-    font-size: 4rem
-    font-family: machina
-    font-weight: 700
-    .identity
-        width: 75%
-        margin-left: auto
-        margin-right: auto
-        font-size: 1rem
-        color: inherit
-        .row
-            display: flex
-            justify-content: space-between
-    .identity, .name-mark, .name, .row, aside, span, a
-        font-family: Montreal
-        background-color: #202020
-        font-weight: 400
-.back
-    position: fixed
-    top: 3rem
-    z-index: 100
-    left: 3rem
-    height: 100px
-    border-radius: 100px
-    border: none
-    background-color: #ffffff2a
-    cursor: pointer
-    transition: left .5s, background-color .5s
+    color: #000
     &:hover
-        left: 2.5rem
-        transition: left .5s, background-color .5s
-        background-color: #ffffff
-    svg
-        padding: 1rem
-        background-color: inherit
-        border-radius: 100px
-.study
-    hgroup
-        header, h3
-            background-color: #ffffff00
-            z-index: 2
-            .line, .word, .char
-                background-color: #ffffff00
-        .hero
-            z-index: 1
-            position: absolute
-            right: 10rem
-
-            // z-index: 0
-            height: 50%
-            width: 20%
-            background-color: #ffffff00
-    article
-        margin: 0 20%
-        section
-            display: flex
-            flex-direction: column
-            gap: 1rem
-            h3
-                font-size: 4rem
-                font-weight: 500
-            h4
-                font-style: italic
-                font-weight: 400
-                color: $secondary
-            p
-                font-size: 1.2rem
-                margin: 0
-            .quote
-                // border-left: 2rem solid $secondary
-                // border-radius: .5rem
-                // padding-left: 3rem
-                p
-                    font-size: 5rem
-                    // font-style: italic
-                .signature
-                    font-style: italic
-            img
-                width: 50%
-                height: 50%
-                margin-left: auto
-                margin-right: auto
-            .hstack
-                display: flex
-                flex-direction: row
-                margin-left: auto
-                margin-right: auto
-                img
-                    width: 40%
-                    height: 40%
-                ul
-                    list-style-type: none
-                    text-align: center
-                    margin-top: 1rem
-                    margin-bottom: 1rem
-                    header
-                        font-size: 2rem
-                        font-weight: 500
-                    li
-                        font-size: 1.2rem
-                        margin-top: .5rem
-                        margin-bottom: .5rem
+        text-decoration: underline
+body
+    font-size: 1rem
+    font-family: Montreal, san-serif
+    margin: 5rem
+main
+    margin-top: 20vh
+    max-width: 60%
+    .intro
+        margin-bottom: 5vh
+    p
+        margin: 1rem 0
+    .projects
+        margin: 5rem 0 0 0
+        h1
+            font-size: 1rem
+.name-mark h1
+    font-size: 2.25rem
+h1
+    font-family: Machina, sans-serif
+    font-size: 4rem
+header, .art
+    display: flex
+    justify-content: space-between
+    align-items: center
+.art
+    margin: 1rem 0
+    .date
+        opacity: .5
+        transition: .5s ease-in-out
+    &:hover
+        .date
+            opacity: 1
+            transition: .5s ease-in-out
