@@ -134,4 +134,27 @@ header, .art {
 .art:hover .date {
   opacity: 1;
   transition: 0.5s ease-in-out;
+}
+
+.article {
+  border: 1px solid red;
+  max-width: 50%;
+}
+.article .intro {
+  margin: 0;
+}
+.article .intro p {
+  opacity: 0.5;
+  padding: 0;
+  margin: 0;
+}
+.article .content {
+  margin-top: 10vh;
+}
+.article .content .seperator {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
