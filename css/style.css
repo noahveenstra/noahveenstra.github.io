@@ -91,6 +91,11 @@ body {
   font-family: Montreal, san-serif;
   margin: 5rem;
 }
+@media (max-width: 1200px) {
+  body {
+    margin: 3rem;
+  }
+}
 
 main {
   margin-top: 20vh;
@@ -136,25 +141,71 @@ header, .art {
   transition: 0.5s ease-in-out;
 }
 
-.article {
-  border: 1px solid red;
+article {
   max-width: 50%;
 }
-.article .intro {
+article .intro {
   margin: 0;
 }
-.article .intro p {
+article .intro p {
   opacity: 0.5;
   padding: 0;
   margin: 0;
 }
-.article .content {
+article .content {
   margin-top: 10vh;
 }
-.article .content .seperator {
-  width: 25%;
+article .content .seperator {
+  width: 15%;
+  margin: 3rem auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid black;
+  opacity: 0.5;
+}
+
+.case-study {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+.case-study .assets {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  row-gap: 3rem;
+}
+.case-study .assets .cover-label {
+  position: absolute;
+  right: 1rem;
+  top: -1rem;
+  padding: 0.5rem;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: inherit;
+  border: 1px solid black;
+  z-index: 3;
+  font-family: Machina, sans-serif;
+}
+.case-study .assets .cover {
+  position: relative;
+}
+.case-study .assets .cover img {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 100%;
+  height: auto;
+}
+.case-study .resources {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+}
+.case-study .resources img {
+  width: 50%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */
