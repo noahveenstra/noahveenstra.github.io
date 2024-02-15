@@ -75,56 +75,201 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montreal;
-}
-
-h1 {
-  font-family: Machina;
+  background: #F9F6EE;
 }
 
 a {
-  color: black;
   text-decoration: none;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  color: #000;
 }
 a:hover {
-  background-color: #eaeaea;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.links {
-  display: flex;
-  gap: 0.5rem;
-}
-
-ul li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-ul li a {
-  max-width: 60%;
-}
-ul li .publish-date {
-  font-size: 80%;
-  text-align: right;
+  text-decoration: underline;
 }
 
 body {
-  margin: 10vh 20vw;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  font-size: 1rem;
+  font-family: Montreal, san-serif;
+  margin: 5rem;
 }
-
+@media (max-width: 1200px) {
+  body {
+    margin: 3rem;
+  }
+}
 @media (max-width: 800px) {
   body {
-    margin: 5vh 5vw;
+    margin: 1rem;
   }
+}
+
+h1, h2, h3, h4 {
+  font-family: Machina, sans-serif;
+}
+
+main {
+  margin-top: 20vh;
+  max-width: 60%;
+}
+@media (max-width: 800px) {
+  main {
+    max-width: calc(100% - 2rem);
+    margin-top: 5vh;
+  }
+}
+main .intro {
+  margin-bottom: 5vh;
+}
+main p {
+  margin: 1rem 0;
+}
+main .projects {
+  margin: 5rem 0 0 0;
+}
+main .projects h1 {
+  font-size: 1rem;
+}
+
+.name-mark h1 {
+  font-size: 2.25rem;
+}
+@media (max-width: 800px) {
+  .name-mark h1 {
+    font-size: 1.5rem;
+  }
+}
+
+h1 {
+  font-family: Machina, sans-serif;
+  font-size: 4rem;
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+header, .art {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  header, .art {
+    width: calc(100% - 2rem);
+  }
+}
+
+.art {
+  margin: 1rem 0;
+}
+@media (max-width: 800px) {
+  .art {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.art .date {
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+}
+.art:hover .date {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+article {
+  max-width: 50%;
+}
+@media (max-width: 800px) {
+  article {
+    max-width: 100%;
+  }
+}
+article .intro {
+  margin: 0;
+}
+article .intro p {
+  opacity: 0.5;
+  padding: 0;
+  margin: 0;
+}
+article .content {
+  margin-top: 10vh;
+}
+article .content .seperator {
+  width: 15%;
+  margin: 3rem auto;
+  display: flex;
+  border: 1px solid black;
+  opacity: 0.5;
+}
+
+.case-study {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+@media (max-width: 800px) {
+  .case-study {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.case-study .assets {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  row-gap: 3rem;
+}
+@media (max-width: 800px) {
+  .case-study .assets {
+    width: 100%;
+  }
+}
+.case-study .assets .cover-label {
+  position: absolute;
+  right: 1rem;
+  top: -1rem;
+  padding: 0.5rem;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: inherit;
+  border: 1px solid black;
+  z-index: 3;
+  font-family: Machina, sans-serif;
+}
+.case-study .assets .cover {
+  position: relative;
+}
+.case-study .assets .cover img {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 100%;
+  height: auto;
+}
+.case-study .resources {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+}
+.case-study .resources img {
+  width: 50%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */
