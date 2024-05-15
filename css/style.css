@@ -272,4 +272,9 @@ article .content .seperator {
 .col {
   display: flex;
   flex-direction: column;
+}
+
+.dailyui img {
+  max-width: 175%;
+  z-index: 100;
 }/*# sourceMappingURL=style.css.map */
