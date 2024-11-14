@@ -18,21 +18,40 @@ function updateTime() {
 
   // Update the color of the sun dot based on time of day
   const sunDot = document.getElementById("sun-dot");
-  const currentHour = now.getHours();
 
-  if (currentHour >= 6 && currentHour < 9) {
-    // Sunrise colors
-    sunDot.style.backgroundColor = "#FF4500"; // Orange-red
-  } else if (currentHour >= 9 && currentHour < 18) {
-    // Daytime color
-    sunDot.style.backgroundColor = "#FFD700"; // Yellow
-  } else if (currentHour >= 18 && currentHour < 20) {
-    // Sunset colors
-    sunDot.style.backgroundColor = "#FF6347"; // Tomato color
-  } else {
-    // Night color (optional)
-    sunDot.style.backgroundColor = "#1C1C1C"; // Dark
+  function updateSunDotColor() {
+    const currentHour = new Date().getHours();
+    let color, borderColor;
+
+    // Determine color and border color based on time of day
+    if (currentHour >= 5 && currentHour < 8) {
+      color = "#FF4500"; // Dawn
+      borderColor = "#FF6347"; // Lighter red border
+    } else if (currentHour >= 8 && currentHour < 12) {
+      color = "#FFD700"; // Morning
+      borderColor = "#FFA500"; // Orange border
+    } else if (currentHour >= 12 && currentHour < 15) {
+      color = "#FFEE58"; // Noon
+      borderColor = "#FFD700"; // Yellow border
+    } else if (currentHour >= 15 && currentHour < 18) {
+      color = "#FF8C00"; // Afternoon
+      borderColor = "#FFA07A"; // Light salmon border
+    } else if (currentHour >= 18 && currentHour < 20) {
+      color = "#FF6347"; // Sunset
+      borderColor = "#FF4500"; // Darker red border
+    } else {
+      color = "#1C1C1C"; // Night
+      borderColor = "#333333"; // Darker gray border for night
+    }
+
+    // Apply the background color and border color
+    sunDot.style.backgroundColor = color;
+    sunDot.style.setProperty("--sun-dot-border-color", borderColor);
   }
+
+  // Call the function initially and set intervals to update the color
+  updateSunDotColor();
+  setInterval(updateSunDotColor, 60000); // Update every minute
 }
 
 // Fetch weather data from OpenWeatherMap
