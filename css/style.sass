@@ -4,133 +4,103 @@
     margin: 0
     padding: 0
     box-sizing: border-box
-    background: #F9F6EE
-a
-    text-decoration: none
-    color: #000
-    &:hover
-        text-decoration: underline
-body
-    font-size: 1rem
-    font-family: Montreal, san-serif
-    margin: 5rem
-    @media  (max-width: 1200px)
-        margin: 3rem
-    @media (max-width: 800px)
-        margin: 1rem
-h1, h2, h3, h4
-    font-family: Machina, sans-serif
+    background: $background
+    color: $primary
+    font-family: $Montreal
+    :is(h1, h2, h3, h4, h5, h6)
+        font-family: $Machina
 main
-    margin-top: 20vh
-    max-width: 60%
-    @media (max-width: 800px)
-        max-width: calc(100% - 2rem)
-        margin-top: 5vh
-    .intro
-        margin-bottom: 5vh
-    p
-        margin: 1rem 0
-    .projects
-        margin: 5rem 0 0 0
-        h1
-            font-size: 1rem
-.name-mark h1
-    font-size: 2.25rem
-    @media (max-width: 800px)
-        font-size: 1.5rem
-h1
-    font-family: Machina, sans-serif
-    font-size: 4rem
-    @media (max-width: 800px)
-        font-size: 2.5rem
-header, .art
-    display: flex
-    justify-content: space-between
-    align-items: center
-    @media (max-width: 800px)
-        width: calc( 100% - 2rem )
-.art
-    margin: 1rem 0
-    @media (max-width: 800px)
-        flex-direction: column
-        align-items: flex-start
-    .date
-        opacity: .5
-        transition: .5s ease-in-out
-    &:hover
-        .date
-            opacity: 1
-            transition: .5s ease-in-out
-article
-    max-width: 50%
-    @media (max-width: 800px)
-        max-width: 100%
-    .intro
-        margin: 0
-        p
-            opacity: .5
-            padding: 0
-            margin: 0
-    .content
-        margin-top: 10vh
-        .seperator
-            width: 15%
-            margin: 3rem auto
-            display: flex
-            border: 1px solid black
-            opacity: .5
-.case-study
-    max-width: 100%
-    display: flex
-    flex-direction: row
-    gap: 3rem
-    @media (max-width: 800px)
-        flex-direction: column
-        gap: 1.5rem
-    .assets
-        margin: 0 auto
-        display: flex
-        flex-direction: column
-        width: 40%
-        row-gap: 3rem
-        @media (max-width: 800px)
-            width: 100%
-        .cover-label
-            position: absolute
-            right: 1rem
-            top: -1rem
-            padding: .5rem
-            width: max-content
-            background-color: inherit
-            border: 1px solid black
-            z-index: 3
-            font-family: Machina, sans-serif
-        .cover
-            position: relative
-            img
-                border-radius: 5px
-                border: 1px solid black
-                width: 100%
-                height: auto
-    .resources
-        display: flex
-        flex-direction: row
-        flex-wrap: wrap
-        row-gap: 2rem
-        img
-            width: 50%
-            height: auto
-            object-fit: contain
-.row
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: center
-.col
+    position: relative
+    z-index: 1
+    padding-bottom: 150px
+body
+    margin: 5rem
     display: flex
     flex-direction: column
+    min-height: 100vh
 
-.dailyui
-    img
-        max-width: 175%
-        z-index: 100
+body > main
+    flex-grow: 1
+
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+a
+    display: inline-flex
+    flex-direction: column
+    align-items: center
+    overflow: hidden
+    color: inherit
+    text-decoration: none
+    position: relative
+    height: 1em // Maintain a fixed height to avoid shifting
+    .text
+        transition: transform 0.2s ease, opacity 0.2s ease
+    .original-text
+        opacity: 0.5 // Start at 0.5 opacity
+    .replacement-text
+        opacity: 0
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        transform: translateY(100%) // Start replacement text out of view
+
+nav
+    display: flex
+    gap: 1rem
+
+#weather-time
+    opacity: .5
+    display: flex
+    gap: 1rem
+    align-items: center
+
+#sun-dot
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    background-color: yellow
+    position: relative
+    display: inline-block
+
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        border-radius: 50%
+        border: 3px solid yellow
+        animation: ripple-effect 1.5s infinite
+        box-sizing: border-box
+
+@keyframes ripple-effect
+    0%
+        transform: scale(1)
+        opacity: 1
+
+    100%
+        transform: scale(1.8)
+        opacity: 0
+
+.chin
+    position: fixed
+    bottom: 5rem
+    width: 100%
+    font-size: 1rem
+    display: flex
+
+footer
+    position: fixed
+    bottom: 0
+    width: 100%
+    height: 100px
+    background-color: $primary
+    color: $background
+    text-align: center
+    padding: 20px
+    z-index: -1
