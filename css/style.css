@@ -74,10 +74,24 @@
 body {
   background: #121212;
   color: #f9f6ee;
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 10rem);
+}
+
+body, html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  height: var(--header-height);
 }
 
 * {
@@ -100,8 +114,8 @@ header {
     border-bottom: 1px solid rgb(0, 0, 0);
   }
 }
-/* CSS to hide content initially */
-body > *:not(main), main > *:not(h1) {
+/* CSS to hide content initially, excluding .headline */
+body > *:not(main), main > *:not(.headline) {
   opacity: 0;
 }
 
@@ -109,35 +123,34 @@ main {
   position: relative;
   align-items: center;
   display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 5rem;
 }
-
 main > h1 {
   font-size: 5rem;
   overflow: hidden;
+  text-align: center;
 }
-main > h1 span {
+
+.headline {
+  text-align: left;
+  padding: 2rem;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - var(--header-height) - var(--chin-height));
+}
+.headline h1 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: bold;
+  line-height: 1.2;
+}
+.headline h1 span {
   font-family: "Machina", sans-serif;
   display: inline-block;
   transform: translateY(100%);
-}
-
-body {
-  margin: 5rem;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 10rem);
-}
-
-body > main {
-  flex-grow: 1;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 1rem;
+  opacity: 0;
 }
 
 a {
@@ -214,4 +227,23 @@ nav {
   width: 100%;
   font-size: 1rem;
   display: flex;
+  height: var(--chin-height80px);
+}
+
+.projects-container {
+  height: 90vh;
+  scroll-snap-align: start;
+  width: 100%;
+  background: #121212;
+  color: #f9f6ee;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  border-radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  .projects-container {
+    background: #f9f6ee;
+    color: #121212;
+  }
 }/*# sourceMappingURL=style.css.map */

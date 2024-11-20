@@ -4,15 +4,28 @@
 body
     background: $dark-background
     color: $dark-primary
+    margin: 5rem
+    display: flex
+    flex-direction: column
+    min-height: calc(100vh - 10rem)
+
+body, html
+    scroll-snap-type: y mandatory
+    overflow-y: scroll
 
 header
     border-bottom: 1px solid $dark-border-color
-
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-bottom: 1rem
+    height: var(--header-height)
 *
     margin: 0
     padding: 0
     box-sizing: border-box
     font-family: $Montreal
+
     :is(h1, h2, h3, h4, h5, h6)
         font-family: $Machina
 
@@ -25,36 +38,40 @@ header
     header
         border-bottom: 1px solid $light-border-color
 
-/* CSS to hide content initially */
-body > *:not(main), main > *:not(h1)
+/* CSS to hide content initially, excluding .headline */
+body > *:not(main), main > *:not(.headline) 
         opacity: 0
 
 main
     position: relative
     align-items: center
     display: flex
-main > h1
-    font-size: 5rem
-    overflow: hidden
-    span
-        font-family: $Machina
-        display: inline-block
-        transform: translateY(100%)
-body
-    margin: 5rem
-    display: flex
-    flex-direction: column
-    min-height: calc( 100vh - 10rem )
-
-body > main
     flex-grow: 1
+    flex-direction: column
+    gap: 5rem
+    > h1
+        font-size: 5rem /* Keep large for emphasis */
+        overflow: hidden
+        text-align: center
 
-header
+.headline
+    text-align: left
+    padding: 2rem
+    height: 95vh
     display: flex
-    justify-content: space-between
     align-items: center
-    border-bottom: 1px solid $dark-border-color
-    padding-bottom: 1rem
+    height: calc(100vh - var(--header-height) - var(--chin-height))
+    h1
+        font-size: clamp(2rem, 5vw, 5rem) /* Responsive font size */
+        font-weight: bold
+        line-height: 1.2
+
+        span
+            font-family: $Machina
+            display: inline-block
+            transform: translateY(100%) /* Starting position for animation */
+            opacity: 0 /* Ensure invisible before animation */
+
 a
     display: inline-flex
     flex-direction: column
@@ -64,10 +81,13 @@ a
     text-decoration: none
     position: relative
     height: 1em // Maintain a fixed height to avoid shifting
+
     .text
         transition: transform 0.2s ease, opacity 0.2s ease
+
     .original-text
         opacity: 0.5 // Start at 0.5 opacity
+
     .replacement-text
         opacity: 0
         position: absolute
@@ -81,7 +101,7 @@ nav
     gap: 1rem
 
 #weather-time
-    opacity: .5
+    opacity: 0.5
     display: flex
     gap: 1rem
     align-items: center
@@ -121,3 +141,19 @@ nav
     width: 100%
     font-size: 1rem
     display: flex
+    // background: $dark-background
+    height: var(--chin-height+ 80px)
+
+.projects-container
+    height: 90vh
+    scroll-snap-align: start
+    width: 100%
+    background: $dark-background
+    color: $dark-primary
+    display: flex
+    justify-content: space-around
+    padding: 2rem
+    border-radius: 10px
+    @media (prefers-color-scheme: dark)
+        background: $light-background
+        color: $light-primary
