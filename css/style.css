@@ -82,7 +82,8 @@ body {
 
 body, html {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 header {
@@ -92,6 +93,27 @@ header {
   align-items: center;
   padding-bottom: 1rem;
   height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+header.scrolled {
+  position: fixed;
+  top: 0;
+  width: calc(100% - 10rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #121212;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  padding: 3rem 2rem;
+}
+@media (prefers-color-scheme: light) {
+  header.scrolled {
+    border: 1px solid rgb(0, 0, 0);
+    background: #f9f6ee;
+    border-top: 0;
+  }
 }
 
 * {
@@ -139,6 +161,7 @@ main > h1 {
   height: 95vh;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   height: calc(100vh - var(--header-height) - var(--chin-height));
 }
 .headline h1 {
@@ -224,26 +247,61 @@ nav {
 .chin {
   position: fixed;
   bottom: 5rem;
-  width: 100%;
+  width: calc(100% - 10rem);
   font-size: 1rem;
   display: flex;
   height: var(--chin-height80px);
+  transition: all 0.3s ease;
+}
+.chin.scrolled {
+  position: fixed;
+  bottom: 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  background-color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .chin.scrolled {
+    border: 1px solid rgb(0, 0, 0);
+    background: #f9f6ee;
+    border-bottom: 0;
+  }
 }
 
 .projects-container {
   height: 90vh;
   scroll-snap-align: start;
-  width: 100%;
+  width: calc(100% - 4rem);
   background: #121212;
   color: #f9f6ee;
   display: flex;
   justify-content: space-around;
   padding: 2rem;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 @media (prefers-color-scheme: dark) {
   .projects-container {
     background: #f9f6ee;
     color: #121212;
   }
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+}
+
+.doodle-word .doodle {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.doodle-word .doodle-svg {
+  width: 30px;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */

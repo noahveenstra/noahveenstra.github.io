@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projectsContainer = document.querySelector(".projects-container");
+  const header = document.querySelector("header");
+  const chin = document.querySelector(".chin");
 
   if (!projectsContainer) {
     console.error("Projects container not found!");
@@ -10,13 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let hasSnapped = false;
 
   window.addEventListener("scroll", () => {
-    if (hasSnapped) return; // Prevent repeated snapping
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
 
-    hasSnapped = true; // Set the flag immediately
+    // Add or remove scrolled class based on scroll position
+    if (scrollY > 60) {
+      header.classList.add("scrolled");
+      chin.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+      chin.classList.remove("scrolled");
+    }
 
     // Snap to the projects container
-    projectsContainer.scrollIntoView({
-      behavior: "smooth",
-    });
+    // if (!hasSnapped && scrollY > viewportHeight / 2) {
+    //   hasSnapped = true; // Prevent repeated snapping
+    //   projectsContainer.scrollIntoView({
+    //     behavior: "smooth",
+    //   });
+    // }
   });
 });

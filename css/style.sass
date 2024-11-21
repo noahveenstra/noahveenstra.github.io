@@ -11,7 +11,9 @@ body
 
 body, html
     scroll-snap-type: y mandatory
-    overflow-y: scroll
+    // overflow-y: scroll
+    overflow-y: auto
+    overflow-x: hidden
 
 header
     border-bottom: 1px solid $dark-border-color
@@ -20,12 +22,28 @@ header
     align-items: center
     padding-bottom: 1rem
     height: var(--header-height)
+    position: sticky
+    top: 0
+    z-index: 100
+    transition: all 0.3s ease
+    &.scrolled
+        position: fixed
+        top: 0
+        width: calc( 100% - 10rem )
+        border: 1px solid $dark-border-color
+        background: $dark-background
+        border-top: 0
+        border-radius: 0 0 10px 10px
+        padding: 3rem 2rem
+        @media (prefers-color-scheme: light)
+            border: 1px solid $light-border-color
+            background: $light-background
+            border-top: 0
 *
     margin: 0
     padding: 0
     box-sizing: border-box
     font-family: $Montreal
-
     :is(h1, h2, h3, h4, h5, h6)
         font-family: $Machina
 
@@ -50,7 +68,7 @@ main
     flex-direction: column
     gap: 5rem
     > h1
-        font-size: 5rem /* Keep large for emphasis */
+        font-size: 5rem
         overflow: hidden
         text-align: center
 
@@ -60,12 +78,12 @@ main
     height: 95vh
     display: flex
     align-items: center
+    justify-content: flex-start
     height: calc(100vh - var(--header-height) - var(--chin-height))
     h1
-        font-size: clamp(2rem, 5vw, 5rem) /* Responsive font size */
+        font-size: clamp(2rem, 5vw, 5rem)
         font-weight: bold
         line-height: 1.2
-
         span
             font-family: $Machina
             display: inline-block
@@ -80,13 +98,13 @@ a
     color: inherit
     text-decoration: none
     position: relative
-    height: 1em // Maintain a fixed height to avoid shifting
+    height: 1em
 
     .text
         transition: transform 0.2s ease, opacity 0.2s ease
 
     .original-text
-        opacity: 0.5 // Start at 0.5 opacity
+        opacity: 0.5
 
     .replacement-text
         opacity: 0
@@ -94,7 +112,7 @@ a
         top: 0
         left: 0
         right: 0
-        transform: translateY(100%) // Start replacement text out of view
+        transform: translateY(100%)
 
 nav
     display: flex
@@ -138,22 +156,51 @@ nav
 .chin
     position: fixed
     bottom: 5rem
-    width: 100%
+    width: calc( 100% - 10rem )
     font-size: 1rem
     display: flex
-    // background: $dark-background
     height: var(--chin-height+ 80px)
+    transition: all 0.3s ease
+    &.scrolled
+        position: fixed
+        bottom: 0
+        border: 2px solid $dark-border-color
+        border-bottom: 0
+        border-radius: 10px 10px 0 0
+        padding: 1rem
+        background-color: inherit
+        @media (prefers-color-scheme: light)
+            border: 1px solid $light-border-color
+            background: $light-background
+            border-bottom: 0
 
 .projects-container
     height: 90vh
     scroll-snap-align: start
-    width: 100%
+    width: calc(100% - 4rem)
     background: $dark-background
     color: $dark-primary
     display: flex
     justify-content: space-around
     padding: 2rem
     border-radius: 10px
+    box-sizing: border-box
+
     @media (prefers-color-scheme: dark)
         background: $light-background
         color: $light-primary
+
+.word
+    position: relative
+    display: inline-block
+    overflow: visible
+
+.doodle-word
+    .doodle
+        position: absolute
+        top: -20px
+        left: 50%
+        transform: translateX(-50%)
+    .doodle-svg
+        width: 30px
+        height: auto
