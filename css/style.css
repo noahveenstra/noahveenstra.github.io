@@ -271,7 +271,7 @@ nav {
 }
 
 .projects-container {
-  height: 90vh;
+  height: 80vh;
   scroll-snap-align: start;
   width: calc(100% - 4rem);
   background: #121212;
@@ -287,21 +287,4 @@ nav {
     background: #f9f6ee;
     color: #121212;
   }
-}
-
-.word {
-  position: relative;
-  display: inline-block;
-  overflow: visible;
-}
-
-.doodle-word .doodle {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.doodle-word .doodle-svg {
-  width: 30px;
-  height: auto;
 }/*# sourceMappingURL=style.css.map */
