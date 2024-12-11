@@ -159,6 +159,7 @@ nav
     width: calc( 100% - 10rem )
     font-size: 1rem
     display: flex
+    z-index: 100
     height: var(--chin-height+ 80px)
     transition: all 0.3s ease
     &.scrolled
@@ -174,18 +175,69 @@ nav
             background: $light-background
             border-bottom: 0
 
-.projects-container
+.process-container
     height: 80vh
     scroll-snap-align: start
     width: calc(100% - 4rem)
-    background: $dark-background
-    color: $dark-primary
     display: flex
-    justify-content: space-around
     padding: 2rem
+    gap: 2rem
     border-radius: 10px
+    flex-direction: column
     box-sizing: border-box
-
-    @media (prefers-color-scheme: dark)
-        background: $light-background
+    .cell-container
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(42.5%, 1fr))
         color: $light-primary
+        height: 100%
+        gap: min(2rem, 5%)
+        .cell
+            background: $dark-primary
+            width: 100%
+            height: 100%
+            position: relative
+            height: auto
+            display: grid
+            grid-template-rows: auto 1fr
+            align-items: start
+            border-radius: 1rem
+            padding: 3rem
+            transition: all 0.3s ease
+            border: 2px solid transparent
+            &:hover
+                transform: scale(1.05)
+                border: 1px solid $dark-primary
+                background: $dark-background
+                color: $dark-primary
+                .desc
+                    color: $dark-primary
+                .title
+                    color: $light-primary
+                    -webkit-text-stroke: 1px $dark-primary
+            @media (prefers-color-scheme: light)
+                background: $light-background
+                color: $light-primary
+            .icon
+                justify-self: end
+                border: 1px solid red
+                height: 100px
+                width: 100px
+            .desc
+                align-self: start
+                color: $dark-primary
+    h2
+        font-size: clamp(1rem, 3vw, 3rem)
+.row
+    display: flex
+    flex-direction: row
+    gap: 1rem
+    font-size: 3rem
+    text-transform: uppercase
+    font-weight: 600
+    .order, .title
+        font-family: Machina
+    .title
+        opacity: 1
+        transition: all .3s ease
+        color: transparent
+        -webkit-text-stroke: 1px $light-primary

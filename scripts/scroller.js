@@ -1,35 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const projectsContainer = document.querySelector(".projects-container");
   const header = document.querySelector("header");
   const chin = document.querySelector(".chin");
 
-  if (!projectsContainer) {
-    console.error("Projects container not found!");
+  // Ensure the elements exist before applying the scroll logic
+  if (!header || !chin) {
+    console.error("Header or .chin not found in the DOM!");
     return;
   }
 
-  // Ensure snap happens only once
-  let hasSnapped = false;
-
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
 
-    // Add or remove scrolled class based on scroll position
-    if (scrollY > 60) {
+    // Add fixed positioning to header when scrolling
+    if (scrollY > 0) {
       header.classList.add("scrolled");
       chin.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
       chin.classList.remove("scrolled");
     }
-
-    // Snap to the projects container
-    // if (!hasSnapped && scrollY > viewportHeight / 2) {
-    //   hasSnapped = true; // Prevent repeated snapping
-    //   projectsContainer.scrollIntoView({
-    //     behavior: "smooth",
-    //   });
-    // }
   });
 });
