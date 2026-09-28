@@ -9,6 +9,9 @@
     return mark;
   });
 
+  let groups = [];
+  let current = -1;
+
   function bindReveals() {
     if (reduce) {
       document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
@@ -27,52 +30,99 @@
     });
   }
 
-  let current = -1;
+  function measureGroups() {
+    groups = [];
+    if (!marks.length) return;
+    let start = 0;
+    for (let i = 0; i < marks.length; i++) {
+      const split = i === marks.length - 1
+        || marks[i + 1].getBoundingClientRect().top - marks[i].getBoundingClientRect().bottom >= 24;
+      if (!split) continue;
+      const group = [];
+      for (let j = start; j <= i; j++) group.push(j);
+      groups.push(group);
+      start = i + 1;
+    }
+  }
+
+  function clearPlacement() {
+    shots.forEach((shot) => {
+      shot.style.top = "";
+      shot.style.height = "";
+      shot.style.bottom = "";
+    });
+  }
+
+  function placeGroup(indices) {
+    const n = indices.length;
+    if (n <= 1) {
+      indices.forEach((i) => {
+        shots[i].style.top = "";
+        shots[i].style.height = "";
+        shots[i].style.bottom = "";
+      });
+      return;
+    }
+    const top0 = 108;
+    const avail = window.innerHeight - top0 - 36;
+    const gap = 16;
+    const slice = (avail - gap * (n - 1)) / n;
+    indices.forEach((i, k) => {
+      const shot = shots[i];
+      shot.style.top = `${top0 + k * (slice + gap)}px`;
+      shot.style.height = `${slice}px`;
+      shot.style.bottom = "auto";
+    });
+  }
+
   function updateCurrent() {
-    if (!wideQuery.matches || shots.length === 0) return;
+    if (!wideQuery.matches || groups.length === 0) {
+      if (!wideQuery.matches) {
+        clearPlacement();
+        shots.forEach((shot) => shot.classList.remove("is-current"));
+        current = -1;
+      }
+      return;
+    }
     const line = window.innerHeight * 0.4;
     let active = 0;
-    for (let i = 0; i < marks.length; i++) {
-      if (marks[i].getBoundingClientRect().top <= line) active = i;
+    for (let g = 0; g < groups.length; g++) {
+      if (marks[groups[g][0]].getBoundingClientRect().top <= line) active = g;
     }
     if (active === current) return;
     current = active;
-    shots.forEach((shot, i) => shot.classList.toggle("is-current", i === active));
+    const on = new Set(groups[active]);
+    placeGroup(groups[active]);
+    shots.forEach((shot, i) => shot.classList.toggle("is-current", on.has(i)));
   }
 
-  function spaceRuns() {
-    marks.forEach((mark) => {
-      mark.style.minHeight = "";
-    });
-    if (!wideQuery.matches) return;
-    for (let i = 0; i < marks.length - 1; i++) {
-      const gap = marks[i + 1].getBoundingClientRect().top - marks[i].getBoundingClientRect().bottom;
-      if (gap < 36) marks[i].style.minHeight = "68vh";
-    }
+  function relayout() {
+    current = -1;
+    if (wideQuery.matches) measureGroups();
+    else groups = marks.map((_, i) => [i]);
+    updateCurrent();
   }
 
   wideQuery.addEventListener("change", () => {
-    current = -1;
-    spaceRuns();
     bindReveals();
-    updateCurrent();
+    relayout();
   });
   window.addEventListener("scroll", updateCurrent, { passive: true });
   window.addEventListener("resize", () => {
-    spaceRuns();
-    current = -1;
-    updateCurrent();
+    if (!wideQuery.matches) {
+      relayout();
+      return;
+    }
+    measureGroups();
+    if (current >= 0 && current < groups.length) placeGroup(groups[current]);
+    else updateCurrent();
   });
 
   bindReveals();
-  spaceRuns();
+  if (wideQuery.matches) measureGroups();
   if (reduce) updateCurrent();
   else requestAnimationFrame(() => requestAnimationFrame(updateCurrent));
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => {
-      spaceRuns();
-      current = -1;
-      updateCurrent();
-    });
+    document.fonts.ready.then(relayout);
   }
 })();
