@@ -616,8 +616,12 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   .term-bank:not([hidden]) {
     bottom: calc(16px + env(safe-area-inset-bottom));
   }
-  .term-bank__panel {
-    background: var(--color-bg);
+  .term-bank__panel,
+  .term-bank:hover .term-bank__panel,
+  .term-bank.is-open .term-bank__panel,
+  .term-bank:focus-within .term-bank__panel {
+    background: color-mix(in srgb, var(--color-fg) 12%, var(--color-bg));
+    color: var(--color-fg);
     border-radius: 12px;
     box-shadow: 0 8px 24px #0000001f;
   }
