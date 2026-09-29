@@ -432,10 +432,10 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 .term-bank:hover .term-bank__panel,
 .term-bank.is-open .term-bank__panel,
 .term-bank:focus-within .term-bank__panel {
-  background: var(--color-fg);
-  color: var(--color-bg);
-  border-color: var(--color-fg);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-fg) 16%, transparent);
+  background: color-mix(in srgb, var(--color-fg) 7%, var(--color-bg));
+  color: var(--color-fg);
+  border-color: color-mix(in srgb, var(--color-fg) 34%, transparent);
+  box-shadow: 0 8px 20px #0000001f;
 }
 .term-bank__body {
   display: grid;
@@ -491,7 +491,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   text-align: left;
 }
 .term-bank li button:hover,
-.term-bank li button:focus-visible { background: color-mix(in srgb, var(--color-bg) 14%, transparent); color: inherit; }
+.term-bank li button:focus-visible { background: color-mix(in srgb, var(--color-fg) 8%, transparent); color: inherit; }
 .term-bank__all {
   display: block;
   flex: none;
@@ -507,7 +507,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   text-align: left;
 }
 .term-bank__all:hover,
-.term-bank__all:focus-visible { background: color-mix(in srgb, var(--color-bg) 14%, transparent); }
+.term-bank__all:focus-visible { background: color-mix(in srgb, var(--color-fg) 8%, transparent); }
 .term-bank__toggle {
   display: flex;
   align-items: center;
@@ -621,7 +621,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   }
   .term-bank.is-open .term-bank__panel,
   .term-bank:focus-within .term-bank__panel {
-    box-shadow: 0 -10px 28px color-mix(in srgb, var(--color-fg) 18%, transparent);
+    box-shadow: 0 -10px 28px #0000002e;
   }
   .term-bank__toggle,
   .term-bank__all,
