@@ -623,14 +623,11 @@
       active = marks[marks.length - 1];
     }
     const id = active ? active.heading.id : "";
-    const index = marks.findIndex((item) => item.heading.id === id);
-    marks.forEach((item, i) => {
+    for (const item of marks) {
       if (item.heading.id === id) item.link.setAttribute("aria-current", "location");
       else item.link.removeAttribute("aria-current");
       delete item.link.dataset.section;
-      if (index >= 0 && Math.abs(i - index) === 1) item.link.dataset.near = "true";
-      else delete item.link.dataset.near;
-    });
+    }
     nav.querySelectorAll("li").forEach((li) => li.classList.remove("is-open"));
     clearTimeout(sync.hold);
     if (!active) return;

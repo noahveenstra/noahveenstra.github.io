@@ -343,34 +343,31 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
   .page-nav a {
     display: block;
     position: relative;
-    padding-left: 32px;
+    padding-left: 14px;
     color: var(--color-muted);
     font-size: 12.5px;
     line-height: 1.35;
     letter-spacing: 0.005em;
     text-wrap: pretty;
-    transition: color .28s cubic-bezier(.22, 1, .36, 1);
+    transition: color .2s cubic-bezier(.22, 1, .36, 1);
   }
   .page-nav a::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.48em;
-    width: 8px;
-    height: 2px;
-    border-radius: 1px;
-    background: var(--color-fg);
-    opacity: 0.22;
-    transition: width .28s cubic-bezier(.22, 1, .36, 1), opacity .28s cubic-bezier(.22, 1, .36, 1);
+    top: 0.46em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transform: scale(.6);
+    transition: opacity .2s, transform .2s cubic-bezier(.22, 1, .36, 1);
   }
-  .page-nav a:hover { color: var(--color-fg); }
-  .page-nav a:hover::before { width: 14px; opacity: 0.55; }
-  .page-nav a[data-near="true"]::before { width: 14px; opacity: 0.45; }
+  .page-nav a:hover,
   .page-nav a[data-section="true"] { color: var(--color-fg); }
-  .page-nav a[data-section="true"]::before { width: 14px; opacity: 0.55; }
-  .page-nav a[aria-current="location"] { color: var(--color-fg); font-weight: 500; }
-  .page-nav a[aria-current="location"]::before,
-  .page-nav a[aria-current="location"]:hover::before { width: 22px; opacity: 1; }
+  .page-nav a[aria-current="location"] { color: var(--color-fg); }
+  .page-nav a[aria-current="location"]::before { opacity: 1; transform: none; }
   .page-nav a:focus-visible {
     outline: 2px solid var(--color-fg);
     outline-offset: 3px;
@@ -394,15 +391,11 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
     opacity: 1;
   }
   .page-nav ol ol a {
-    padding-left: 44px;
+    padding-left: 28px;
     font-size: 12px;
     letter-spacing: 0;
   }
-  .page-nav ol ol a::before { left: 0; width: 6px; }
-  .page-nav ol ol a:hover::before,
-  .page-nav ol ol a[data-near="true"]::before { width: 10px; }
-  .page-nav ol ol a[aria-current="location"]::before,
-  .page-nav ol ol a[aria-current="location"]:hover::before { width: 18px; opacity: 1; }
+  .page-nav ol ol a::before { left: 14px; width: 4px; height: 4px; top: 0.52em; }
 }
 @media print { .page-nav { display: none !important; } }
 @media (prefers-reduced-motion: reduce) {
