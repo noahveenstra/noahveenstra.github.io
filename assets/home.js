@@ -18,8 +18,8 @@
 
   function widths() {
     return {
-      closed: openLabel.offsetWidth + 52,
-      open: hideLabel.offsetWidth + 52,
+      closed: openLabel.offsetWidth,
+      open: hideLabel.offsetWidth,
     };
   }
 

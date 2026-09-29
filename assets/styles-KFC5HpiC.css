@@ -171,53 +171,40 @@ html.projects-open .home:not(.project) .piece {
 
 .projects-toggle {
   display: inline-grid;
-  place-items: center;
+  justify-items: start;
   align-self: start;
   box-sizing: border-box;
   width: auto;
-  height: 52px;
-  margin-top: 26px;
+  height: auto;
+  margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 8px;
-  background: #fff;
-  color: #161615;
+  border-radius: 0;
+  background: none;
+  color: var(--color-fg);
   font: inherit;
-  font-weight: 500;
   cursor: pointer;
-  user-select: none;
-  transition: background-color .4s cubic-bezier(.22, 1, .36, 1), transform .2s cubic-bezier(.22, 1, .36, 1);
 }
 
-.projects-toggle:hover { background: #f3f3f1; }
-.projects-toggle:active { transform: scale(0.985); }
+.projects-toggle:hover,
+.projects-toggle:active { background: none; transform: none; }
+
 .projects-toggle:focus-visible {
   outline: 2px solid var(--color-fg);
   outline-offset: 4px;
 }
 
-.home:not(.project).is-open .projects-toggle,
-html.projects-open .projects-toggle { background: #cfcfcf; }
-
-.home:not(.project).is-open .projects-toggle:hover,
-html.projects-open .projects-toggle:hover { background: #c4c4c2; }
-
-@media (prefers-color-scheme: light) {
-  .projects-toggle { background: #171716; color: #f7f7f5; }
-  .projects-toggle:hover { background: #2c2c2a; }
-  .home:not(.project).is-open .projects-toggle,
-  html.projects-open .projects-toggle { background: #d4d4d2; color: #161615; }
-  .home:not(.project).is-open .projects-toggle:hover,
-  html.projects-open .projects-toggle:hover { background: #c8c8c6; }
-}
-
-.toggle__face { display: grid; place-items: center; }
+.toggle__face { display: grid; justify-items: start; }
 .toggle__projects,
 .toggle__hide {
   grid-area: 1 / 1;
   width: max-content;
   white-space: nowrap;
+  border-bottom: 1px solid var(--color-hair);
+  transition: border-color .2s;
 }
+.projects-toggle:hover .toggle__projects,
+.projects-toggle:hover .toggle__hide { border-bottom-color: var(--color-fg); }
 .toggle__hide { opacity: 0; }
 html.projects-open .toggle__projects { opacity: 0; }
 html.projects-open .toggle__hide { opacity: 1; }
@@ -266,7 +253,9 @@ html.projects-open .toggle__hide { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .home:not(.project) .panel,
-  .projects-toggle { transition: none; }
+  .projects-toggle,
+  .toggle__projects,
+  .toggle__hide { transition: none; }
   .home:not(.project) .piece { transform: none; filter: none; }
 }
 
