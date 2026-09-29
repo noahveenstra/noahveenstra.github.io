@@ -38,7 +38,7 @@
 </li>
 <li><a href="#what-it-inherits">What IT inherits — and what stays local</a></li>
 <li><a href="#how-it-was-used">How it was used</a></li>
-<li><a href="#career-defining">Why this was a career-defining piece of work</a></li>
+<li><a href="#judgment-rules">Judgment rules</a></li>
 <li><a href="#impact">Impact</a></li>
 </ol>
 </nav>
@@ -65,7 +65,7 @@
 <p class="project__meta">Scope: 1,334 <button type="button" class="def" data-term="proposal">proposals</button> · <button type="button" class="def" data-term="local">local-first</button> · national IT build-out in progress</p>
 </div></div>
 <div class="reveal"><section class="project__section">
-<p>This is the most consequential thing I have built in my career. Not because it is a flashy model, but because it changed how <button type="button" class="def" data-term="proposal">proposal</button> research gets done: find the story, read the bounded context, reopen the <span class="keep"><button type="button" class="def" data-term="evidence">source</button>,</span> then decide whether the claim is safe to reuse.</p>
+<p>This system changed how <button type="button" class="def" data-term="proposal">proposal</button> research gets done: find the story, read the bounded context, reopen the <span class="keep"><button type="button" class="def" data-term="evidence">source</button>,</span> then decide whether the claim is safe to reuse.</p>
 <p>I designed and built a private, <button type="button" class="def" data-term="local">local-first</button> knowledge system that turned more than a thousand <button type="button" class="def" data-term="proposal">proposal</button> records — plus people, projects, <button type="button" class="def" data-term="pursuit">pursuit</button> history, and <button type="button" class="def" data-term="evidence">source</button> documents — into a searchable, evidence-traceable decision library. The proof of concept was strong enough that IT is now building a national version.</p>
 <p>Marketing professional. I owned the problem, the information architecture, the ingestion, the retrieval design, the quality rules, and the operating loop. I did not hand a brief to engineering and wait. I built the working system on a local machine and used it on live marketing, <span class="keep"><button type="button" class="def" data-term="proposal">proposal</button>,</span> <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>,</span> and <button type="button" class="def" data-term="interview">interview</button> work.</p>
 <p class="note"><strong>Public note:</strong> This write-up stays generic. It does not name clients or <span class="keep"><button type="button" class="def" data-term="owner">owners</button>,</span> quote <button type="button" class="def" data-term="proposal">proposal</button> language, or publish pricing, schedules, personnel details, credentials, or unresolved internal records.</p>
@@ -276,7 +276,7 @@
 <p>Time dropped from an unreliable phone tree to a few minutes. The more important change was trust. Research could move faster <em>and</em> reopen the <button type="button" class="def" data-term="evidence">source</button> before a claim entered a <span class="keep"><button type="button" class="def" data-term="proposal">proposal</button>,</span> <span class="keep"><button type="button" class="def" data-term="interview">interview</button>,</span> or briefing.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
-<h2 class="project__heading" id="career-defining">Why this was a career-defining piece of work</h2>
+<h2 class="project__heading" id="judgment-rules">Judgment rules</h2>
 <p>Most marketing systems store files. This one stores <strong>judgment rules</strong>.</p>
 <p>It made the firm’s best writing reusable without turning institutional memory into folklore. It gave marketing a front door that felt like asking a colleague, then forced the colleague to show their work. It let AI operate on local context packets — excerpts, paths, page or row locators, <button type="button" class="def" data-term="evidence">evidence</button> status, review limits, omissions — without treating the model as an author of record.</p>
 <p>It also stayed honest about what it does not prove:</p>
@@ -289,7 +289,6 @@
 <li>A win/loss label does not explain why the <button type="button" class="def" data-term="pursuit">pursuit</button> was won or lost.</li>
 <li>A passing health check on one control is not a full <button type="button" class="def" data-term="evidence">source</button> audit.</li>
 </ul>
-<p>That restraint is why the system was credible enough to grow. A POC that only “finds stuff” gets demoed. A POC that refuses to over-claim gets adopted.</p>
 <p>The working system on a private <button type="button" class="def" data-term="local">local disk</button> was enough proof of value that <strong>IT is now building it out for national rollout</strong>. I created the model of record: the zones, the routes, the <button type="button" class="def" data-term="evidence">evidence</button> rules, the people/project/story/strategy graph, and the SEARCH → READ → VERIFY loop the larger build has to honor.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
@@ -316,8 +315,7 @@
 </section></div>
 </main>
 <script>
-(() => {
-  const TERMS = {
+window.TERM_DEFS = {
   "aec": [
     "AEC",
     "Architecture, engineering, and construction. The industry this work sits in. The firm here is a contractor competing for building projects."
@@ -395,314 +393,9 @@
     "The corpus lives on a private local filesystem. It is not a shared team platform. Sensitive proposal, people, and project material is not uploaded to a cloud search product as the default workflow."
   ]
 };
-  const KEY = "pursuit-known-terms";
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
-  let known = new Set();
-  try {
-    known = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
-  } catch (error) {
-    known = new Set();
-  }
-
-  const tip = document.createElement("div");
-  tip.className = "def-tip";
-  tip.id = "def-tip";
-  tip.setAttribute("role", "dialog");
-  tip.setAttribute("aria-labelledby", "def-tip-title");
-  tip.hidden = true;
-  const title = document.createElement("strong");
-  title.id = "def-tip-title";
-  const body = document.createElement("div");
-  body.className = "def-tip__body";
-  const know = document.createElement("button");
-  know.type = "button";
-  know.className = "def-tip__know";
-  know.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M5 8.2 7.1 10.2 11 6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span>';
-  const knowLabel = know.querySelector("span");
-  tip.append(title, body, know);
-  document.body.appendChild(tip);
-
-  let current = null;
-  let pinned = false;
-  let hideTimer = 0;
-  let hideToken = 0;
-  let dismissGen = 0;
-  let settling = false;
-
-  function save() {
-    try {
-      localStorage.setItem(KEY, JSON.stringify([...known]));
-    } catch (error) {}
-  }
-
-  function markKnown(btn) {
-    btn.classList.add("is-known");
-    btn.tabIndex = -1;
-    btn.classList.remove("is-on");
-    btn.removeAttribute("aria-describedby");
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  function unmark(btn) {
-    btn.classList.remove("is-known", "is-on");
-    btn.removeAttribute("tabindex");
-    btn.removeAttribute("aria-describedby");
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  const bank = document.querySelector(".term-bank");
-  const bankBody = document.getElementById("term-bank-body");
-  const bankList = bank.querySelector("ul");
-  const bankAll = bank.querySelector(".term-bank__all");
-  const bankToggle = bank.querySelector(".term-bank__toggle");
-
-  function setOpen(open) {
-    if (bank.hidden) open = false;
-    bank.classList.toggle("is-open", open);
-    bankToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    bankBody.inert = !open;
-  }
-
-  function renderBank() {
-    const stay = bank.classList.contains("is-open");
-    bankList.replaceChildren();
-    const ids = [...known].filter((id) => TERMS[id]);
-    bank.hidden = ids.length === 0;
-    bankAll.hidden = ids.length < 2;
-    for (const id of ids) {
-      const li = document.createElement("li");
-      const button = document.createElement("button");
-      button.type = "button";
-      button.textContent = TERMS[id][0];
-      button.setAttribute("aria-label", "Bring “" + TERMS[id][0] + "” tips back");
-      button.addEventListener("click", () => restore(id));
-      li.append(button);
-      bankList.append(li);
-    }
-    if (bank.hidden) setOpen(false);
-    else if (stay) setOpen(true);
-  }
-
-  function restore(id) {
-    dismissGen += 1;
-    settling = false;
-    if (current && current.getAttribute("data-term") === id) hide(true);
-    known.delete(id);
-    save();
-    document.querySelectorAll('.def[data-term="' + id + '"]').forEach(unmark);
-    renderBank();
-    if (!bank.hidden && bank.classList.contains("is-open")) {
-      const next = bankList.querySelector("button") || bankToggle;
-      next.focus({ preventScroll: true });
-    }
-  }
-
-  function place(btn) {
-    tip.classList.remove("is-above");
-    const r = btn.getBoundingClientRect();
-    const w = tip.offsetWidth;
-    const h = tip.offsetHeight;
-    let left = r.left + r.width / 2 - w / 2;
-    left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
-    const box = bank.hidden ? null : bank.getBoundingClientRect();
-    const hits = (t) => box && left < box.right && left + w > box.left && t < box.bottom && t + h > box.top;
-    let top = r.bottom + 8;
-    if (top + h > window.innerHeight - 10 || hits(top)) {
-      top = Math.max(10, r.top - h - 8);
-      tip.classList.add("is-above");
-    }
-    tip.style.left = left + "px";
-    tip.style.top = top + "px";
-  }
-
-  function release() {
-    if (!current) return;
-    current.classList.remove("is-on");
-    current.removeAttribute("aria-describedby");
-    current.setAttribute("aria-expanded", "false");
-    current = null;
-  }
-
-  function show(btn, pin) {
-    if (!btn || btn.classList.contains("is-known")) return;
-    const id = btn.getAttribute("data-term");
-    const term = TERMS[id];
-    if (!term || known.has(id)) return;
-    window.clearTimeout(hideTimer);
-    const showToken = ++hideToken;
-    dismissGen += 1;
-    settling = false;
-    know.classList.remove("is-done");
-    if (current && current !== btn) {
-      current.classList.remove("is-on");
-      current.setAttribute("aria-expanded", "false");
-    }
-    current = btn;
-    pinned = !!pin;
-    title.textContent = term[0];
-    body.textContent = term[1];
-    knowLabel.textContent = "Hide the other “" + term[0] + "” tips";
-    btn.classList.add("is-on");
-    btn.setAttribute("aria-describedby", "def-tip");
-    btn.setAttribute("aria-expanded", "true");
-    const wasOpen = tip.classList.contains("is-in") && !tip.hidden;
-    tip.hidden = false;
-    place(btn);
-    if (wasOpen || reduce) {
-      tip.classList.add("is-in");
-      return;
-    }
-    tip.classList.remove("is-in");
-    void tip.offsetWidth;
-    requestAnimationFrame(() => {
-      if (showToken !== hideToken) return;
-      tip.classList.add("is-in");
-    });
-  }
-
-  function hide(force) {
-    if (settling) return;
-    if (pinned && !force) return;
-    window.clearTimeout(hideTimer);
-    pinned = false;
-    const token = ++hideToken;
-    tip.classList.remove("is-in");
-    release();
-    const finish = () => {
-      if (token !== hideToken) return;
-      tip.hidden = true;
-      know.classList.remove("is-done");
-    };
-    if (reduce || tip.hidden) {
-      finish();
-      return;
-    }
-    tip.addEventListener("transitionend", (event) => {
-      if (event.target !== tip || event.propertyName !== "opacity") return;
-      finish();
-    }, { once: true });
-    window.setTimeout(finish, 240);
-  }
-
-  document.querySelectorAll(".def").forEach((btn) => {
-    const id = btn.getAttribute("data-term");
-    btn.setAttribute("aria-expanded", "false");
-    if (known.has(id)) markKnown(btn);
-    if (fine) {
-      btn.addEventListener("pointerenter", () => show(btn, false));
-      btn.addEventListener("pointerleave", () => {
-        if (settling) return;
-        hideTimer = window.setTimeout(() => hide(false), 140);
-      });
-    }
-    btn.addEventListener("focus", () => show(btn, false));
-    btn.addEventListener("focusout", (event) => {
-      if (tip.contains(event.relatedTarget)) return;
-      if (!pinned) hide(false);
-    });
-    btn.addEventListener("keydown", (event) => {
-      if (event.key !== "Tab" || event.shiftKey || tip.hidden || current !== btn) return;
-      event.preventDefault();
-      know.focus();
-    });
-    btn.addEventListener("click", (event) => {
-      if (fine || btn.classList.contains("is-known")) return;
-      event.preventDefault();
-      if (current === btn && pinned) hide(true);
-      else show(btn, true);
-    });
-  });
-
-  know.addEventListener("click", () => {
-    if (!current || settling) return;
-    const id = current.getAttribute("data-term");
-    const word = current;
-    known.add(id);
-    save();
-    renderBank();
-    settling = true;
-    window.clearTimeout(hideTimer);
-    const gen = ++dismissGen;
-    know.classList.add("is-done");
-    knowLabel.textContent = "Hidden";
-    document.querySelectorAll('.def[data-term="' + id + '"]').forEach(markKnown);
-    window.setTimeout(() => {
-      if (gen !== dismissGen) return;
-      settling = false;
-      pinned = false;
-      hide(true);
-      if (document.activeElement === know) word.focus({ preventScroll: true });
-    }, reduce ? 0 : 280);
-  });
-  know.addEventListener("focusout", (event) => {
-    if (settling || event.relatedTarget === current) return;
-    if (!pinned) hide(false);
-  });
-  know.addEventListener("keydown", (event) => {
-    if (event.key === "Tab" && event.shiftKey && current) {
-      event.preventDefault();
-      current.focus({ preventScroll: true });
-    }
-  });
-
-  tip.addEventListener("pointerenter", () => window.clearTimeout(hideTimer));
-  tip.addEventListener("pointerleave", () => {
-    if (pinned || settling) return;
-    hideTimer = window.setTimeout(() => hide(false), 140);
-  });
-  document.addEventListener("pointerdown", (event) => {
-    if (tip.hidden || settling) return;
-    const t = event.target;
-    if (t.closest && (t.closest(".def") || t.closest(".def-tip"))) return;
-    hide(true);
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") return;
-    hide(true);
-    if (!bank.classList.contains("is-open")) return;
-    setOpen(false);
-    if (bank.contains(document.activeElement)) bankToggle.focus({ preventScroll: true });
-  });
-  window.addEventListener("scroll", () => {
-    if (!settling) hide(true);
-  }, { passive: true });
-
-  bankAll.addEventListener("click", () => {
-    dismissGen += 1;
-    settling = false;
-    if (current) hide(true);
-    known.clear();
-    save();
-    document.querySelectorAll(".def.is-known").forEach(unmark);
-    renderBank();
-  });
-  if (fine) {
-    bank.addEventListener("pointerenter", () => setOpen(true));
-    bank.addEventListener("pointerleave", () => {
-      if (bankBody.contains(document.activeElement)) return;
-      setOpen(false);
-    });
-    bankToggle.addEventListener("click", () => {
-      setOpen(true);
-      const first = bankList.querySelector("button");
-      if (first) first.focus({ preventScroll: true });
-    });
-  } else {
-    bankToggle.addEventListener("click", () => setOpen(!bank.classList.contains("is-open")));
-    document.addEventListener("pointerdown", (event) => {
-      if (!bank.contains(event.target)) setOpen(false);
-    });
-  }
-  bank.addEventListener("focusout", (event) => {
-    if (bank.contains(event.relatedTarget)) return;
-    if (fine && bank.matches(":hover")) return;
-    setOpen(false);
-  });
-  setOpen(false);
-  renderBank();
-})();
+window.TERM_KEY = "pursuit-known-terms";
 </script>
+<script src="/assets/terms.js"></script>
 <script>
 (() => {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -719,72 +412,7 @@
   });
 })();
 </script>
-<script>
-(() => {
-  const nav = document.querySelector(".page-nav");
-  if (!nav) return;
-  const marks = [...nav.querySelectorAll("a")].map((link) => ({
-    link,
-    heading: document.getElementById(link.hash.slice(1))
-  })).filter((item) => item.heading);
-
-  const sync = () => {
-    const line = 128;
-    let active = null;
-    for (const item of marks) {
-      if (item.heading.getBoundingClientRect().top <= line) active = item;
-    }
-    if (!active && marks.length) active = marks[0];
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) {
-      active = marks[marks.length - 1];
-    }
-    const id = active ? active.heading.id : "";
-    for (const item of marks) {
-      if (item.heading.id === id) item.link.setAttribute("aria-current", "location");
-      else item.link.removeAttribute("aria-current");
-      delete item.link.dataset.section;
-    }
-    nav.querySelectorAll("li").forEach((li) => li.classList.remove("is-open"));
-    clearTimeout(sync.hold);
-    if (!active) return;
-    const li = active.link.parentElement;
-    const parent = li.parentElement.closest("li");
-    li.classList.add("is-open");
-    if (parent) {
-      parent.classList.add("is-open");
-      const parentLink = parent.querySelector(":scope > a");
-      if (parentLink && parentLink !== active.link) parentLink.dataset.section = "true";
-    }
-    const keepInView = () => {
-      const linkRect = active.link.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-      if (linkRect.top < navRect.top + 4) nav.scrollTop -= navRect.top + 4 - linkRect.top;
-      else if (linkRect.bottom > navRect.bottom - 4) nav.scrollTop += linkRect.bottom - (navRect.bottom - 4);
-    };
-    keepInView();
-    if (parent) sync.hold = setTimeout(keepInView, 340);
-  };
-
-  let frame = 0;
-  const schedule = () => {
-    if (frame) return;
-    frame = requestAnimationFrame(() => {
-      frame = 0;
-      sync();
-    });
-  };
-  window.addEventListener("scroll", schedule, { passive: true });
-  window.addEventListener("resize", schedule);
-  window.addEventListener("hashchange", schedule);
-  for (const { link } of marks) {
-    link.addEventListener("click", () => {
-      const heading = document.getElementById(link.hash.slice(1));
-      heading?.closest(".reveal")?.classList.add("is-in");
-    });
-  }
-  sync();
-})();
-</script>
+<script src="/assets/outline.js"></script>
 <script src="/assets/pager.js"></script>
 </body>
 </html>

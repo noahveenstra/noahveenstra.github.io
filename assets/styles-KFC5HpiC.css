@@ -260,7 +260,9 @@ html.projects-open .toggle__hide { opacity: 1; }
   .home:not(.project) .piece { transform: none; filter: none; }
 }
 
-html:has(.project--pursuit) { scroll-behavior: smooth; }
+html:has(.page-nav) { scroll-behavior: smooth; }
+
+.home.project :is(.project__heading, p[id], h3[id]) { scroll-margin-top: 104px; }
 
 .project--pursuit .project__section:has(> .project__heading),
 .project--pursuit .project__section:has(> .reveal .project__heading) { margin-top: 64px; }
@@ -400,7 +402,7 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
 }
 @media print { .page-nav { display: none !important; } }
 @media (prefers-reduced-motion: reduce) {
-  html:has(.project--pursuit) { scroll-behavior: auto; }
+  html:has(.page-nav) { scroll-behavior: auto; }
   .page-nav a,
   .page-nav a::before,
   .page-nav ol ol { transition: none; }
@@ -532,7 +534,7 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
     width: min(220px, calc(50% - 17em - 68px));
     font-size: 15px;
   }
-  .project--pursuit:has(.term-bank:not([hidden])) .page-nav {
+  .home.project:has(.term-bank:not([hidden])) .page-nav {
     max-height: calc(100vh - 176px);
   }
 }
