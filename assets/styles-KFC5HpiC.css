@@ -540,3 +540,60 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
   .term-bank__clip,
   .term-bank__chevron { transition: none; }
 }
+
+.pager .mark-row {
+  grid-area: 1 / 2;
+  justify-self: start;
+  align-self: baseline;
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  max-width: calc(100% - 3.6em);
+  pointer-events: none;
+}
+.pager .mark-row .mark {
+  grid-area: auto;
+  justify-self: auto;
+  flex: none;
+  margin: 0;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+.mark__story {
+  display: grid;
+  grid-template-columns: 0fr;
+  min-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: grid-template-columns .42s cubic-bezier(.22, 1, .36, 1), opacity .24s ease;
+}
+.pager.is-titled .mark__story {
+  grid-template-columns: 1fr;
+  flex: 1 1 auto;
+  opacity: 1;
+  transition: grid-template-columns .42s cubic-bezier(.22, 1, .36, 1), opacity .32s ease .05s;
+}
+.mark__clip {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  overflow: hidden;
+}
+.mark__sep {
+  flex: none;
+  padding: 0 .42em;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+.mark__title {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-fg);
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mark__story { transition: none; }
+}
