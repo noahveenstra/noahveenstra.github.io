@@ -616,24 +616,38 @@
     for (const item of marks) {
       if (item.heading.getBoundingClientRect().top <= line) active = item;
     }
+    if (!active && marks.length) active = marks[0];
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) {
       active = marks[marks.length - 1];
     }
     const id = active ? active.heading.id : "";
-    for (const item of marks) {
+    const index = marks.findIndex((item) => item.heading.id === id);
+    marks.forEach((item, i) => {
       if (item.heading.id === id) item.link.setAttribute("aria-current", "location");
       else item.link.removeAttribute("aria-current");
       delete item.link.dataset.section;
-    }
+      if (index >= 0 && Math.abs(i - index) === 1) item.link.dataset.near = "true";
+      else delete item.link.dataset.near;
+    });
     nav.querySelectorAll("li").forEach((li) => li.classList.remove("is-open"));
+    clearTimeout(sync.hold);
     if (!active) return;
     const li = active.link.parentElement;
     const parent = li.parentElement.closest("li");
     li.classList.add("is-open");
-    if (!parent) return;
-    parent.classList.add("is-open");
-    const parentLink = parent.querySelector(":scope > a");
-    if (parentLink && parentLink !== active.link) parentLink.dataset.section = "true";
+    if (parent) {
+      parent.classList.add("is-open");
+      const parentLink = parent.querySelector(":scope > a");
+      if (parentLink && parentLink !== active.link) parentLink.dataset.section = "true";
+    }
+    const keepInView = () => {
+      const linkRect = active.link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      if (linkRect.top < navRect.top + 4) nav.scrollTop -= navRect.top + 4 - linkRect.top;
+      else if (linkRect.bottom > navRect.bottom - 4) nav.scrollTop += linkRect.bottom - (navRect.bottom - 4);
+    };
+    keepInView();
+    if (parent) sync.hold = setTimeout(keepInView, 340);
   };
 
   let frame = 0;
