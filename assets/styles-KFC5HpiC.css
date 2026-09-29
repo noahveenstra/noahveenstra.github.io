@@ -36,9 +36,23 @@
 .def{display:inline;margin:0;padding:0;border:0;border-bottom:1px dotted color-mix(in srgb,currentColor 42%,transparent);border-radius:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;cursor:help;appearance:none}
 .def:hover,.def:focus-visible,.def.is-on{border-bottom-color:currentColor;color:var(--color-fg)}
 .def:focus-visible{outline:2px solid var(--color-fg);outline-offset:3px}
-.def-tip{position:fixed;z-index:30;width:min(320px,calc(100vw - 28px));padding:12px 14px 13px;border:1px solid var(--color-hair);border-radius:10px;background:color-mix(in srgb,var(--color-fg) 7%,var(--color-bg));color:var(--color-muted);box-shadow:0 16px 40px #00000024;font-size:13.5px;line-height:1.45;text-wrap:pretty}
+.def.is-known{border-bottom-color:transparent;color:inherit;cursor:inherit}
+.def.is-known:hover,.def.is-known:focus-visible,.def.is-known.is-on{border-bottom-color:transparent;color:inherit;outline:none}
+.def-tip{position:fixed;z-index:30;width:min(320px,calc(100vw - 28px));padding:12px 14px 0;border:1px solid var(--color-hair);border-radius:10px;background:color-mix(in srgb,var(--color-fg) 7%,var(--color-bg));color:var(--color-muted);box-shadow:0 16px 40px #00000024;font-size:13.5px;line-height:1.45;text-wrap:pretty;opacity:0;transform:translateY(4px) scale(.98);transform-origin:center top;transition:opacity .14s cubic-bezier(.4,0,1,1),transform .14s cubic-bezier(.4,0,1,1)}
+.def-tip.is-above{transform:translateY(-4px) scale(.98);transform-origin:center bottom}
+.def-tip.is-in{opacity:1;transform:none;transition:opacity .18s cubic-bezier(.22,1,.36,1),transform .22s cubic-bezier(.22,1,.36,1),left .2s cubic-bezier(.22,1,.36,1),top .2s cubic-bezier(.22,1,.36,1)}
 .def-tip strong{display:block;margin-bottom:4px;color:var(--color-fg);font-weight:500}
+.def-tip__body{padding-bottom:12px}
+.def-tip__know{display:flex;align-items:center;gap:8px;width:calc(100% + 28px);margin:0 -14px;padding:8px 14px 9px;border:0;border-top:1px solid var(--color-hair);border-radius:0 0 9px 9px;background:transparent;color:var(--color-muted);font:inherit;font-size:12.5px;line-height:1.35;letter-spacing:0;text-align:left;cursor:pointer}
+.def-tip__know svg{width:14px;height:14px;flex:none}
+.def-tip__know:hover,.def-tip__know:focus-visible{color:var(--color-fg);background:color-mix(in srgb,var(--color-fg) 6%,transparent);outline:none}
+.def-tip__know.is-done{color:var(--color-fg)}
+.def-tip__know.is-done circle{fill:var(--color-fg);stroke:var(--color-fg)}
+.def-tip__know.is-done path{stroke:var(--color-bg)}
 .def-tip[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){
+  .def-tip,.def-tip.is-above,.def-tip.is-in{transition:none;transform:none}
+}
 
 html:not(:has(.home.project)):not(:has(.home.is-open)),
 html:not(:has(.home.project)):not(:has(.home.is-open)) body {

@@ -240,37 +240,89 @@
     "The corpus lives on a private local filesystem. It is not a shared team platform. Sensitive proposal, people, and project material is not uploaded to a cloud search product as the default workflow."
   ]
 };
+  const KEY = "pursuit-known-terms";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  let known = new Set();
+  try {
+    known = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+  } catch (error) {
+    known = new Set();
+  }
+
   const tip = document.createElement("div");
   tip.className = "def-tip";
   tip.id = "def-tip";
-  tip.setAttribute("role", "tooltip");
+  tip.setAttribute("role", "dialog");
+  tip.setAttribute("aria-labelledby", "def-tip-title");
   tip.hidden = true;
   const title = document.createElement("strong");
+  title.id = "def-tip-title";
   const body = document.createElement("div");
-  tip.append(title, body);
+  body.className = "def-tip__body";
+  const know = document.createElement("button");
+  know.type = "button";
+  know.className = "def-tip__know";
+  know.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M5 8.2 7.1 10.2 11 6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span>';
+  const knowLabel = know.querySelector("span");
+  tip.append(title, body, know);
   document.body.appendChild(tip);
 
-  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
   let current = null;
   let pinned = false;
   let hideTimer = 0;
+  let hideToken = 0;
+  let dismissGen = 0;
+  let settling = false;
+
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify([...known]));
+    } catch (error) {}
+  }
+
+  function markKnown(btn) {
+    btn.classList.add("is-known");
+    btn.tabIndex = -1;
+    btn.classList.remove("is-on");
+    btn.removeAttribute("aria-describedby");
+    btn.setAttribute("aria-expanded", "false");
+  }
 
   function place(btn) {
+    tip.classList.remove("is-above");
     const r = btn.getBoundingClientRect();
     const w = tip.offsetWidth;
     const h = tip.offsetHeight;
     let left = r.left + r.width / 2 - w / 2;
     left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
     let top = r.bottom + 8;
-    if (top + h > window.innerHeight - 10) top = Math.max(10, r.top - h - 8);
+    if (top + h > window.innerHeight - 10) {
+      top = Math.max(10, r.top - h - 8);
+      tip.classList.add("is-above");
+    }
     tip.style.left = left + "px";
     tip.style.top = top + "px";
   }
 
+  function release() {
+    if (!current) return;
+    current.classList.remove("is-on");
+    current.removeAttribute("aria-describedby");
+    current.setAttribute("aria-expanded", "false");
+    current = null;
+  }
+
   function show(btn, pin) {
-    const term = TERMS[btn.getAttribute("data-term")];
-    if (!term) return;
+    if (!btn || btn.classList.contains("is-known")) return;
+    const id = btn.getAttribute("data-term");
+    const term = TERMS[id];
+    if (!term || known.has(id)) return;
     window.clearTimeout(hideTimer);
+    const showToken = ++hideToken;
+    dismissGen += 1;
+    settling = false;
+    know.classList.remove("is-done");
     if (current && current !== btn) {
       current.classList.remove("is-on");
       current.setAttribute("aria-expanded", "false");
@@ -279,49 +331,119 @@
     pinned = !!pin;
     title.textContent = term[0];
     body.textContent = term[1];
+    knowLabel.textContent = "Hide the other “" + term[0] + "” tips";
     btn.classList.add("is-on");
     btn.setAttribute("aria-describedby", "def-tip");
     btn.setAttribute("aria-expanded", "true");
+    const wasOpen = tip.classList.contains("is-in") && !tip.hidden;
     tip.hidden = false;
     place(btn);
+    if (wasOpen || reduce) {
+      tip.classList.add("is-in");
+      return;
+    }
+    tip.classList.remove("is-in");
+    void tip.offsetWidth;
+    requestAnimationFrame(() => {
+      if (showToken !== hideToken) return;
+      tip.classList.add("is-in");
+    });
   }
 
   function hide(force) {
+    if (settling) return;
     if (pinned && !force) return;
     window.clearTimeout(hideTimer);
-    tip.hidden = true;
     pinned = false;
-    if (!current) return;
-    current.classList.remove("is-on");
-    current.removeAttribute("aria-describedby");
-    current.setAttribute("aria-expanded", "false");
-    current = null;
+    const token = ++hideToken;
+    tip.classList.remove("is-in");
+    release();
+    const finish = () => {
+      if (token !== hideToken) return;
+      tip.hidden = true;
+      know.classList.remove("is-done");
+    };
+    if (reduce || tip.hidden) {
+      finish();
+      return;
+    }
+    tip.addEventListener("transitionend", (event) => {
+      if (event.target !== tip || event.propertyName !== "opacity") return;
+      finish();
+    }, { once: true });
+    window.setTimeout(finish, 240);
   }
 
   document.querySelectorAll(".def").forEach((btn) => {
+    const id = btn.getAttribute("data-term");
     btn.setAttribute("aria-expanded", "false");
+    if (known.has(id)) {
+      markKnown(btn);
+      return;
+    }
     if (fine) {
       btn.addEventListener("pointerenter", () => show(btn, false));
       btn.addEventListener("pointerleave", () => {
-        hideTimer = window.setTimeout(() => hide(false), 90);
+        if (settling) return;
+        hideTimer = window.setTimeout(() => hide(false), 140);
       });
     }
     btn.addEventListener("focus", () => show(btn, false));
-    btn.addEventListener("blur", () => { if (!pinned) hide(false); });
+    btn.addEventListener("focusout", (event) => {
+      if (tip.contains(event.relatedTarget)) return;
+      if (!pinned) hide(false);
+    });
+    btn.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab" || event.shiftKey || tip.hidden || current !== btn) return;
+      event.preventDefault();
+      know.focus();
+    });
     btn.addEventListener("click", (event) => {
-      if (fine) return;
+      if (fine || btn.classList.contains("is-known")) return;
       event.preventDefault();
       if (current === btn && pinned) hide(true);
       else show(btn, true);
     });
   });
 
+  know.addEventListener("click", () => {
+    if (!current || settling) return;
+    const id = current.getAttribute("data-term");
+    const word = current;
+    known.add(id);
+    save();
+    settling = true;
+    window.clearTimeout(hideTimer);
+    const gen = ++dismissGen;
+    know.classList.add("is-done");
+    knowLabel.textContent = "Hidden";
+    document.querySelectorAll('.def[data-term="' + id + '"]').forEach(markKnown);
+    window.setTimeout(() => {
+      if (gen !== dismissGen) return;
+      settling = false;
+      pinned = false;
+      hide(true);
+      if (document.activeElement === know) word.focus({ preventScroll: true });
+    }, reduce ? 0 : 280);
+  });
+  know.addEventListener("focusout", (event) => {
+    if (settling || event.relatedTarget === current) return;
+    if (!pinned) hide(false);
+  });
+  know.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && event.shiftKey && current) {
+      event.preventDefault();
+      current.focus({ preventScroll: true });
+    }
+  });
+
   tip.addEventListener("pointerenter", () => window.clearTimeout(hideTimer));
   tip.addEventListener("pointerleave", () => {
-    if (!pinned) hideTimer = window.setTimeout(() => hide(false), 90);
+    if (pinned || settling) return;
+    hideTimer = window.setTimeout(() => hide(false), 140);
   });
   document.addEventListener("pointerdown", (event) => {
-    if (tip.hidden) return;
+    if (tip.hidden || settling) return;
     const t = event.target;
     if (t.closest && (t.closest(".def") || t.closest(".def-tip"))) return;
     hide(true);
@@ -329,7 +451,9 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") hide(true);
   });
-  window.addEventListener("scroll", () => hide(true), { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!settling) hide(true);
+  }, { passive: true });
 })();
 </script>
 <script>
