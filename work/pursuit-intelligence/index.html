@@ -42,9 +42,18 @@
 </ol>
 </nav>
 <aside class="term-bank" hidden aria-labelledby="term-bank-label">
-<p id="term-bank-label">Hidden tips</p>
+<div class="term-bank__panel">
+<div class="term-bank__body" id="term-bank-body">
+<div class="term-bank__clip">
 <ul></ul>
 <button type="button" class="term-bank__all" hidden>Bring them all back</button>
+</div>
+</div>
+<button type="button" class="term-bank__toggle" aria-expanded="false" aria-controls="term-bank-body">
+<span id="term-bank-label">Hidden Definitions</span>
+<svg class="term-bank__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.25 10.25 8 5.5l4.75 4.75" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</div>
 </aside>
 <div class="reveal"><div>
 <h1 class="project__title">Pursuit Intelligence</h1>
@@ -325,18 +334,20 @@
   }
 
   const bank = document.querySelector(".term-bank");
+  const bankBody = document.getElementById("term-bank-body");
   const bankList = bank.querySelector("ul");
   const bankAll = bank.querySelector(".term-bank__all");
+  const bankToggle = bank.querySelector(".term-bank__toggle");
 
-  function fitBank() {
-    if (bank.hidden || matchMedia("(min-width: 1180px)").matches) {
-      document.documentElement.style.removeProperty("--bank-pad");
-      return;
-    }
-    document.documentElement.style.setProperty("--bank-pad", Math.ceil(bank.getBoundingClientRect().height + 28) + "px");
+  function setOpen(open) {
+    if (bank.hidden) open = false;
+    bank.classList.toggle("is-open", open);
+    bankToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    bankBody.inert = !open;
   }
 
   function renderBank() {
+    const stay = bank.classList.contains("is-open");
     bankList.replaceChildren();
     const ids = [...known].filter((id) => TERMS[id]);
     bank.hidden = ids.length === 0;
@@ -351,7 +362,8 @@
       li.append(button);
       bankList.append(li);
     }
-    requestAnimationFrame(fitBank);
+    if (bank.hidden) setOpen(false);
+    else if (stay) setOpen(true);
   }
 
   function restore(id) {
@@ -362,6 +374,10 @@
     save();
     document.querySelectorAll('.def[data-term="' + id + '"]').forEach(unmark);
     renderBank();
+    if (!bank.hidden && bank.classList.contains("is-open")) {
+      const next = bankList.querySelector("button") || bankToggle;
+      next.focus({ preventScroll: true });
+    }
   }
 
   function place(btn) {
@@ -371,9 +387,10 @@
     const h = tip.offsetHeight;
     let left = r.left + r.width / 2 - w / 2;
     left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
-    const covered = bank.hidden || window.innerWidth >= 1180 ? 0 : bank.offsetHeight;
+    const box = bank.hidden ? null : bank.getBoundingClientRect();
+    const hits = (t) => box && left < box.right && left + w > box.left && t < box.bottom && t + h > box.top;
     let top = r.bottom + 8;
-    if (top + h > window.innerHeight - covered - 10) {
+    if (top + h > window.innerHeight - 10 || hits(top)) {
       top = Math.max(10, r.top - h - 8);
       tip.classList.add("is-above");
     }
@@ -523,7 +540,11 @@
     hide(true);
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") hide(true);
+    if (event.key !== "Escape") return;
+    hide(true);
+    if (!bank.classList.contains("is-open")) return;
+    setOpen(false);
+    if (bank.contains(document.activeElement)) bankToggle.focus({ preventScroll: true });
   });
   window.addEventListener("scroll", () => {
     if (!settling) hide(true);
@@ -538,7 +559,29 @@
     document.querySelectorAll(".def.is-known").forEach(unmark);
     renderBank();
   });
-  window.addEventListener("resize", fitBank);
+  if (fine) {
+    bank.addEventListener("pointerenter", () => setOpen(true));
+    bank.addEventListener("pointerleave", () => {
+      if (bankBody.contains(document.activeElement)) return;
+      setOpen(false);
+    });
+    bankToggle.addEventListener("click", () => {
+      setOpen(true);
+      const first = bankList.querySelector("button");
+      if (first) first.focus({ preventScroll: true });
+    });
+  } else {
+    bankToggle.addEventListener("click", () => setOpen(!bank.classList.contains("is-open")));
+    document.addEventListener("pointerdown", (event) => {
+      if (!bank.contains(event.target)) setOpen(false);
+    });
+  }
+  bank.addEventListener("focusout", (event) => {
+    if (bank.contains(event.relatedTarget)) return;
+    if (fine && bank.matches(":hover")) return;
+    setOpen(false);
+  });
+  setOpen(false);
   renderBank();
 })();
 </script>
