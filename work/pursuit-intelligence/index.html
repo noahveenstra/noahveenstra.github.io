@@ -41,6 +41,11 @@
 <li><a href="#impact">Impact</a></li>
 </ol>
 </nav>
+<aside class="term-bank" hidden aria-labelledby="term-bank-label">
+<p id="term-bank-label">Hidden tips</p>
+<ul></ul>
+<button type="button" class="term-bank__all" hidden>Bring them all back</button>
+</aside>
 <div class="reveal"><div>
 <h1 class="project__title">Pursuit Intelligence</h1>
 <p class="project__meta">A local <button type="button" class="def" data-term="evidence">evidence</button> library for <button type="button" class="def" data-term="aec">AEC</button> <button type="button" class="def" data-term="proposal">proposal</button> and <button type="button" class="def" data-term="interview">interview</button> work</p>
@@ -312,6 +317,53 @@
     btn.setAttribute("aria-expanded", "false");
   }
 
+  function unmark(btn) {
+    btn.classList.remove("is-known", "is-on");
+    btn.removeAttribute("tabindex");
+    btn.removeAttribute("aria-describedby");
+    btn.setAttribute("aria-expanded", "false");
+  }
+
+  const bank = document.querySelector(".term-bank");
+  const bankList = bank.querySelector("ul");
+  const bankAll = bank.querySelector(".term-bank__all");
+
+  function fitBank() {
+    if (bank.hidden || matchMedia("(min-width: 1180px)").matches) {
+      document.documentElement.style.removeProperty("--bank-pad");
+      return;
+    }
+    document.documentElement.style.setProperty("--bank-pad", Math.ceil(bank.getBoundingClientRect().height + 28) + "px");
+  }
+
+  function renderBank() {
+    bankList.replaceChildren();
+    const ids = [...known].filter((id) => TERMS[id]);
+    bank.hidden = ids.length === 0;
+    bankAll.hidden = ids.length < 2;
+    for (const id of ids) {
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = TERMS[id][0];
+      button.setAttribute("aria-label", "Bring “" + TERMS[id][0] + "” tips back");
+      button.addEventListener("click", () => restore(id));
+      li.append(button);
+      bankList.append(li);
+    }
+    requestAnimationFrame(fitBank);
+  }
+
+  function restore(id) {
+    dismissGen += 1;
+    settling = false;
+    if (current && current.getAttribute("data-term") === id) hide(true);
+    known.delete(id);
+    save();
+    document.querySelectorAll('.def[data-term="' + id + '"]').forEach(unmark);
+    renderBank();
+  }
+
   function place(btn) {
     tip.classList.remove("is-above");
     const r = btn.getBoundingClientRect();
@@ -319,8 +371,9 @@
     const h = tip.offsetHeight;
     let left = r.left + r.width / 2 - w / 2;
     left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
+    const covered = bank.hidden || window.innerWidth >= 1180 ? 0 : bank.offsetHeight;
     let top = r.bottom + 8;
-    if (top + h > window.innerHeight - 10) {
+    if (top + h > window.innerHeight - covered - 10) {
       top = Math.max(10, r.top - h - 8);
       tip.classList.add("is-above");
     }
@@ -400,10 +453,7 @@
   document.querySelectorAll(".def").forEach((btn) => {
     const id = btn.getAttribute("data-term");
     btn.setAttribute("aria-expanded", "false");
-    if (known.has(id)) {
-      markKnown(btn);
-      return;
-    }
+    if (known.has(id)) markKnown(btn);
     if (fine) {
       btn.addEventListener("pointerenter", () => show(btn, false));
       btn.addEventListener("pointerleave", () => {
@@ -435,6 +485,7 @@
     const word = current;
     known.add(id);
     save();
+    renderBank();
     settling = true;
     window.clearTimeout(hideTimer);
     const gen = ++dismissGen;
@@ -477,6 +528,18 @@
   window.addEventListener("scroll", () => {
     if (!settling) hide(true);
   }, { passive: true });
+
+  bankAll.addEventListener("click", () => {
+    dismissGen += 1;
+    settling = false;
+    if (current) hide(true);
+    known.clear();
+    save();
+    document.querySelectorAll(".def.is-known").forEach(unmark);
+    renderBank();
+  });
+  window.addEventListener("resize", fitBank);
+  renderBank();
 })();
 </script>
 <script>

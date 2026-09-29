@@ -404,3 +404,96 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
   .page-nav a::before,
   .page-nav ol ol { transition: none; }
 }
+
+.term-bank { display: none; }
+.term-bank p {
+  margin: 0 0 10px;
+  color: var(--color-muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.term-bank ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.term-bank button {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  text-align: left;
+  cursor: pointer;
+}
+.term-bank li button:hover,
+.term-bank li button:focus-visible { color: var(--color-fg); }
+.term-bank button:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.term-bank .term-bank__all {
+  margin-top: 14px;
+  color: var(--color-fg);
+  border-bottom: 1px solid var(--color-hair);
+  transition: border-color .2s;
+}
+.term-bank .term-bank__all:hover { border-bottom-color: var(--color-fg); }
+@media (max-width: 1179px) {
+  .term-bank ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+  .term-bank:not([hidden]) {
+    display: block;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 42vh;
+    overflow: auto;
+    padding: 14px max(16px, calc((100% - 34em) / 2)) calc(14px + env(safe-area-inset-bottom));
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-hair);
+  }
+  .project--pursuit:has(.term-bank:not([hidden])) { padding-bottom: var(--bank-pad, 112px); }
+}
+@media (min-width: 1180px) {
+  .term-bank:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 3;
+    top: 112px;
+    left: calc(50% + 17em + 44px);
+    width: min(220px, calc(50% - 17em - 68px));
+    max-height: calc(100vh - 148px);
+    overflow: auto;
+    scrollbar-width: none;
+    font-size: 15px;
+    background: none;
+    border: 0;
+  }
+  .term-bank::-webkit-scrollbar { display: none; }
+}
+@media print { .term-bank { display: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  .term-bank__all { transition: none; }
+}
