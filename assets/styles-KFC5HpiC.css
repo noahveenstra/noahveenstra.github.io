@@ -33,7 +33,7 @@
 .project__section .asks p{margin-top:16px}
 .project__section .note{font-size:.92em}
 .project--pursuit .loop{margin-top:18px;color:var(--color-fg);font-weight:500;letter-spacing:.08em}
-.def{display:inline;margin:0;padding:0;border:0;border-bottom:1px dotted color-mix(in srgb,currentColor 42%,transparent);border-radius:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;cursor:help;appearance:none}
+.def{display:inline;margin:0;padding:0;border:0;border-bottom:1px dotted color-mix(in srgb,currentColor 42%,transparent);border-radius:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;cursor:inherit;appearance:none}
 .keep{white-space:nowrap}
 .def:hover,.def:focus-visible,.def.is-on{border-bottom-color:currentColor;color:var(--color-fg)}
 .def:focus-visible{outline:2px solid var(--color-fg);outline-offset:3px}
@@ -421,12 +421,21 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 .term-bank__panel {
   display: flex;
   flex-direction: column;
-  background: #1c1c1b;
-  color: #d8d7d4;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: var(--color-muted);
+  border: 1px solid color-mix(in srgb, var(--color-fg) 28%, transparent);
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  box-shadow: none;
   overflow: hidden;
+  transition: background-color .2s cubic-bezier(.22, 1, .36, 1), color .2s cubic-bezier(.22, 1, .36, 1), border-color .2s cubic-bezier(.22, 1, .36, 1), box-shadow .2s cubic-bezier(.22, 1, .36, 1);
+}
+.term-bank:hover .term-bank__panel,
+.term-bank.is-open .term-bank__panel,
+.term-bank:focus-within .term-bank__panel {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-fg) 16%, transparent);
 }
 .term-bank__body {
   display: grid;
@@ -451,7 +460,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   overflow: auto;
   max-height: min(220px, calc(100vh - 240px));
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+  scrollbar-color: color-mix(in srgb, currentColor 35%, transparent) transparent;
 }
 .term-bank ul {
   list-style: none;
@@ -475,22 +484,22 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   width: 100%;
   padding: 3px 8px;
   border-radius: 4px;
-  color: #c8c7c4;
+  color: inherit;
   font-size: 12.5px;
   line-height: 1.35;
   letter-spacing: 0.005em;
   text-align: left;
 }
 .term-bank li button:hover,
-.term-bank li button:focus-visible { background: rgba(255, 255, 255, 0.08); color: #f3f2ef; }
+.term-bank li button:focus-visible { background: color-mix(in srgb, var(--color-bg) 14%, transparent); color: inherit; }
 .term-bank__all {
   display: block;
   flex: none;
   width: 100%;
   padding: 7px 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  background: transparent;
+  color: inherit;
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.35;
@@ -498,7 +507,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   text-align: left;
 }
 .term-bank__all:hover,
-.term-bank__all:focus-visible { background: rgba(255, 255, 255, 0.14); }
+.term-bank__all:focus-visible { background: color-mix(in srgb, var(--color-bg) 14%, transparent); }
 .term-bank__toggle {
   display: flex;
   align-items: center;
@@ -506,14 +515,14 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   gap: 8px;
   width: 100%;
   padding: 7px 10px;
-  color: #d8d7d4;
+  color: inherit;
   font-size: 12.5px;
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.005em;
   text-align: left;
 }
-.term-bank.is-open .term-bank__toggle { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.term-bank.is-open .term-bank__toggle { border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
 .term-bank__chevron {
   width: 12px;
   height: 12px;
@@ -524,7 +533,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 .term-bank__toggle:focus-visible,
 .term-bank li button:focus-visible,
 .term-bank__all:focus-visible {
-  outline: 2px solid #f3f2ef;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 @media (min-width: 1180px) {
@@ -540,6 +549,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 }
 @media print { .term-bank { display: none !important; } }
 @media (prefers-reduced-motion: reduce) {
+  .term-bank__panel,
   .term-bank__body,
   .term-bank__clip,
   .term-bank__chevron { transition: none; }
@@ -607,7 +617,11 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   .term-bank__panel {
     border-bottom: 0;
     border-radius: 12px 12px 0 0;
-    box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.22);
+    box-shadow: none;
+  }
+  .term-bank.is-open .term-bank__panel,
+  .term-bank:focus-within .term-bank__panel {
+    box-shadow: 0 -10px 28px color-mix(in srgb, var(--color-fg) 18%, transparent);
   }
   .term-bank__toggle,
   .term-bank__all,
