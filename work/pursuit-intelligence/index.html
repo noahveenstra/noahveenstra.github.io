@@ -36,6 +36,7 @@
 <li><a href="#maintenance">8. Maintenance that makes gaps visible</a></li>
 </ol>
 </li>
+<li><a href="#what-it-inherits">What IT inherits — and what stays local</a></li>
 <li><a href="#how-it-was-used">How it was used</a></li>
 <li><a href="#career-defining">Why this was a career-defining piece of work</a></li>
 <li><a href="#impact">Impact</a></li>
@@ -90,7 +91,7 @@
 <p>Reading opens bounded context.</p>
 <p>Verification reopens the governing <button type="button" class="def" data-term="evidence">source</button> before a fact, metric, role, story, or commitment is reused.</p>
 </div>
-<p>This was not a multi-user product. It was a working library on a local computer, used for Scottsdale marketing, <span class="keep"><button type="button" class="def" data-term="proposal">proposal</button>,</span> <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>,</span> and <button type="button" class="def" data-term="interview">interview</button> work. When someone outside marketing needed an ultra-specific story, they came to the person who had the system.</p>
+<p>This was not a multi-user product. It was a working library on a local computer, used for marketing, <span class="keep"><button type="button" class="def" data-term="proposal">proposal</button>,</span> <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>,</span> and <button type="button" class="def" data-term="interview">interview</button> work. When someone outside marketing needed an ultra-specific story, they came to the person who had the system.</p>
 <p>The system is organized around four zones:</p>
 <div class="zones">
 <h3>Intake</h3>
@@ -115,36 +116,151 @@
 </ul>
 <p>Those numbers matter less than the distinction they encode. The system can hold thousands of project views and still refuse to call something an <button type="button" class="def" data-term="authorized">authorized story</button> until it earns that status.</p>
 </section></div>
-<div class="reveal"><section class="project__section">
+<section class="project__section">
+<div class="reveal"><div>
 <h2 class="project__heading" id="more-than-a-search-box">What made it more than a search box</h2>
+<p>A search box answers “which files contain these words.” That is not the job. The job is “can I put this claim in front of an <button type="button" class="def" data-term="owner">owner</button> on Thursday.” The eight design choices below are how the system stays useful without becoming a rumor engine.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="front-door">1. A usable front door</h3>
-<p>Folder-browsing stopped being the primary experience. A plain-language question returns a shortlist instead of a pile of PDFs.</p>
+<p>The old experience was a file tree. You remembered a project nickname, guessed a year, opened a <button type="button" class="def" data-term="proposal">proposal</button> PDF, scrolled, and hoped the story you needed was in that version and not the one from two <button type="button" class="def" data-term="pursuit">pursuits</button> later. If you did not already know where to look, you called the field.</p>
+<p>The new loop is ordinary language in, decision-ready shortlist out:</p>
+<p class="loop">SEARCH → READ → VERIFY</p>
+<p>Search does not dump two hundred hits. It returns a small set of routes that are actually usable: an <span class="keep"><button type="button" class="def" data-term="authorized">authorized story</button>,</span> a person profile, a strategy record, a <button type="button" class="def" data-term="evidence">source</button> page, a current working set. Reading then opens bounded context — enough to judge the result, not so much that the model or the user drowns in neighboring files. Verify is not optional decoration. Before a metric, role, story, or commitment moves into a <button type="button" class="def" data-term="proposal">proposal</button> or <span class="keep"><button type="button" class="def" data-term="interview">interview</button>,</span> the governing <button type="button" class="def" data-term="evidence">source</button> reopens. Page, section, or row locator when one exists.</p>
+<p>That loop is the product surface. Everything else in the system exists to make those three steps honest.</p>
+<p>It also replaced a social habit. Instead of “who should I call,” the first move became “what does the library already know, and what does the <button type="button" class="def" data-term="evidence">source</button> actually say.” The phone call is still available. It is no longer the catalog.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="storage">2. Storage is not authority</h3>
-<p>Original <span class="keep"><button type="button" class="def" data-term="evidence">evidence</button>,</span> reusable knowledge, intake/health controls, historical <button type="button" class="def" data-term="pursuit">pursuit</button> intelligence, and live <button type="button" class="def" data-term="proposal">proposal</button> production are separate. A generated registry, search card, or AI context packet cannot quietly pose as an independent <span class="keep"><button type="button" class="def" data-term="evidence">source</button>.</span></p>
-<h3 id="evidence-aware">3. Evidence-aware retrieval</h3>
-<p>A structured relationship mesh, bounded full-text indexes, source-aware markdown records, and a local semantic-search pilot route questions about projects, people, <span class="keep"><button type="button" class="def" data-term="proposal">proposals</button>,</span> <span class="keep"><button type="button" class="def" data-term="authorized">authorized stories</button>,</span> relationships, and decisions. Keyword matches are not treated as equal. Private text stays local.</p>
-<h3 id="quality-control">4. Quality control is the product</h3>
-<p>The system keeps separate routes for:</p>
+<p>Most knowledge bases collapse the moment they generate something useful. A registry looks official. A search card looks like a fact. An AI packet looks like a brief. People stop opening the original.</p>
+<p>The folder structure refuses that collapse. It keeps different kinds of files in different kinds of rooms:</p>
 <ul>
-<li>reported work vs. a person merely appearing in a <button type="button" class="def" data-term="proposal">proposal</button></li>
-<li>an <button type="button" class="def" data-term="authorized">authorized project story</button> vs. a project description or <button type="button" class="def" data-term="sheet">résumé row</button></li>
-<li>a proposed team roster vs. verified direct collaboration</li>
-<li>a <button type="button" class="def" data-term="evidence">source</button> fact vs. an inference, recommendation, or unresolved hypothesis</li>
-<li>a current working draft vs. a file that was only edited recently</li>
+<li><strong>Intake</strong> is not knowledge yet. It is material waiting to be classified and checked.</li>
+<li><strong><button type="button" class="def" data-term="evidence">Evidence</button></strong> preserves converted <button type="button" class="def" data-term="evidence">source</button> and the locator back to it. This is where a claim can be proven or killed.</li>
+<li><strong>Reusable knowledge</strong> holds the controlled objects: people, projects, stories, strategy, relationships, responses. These are curated. They are still not the original.</li>
+<li><strong><button type="button" class="def" data-term="pursuit">Pursuit</button> work</strong> holds compact intelligence for a live chase. The actual <button type="button" class="def" data-term="proposal">proposal</button> being written lives in a sibling workspace on purpose. Historical research and live production do not share a drawer.</li>
 </ul>
-<p>Those distinctions are the main quality control. They stop a convenient result from becoming a stronger claim than the <button type="button" class="def" data-term="evidence">source</button> supports.</p>
+<p>That split is the difference between a library and a pile. A generated view can help you navigate. It cannot become the <button type="button" class="def" data-term="evidence">source</button> of record just because it is cleaner than the PDF it came from. If the original is missing and only a converted derivative remains, that limitation stays attached to the record. The system would rather look incomplete than look more certain than the <span class="keep"><button type="button" class="def" data-term="evidence">evidence</button>.</span></p>
+</div></div>
+<div class="reveal"><div>
+<h3 id="evidence-aware">3. Evidence-aware retrieval</h3>
+<p>Keyword search treats every match as the same kind of object. “Smith” in a cover letter, “Smith” on a <span class="keep"><button type="button" class="def" data-term="sheet">résumé</button>,</span> and “Smith” in a narrative about who ran night work are not the same finding. A marketing system that cannot tell those apart will eventually write the wrong sentence.</p>
+<p>Retrieval here is layered on purpose:</p>
+<ul>
+<li>a <strong>relationship mesh</strong> so questions can follow people to projects to <button type="button" class="def" data-term="unit">units</button> to stories</li>
+<li><strong>bounded full-text indexes</strong> so a hit has an edge instead of swallowing the whole corpus</li>
+<li><strong>source-aware markdown records</strong> so a result still knows which file and which locator it came from</li>
+<li>a <strong><button type="button" class="def" data-term="local">local</button> semantic-search pilot</strong> so phrasing can vary without requiring the exact title someone used three years ago</li>
+</ul>
+<p>Questions get routed by type. A project question, a people question, an <button type="button" class="def" data-term="authorized">authorized-story</button> question, a relationship question, and a decision question are not the same query with different keywords. They travel different paths and return different kinds of objects.</p>
+<p>When AI enters the loop, it does not get the whole disk. It gets a <strong>context packet</strong>: the narrowed question, selected excerpts, structured routes, <button type="button" class="def" data-term="evidence">source</button> paths, page or row locators when recorded, <button type="button" class="def" data-term="evidence">evidence</button> status, review limits, and omissions. The packet is also allowed to say what is missing. Private text stays on the machine. The workflow does not depend on uploading the corpus to a cloud search service.</p>
+<p>The point of retrieval is not “answer.” It is “here is the shortlist, here is the <span class="keep"><button type="button" class="def" data-term="evidence">source</button>,</span> here is what you still do not know.”</p>
+<p>That behavior was earned, not assumed. Early search work produced raw JSON and implementation dumps — paths, scores, internals. That is not what a marketer needs at 4 p.m. on a <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>.</span> The instruction was to answer the way a person would ask: five normal questions, five usable answers.</p>
+<p>One of those checks was simple on purpose: <em>What is the <button type="button" class="def" data-term="delivery">delivery method</button> for [anonymized federal project]?</em> The system returned Design-Build, first marked imported-unverified. The original <button type="button" class="def" data-term="local">local</button> workbook row was then opened. The <button type="button" class="def" data-term="evidence">source</button> actually recorded Design-Build. The point was not the two-word answer. The point was that an imported label is not finished work until the row is reopened.</p>
+<p>The same pass exposed the usual RAG failure modes: duplicate story results, unrelated passages stuck to a narrow question, and weak partial matches for a project that did not exist. Six retrieval changes went in after that:</p>
+<ol class="changes">
+<li>Give the model a focused <button type="button" class="def" data-term="evidence">evidence</button> packet, not the vault.</li>
+<li>Keep passages with context, citations, and limits.</li>
+<li>Combine keyword search with <button type="button" class="def" data-term="local">local</button> meaning-based search.</li>
+<li>Rank relevant <button type="button" class="def" data-term="evidence">evidence</button> and collapse duplicates.</li>
+<li>Separate facts, experience, <button type="button" class="def" data-term="proposal">proposal</button> appearances, and multipart questions.</li>
+<li>Return <span class="keep">“<button type="button" class="def" data-term="evidence">insufficient evidence</button>”</span> instead of filling gaps with weak matches.</li>
+</ol>
+<p>Live checks after the change confirmed the intended behavior: an invented project could return insufficient <span class="keep"><button type="button" class="def" data-term="evidence">evidence</button>,</span> duplicate stories could collapse into one result, and differently worded questions could still find the relevant example.</p>
+<p>On a live county public-safety CMAR pursuit, the question was not a project name. It was a problem: <em>Find a prior example addressing schedule management, submittals, <button type="button" class="def" data-term="trade">subcontractor</button> coordination, critical-path risk, and material availability.</em></p>
+<p>The problem-first search checked 64 story files and 87 matching passages, then returned three focused candidates:</p>
+<ul>
+<li>a police-facility example involving open-book cost control, coordination, and a qualitative on-schedule result</li>
+<li>a public-safety example involving temporary power, material protection, and supplier coordination, flagged for original-page verification</li>
+<li>a public-library example involving temporary plant preservation, surfaced as a weaker topical match that still needed validation</li>
+</ul>
+<p>A folder search would have returned filenames and raw matches across project pages, <button type="button" class="def" data-term="proposal">proposal</button> conversions, notes, and other records. The useful difference was that the shortlist grouped <button type="button" class="def" data-term="evidence">evidence</button> by the actual problem, explained relevance, and showed review status. It did not treat three search hits as three cleared stories.</p>
+</div></div>
+<div class="reveal"><div>
+<h3 id="quality-control">4. Quality control is the product</h3>
+<p>This is the design decision that matters most, and the one a generic RAG demo always skips.</p>
+<p><button type="button" class="def" data-term="aec">AEC</button> marketing copy fails in predictable ways. Someone appeared in a <span class="keep"><button type="button" class="def" data-term="proposal">proposal</button>,</span> so they “led the job.” A project exists on a <span class="keep"><button type="button" class="def" data-term="sheet">résumé</button>,</span> so it is “our story.” Two names share a project page, so they “worked together.” A sentence sounds like a result, so it becomes a metric. A file was touched yesterday, so it is the current draft.</p>
+<p>The system makes those errors expensive by keeping separate routes:</p>
+<p><strong>Reported work vs. a <button type="button" class="def" data-term="proposal">proposal</button> appearance.</strong> Being named in a document is not <button type="button" class="def" data-term="evidence">evidence</button> that a person performed the work. The people route can show that someone was listed. It does not automatically promote that listing into a performed-role claim.</p>
+<p><strong><button type="button" class="def" data-term="authorized">Authorized story</button> vs. project description or <span class="keep"><button type="button" class="def" data-term="sheet">résumé row</button>.</span></strong> There are 8,705 canonical project views and 9 <span class="keep"><button type="button" class="def" data-term="authorized">authorized stories</button>.</span> That ratio is the point. A <button type="button" class="def" data-term="sheet">project sheet</button> can be a lead. It is not cleared narrative. If you want the strongest example of <span class="keep"><button type="button" class="def" data-term="occupied">occupied-campus phasing</button>,</span> you do not get every building that ever had a campus address. You get the reviewed shortlist, with <button type="button" class="def" data-term="evidence">source</button> pages, <button type="button" class="def" data-term="evidence">evidence</button> status, and reuse limits.</p>
+<p><strong>Proposed team roster vs. verified collaboration.</strong> A <button type="button" class="def" data-term="pursuit">pursuit</button> names a team because that is how <button type="button" class="def" data-term="proposal">proposals</button> are built. Naming two people on the same page does not prove they have run a job together. Collaboration is its own observation, with its own <button type="button" class="def" data-term="evidence">evidence</button> boundary.</p>
+<p><strong><button type="button" class="def" data-term="evidence">Source</button> fact vs. inference, recommendation, or unresolved hypothesis.</strong> “The document says X” and “therefore we should claim Y” are different objects. The second one does not get to wear the first one’s certainty.</p>
+<p><strong>Current working draft vs. recently edited file.</strong> Modification date is a bad proxy for authority. The current-work route identifies the controlling working set for a <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>.</span> Newest file is not the same thing as governing file.</p>
+<p>These distinctions are not metadata garnish. They are the reason the system can be used on a live <button type="button" class="def" data-term="interview">interview</button> without quietly upgrading a convenient hit into a stronger claim than the <button type="button" class="def" data-term="evidence">source</button> supports.</p>
+<p>That rule has stopped real draft language. A prior public-safety options study looked like a clean case-study metric because a <button type="button" class="def" data-term="evidence">source</button> stated approximately $580,000 in savings. Verification traced the number to a converted <button type="button" class="def" data-term="proposal">proposal</button> extract rather than a locally available original page. The record also did not provide an original or final GMP, and a related repository heading had a project-label mismatch.</p>
+<p>That was enough. The draft was not allowed to say “we saved $580,000 on the project,” add days recovered, claim <button type="button" class="def" data-term="owner">owner</button> acceptance, or assign the result to an individual. The narrow source-stated figure stayed internal-review language until the original <button type="button" class="def" data-term="proposal">proposal</button> page could be checked.</p>
+<p>The verification loop is the same idea in motion: read the <span class="keep"><button type="button" class="def" data-term="evidence">evidence</button>,</span> write the draft, compare the draft back against the <span class="keep"><button type="button" class="def" data-term="evidence">evidence</button>,</span> fix anything unsupported or overstated. An overall “supported” judgment is not enough. It can pass while a factual passage never gets compared. The tightened rule requires complete draft coverage, exact supporting <button type="button" class="def" data-term="evidence">source</button> quotations, facts separated from recommendations and transitions, and review tied to the exact saved version.</p>
+<p>A search hit also does not become an <button type="button" class="def" data-term="authorized">authorized story</button> by itself. A human reviewer opens the consolidated past <button type="button" class="def" data-term="proposal">proposal</button> or SOQ and verifies the original pages, <button type="button" class="def" data-term="evidence">source</button> identity, project identity, and condition / action / result narrative. The reviewer records exact pages, <button type="button" class="def" data-term="evidence">source</button> route, attribution, <button type="button" class="def" data-term="evidence">evidence</button> type, recommended use, and limits in the story manifest. A validator checks the transcript and page boundaries before the story is published to the story shelf and the retrieval index.</p>
+<p>When that story is needed on a new <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>,</span> the pursuit owner still selects it and performs claim-specific review against the current requirement. “Cleared for reuse” means the <button type="button" class="def" data-term="proposal">proposal-derived</button> narrative is source-reviewed and eligible to be surfaced as a bounded reuse candidate. It does not mean current staffing is confirmed, the <button type="button" class="def" data-term="owner">owner</button> accepted the result, the outcome was independently audited, or the story can be copied into any <button type="button" class="def" data-term="proposal">proposal</button> without fresh review.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="strategy">5. Strategy is preserved, not just documents</h3>
-<p>Historical <button type="button" class="def" data-term="rfq">RFQ-to-response</button> records capture what the <button type="button" class="def" data-term="owner">owner</button> asked, how the firm answered, what <button type="button" class="def" data-term="evidence">evidence</button> was used, what intent was documented, and what limits remain. Past work becomes a response pattern. A win, a loss, or a folder label is not treated as proof of causation.</p>
+<p>A <button type="button" class="def" data-term="proposal">proposal</button> archive answers “what did we send.” That is only half of the useful question. The other half is “what was the <button type="button" class="def" data-term="owner">owner</button> asking, how did we choose to answer, what <button type="button" class="def" data-term="evidence">evidence</button> did we put under that answer, and what did we refuse to over-claim.”</p>
+<p>The <button type="button" class="def" data-term="rfq">RFQ-to-response</button> records exist for that second half. Across 137 of them, the library keeps the shape of a past response:</p>
+<ul>
+<li>the <button type="button" class="def" data-term="owner">owner</button> requirement, as asked</li>
+<li>the response structure the firm used</li>
+<li>the <button type="button" class="def" data-term="evidence">evidence</button> chosen to support it</li>
+<li>the documented intent of that answer</li>
+<li>the limits that still apply if someone wants to reuse it</li>
+</ul>
+<p>That makes old work useful as a <strong>pattern</strong> instead of as a sacred text. You can see how a similar question was handled without pretending the old answer caused the win. A folder labeled “award” is not causation. A loss is not proof the story was wrong. Strategy records are allowed to be reused only as adaptation material, with the limits still attached.</p>
+<p>For a marketer, this is the difference between rewriting from a blank page and starting from a reviewed argument that already survived an <button type="button" class="def" data-term="owner">owner’s</button> scoring matrix once.</p>
+<p>This feature exists because a <button type="button" class="def" data-term="pursuit">pursuit-level</button> summary was not enough. Processing an <button type="button" class="def" data-term="rfq">RFQ</button> or <button type="button" class="def" data-term="proposal">proposal</button> had to record, question by question: what the <button type="button" class="def" data-term="owner">owner</button> asked; how the firm answered; what <button type="button" class="def" data-term="evidence">evidence</button> or example was selected; what strategy was documented versus inferred; and what might be useful on a future <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>.</span></p>
+<p>That is why a later question — <em>could I ask what our strategy or positioning was for this <span class="keep"><button type="button" class="def" data-term="pursuit">pursuit</button>,</span> this client type, or this question?</em> — has a direct answer. Yes. That is what the feature is for. It returns a small set of <button type="button" class="def" data-term="evidence">source-linked</button> precedents: the <button type="button" class="def" data-term="owner">owner’s</button> ask, the firm’s answer, how the response was structured, what reasoning was actually documented, and what has to change before reuse. Inferred strategy is labeled as inferred. Documented strategy is labeled as documented. Those are not the same claim.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="people-and-projects">6. People, projects, and relationships are canonical</h3>
-<p>Controlled profiles and routes cover proposal-use links, worked-on links, attributed projects, <button type="button" class="def" data-term="architect">architect</button> and client connections, <span class="keep"><button type="button" class="def" data-term="authorized">authorized stories</button>,</span> team contexts, typed relationships, and direct collaboration observations. Generated views make the graph navigable without erasing <button type="button" class="def" data-term="evidence">evidence</button> boundaries.</p>
+<p>Without canonical routes, every <button type="button" class="def" data-term="proposal">proposal</button> invents its own universe. The same person gets three spellings. The same job gets two names and a third nickname the <button type="button" class="def" data-term="superintendent">superintendent</button> uses on the phone. The <button type="button" class="def" data-term="architect">architect</button> relationship lives in someone’s head. Marketing spends the first hour of a <button type="button" class="def" data-term="pursuit">pursuit</button> reconciling identity instead of choosing a story.</p>
+<p>The library maintains one route per controlled person and one route per canonical project, then hangs the rest of the graph on those routes:</p>
+<ul>
+<li><button type="button" class="def" data-term="proposal">proposal-use</button> links (this person or project appeared in this response)</li>
+<li>worked-on links (reported participation, still distinct from a story)</li>
+<li>attributed-project links</li>
+<li><button type="button" class="def" data-term="architect">architect</button> and client connections</li>
+<li><button type="button" class="def" data-term="authorized">authorized stories</button></li>
+<li>team contexts</li>
+<li>typed relationships</li>
+<li>direct collaboration observations</li>
+</ul>
+<p>Generated views exist so a human can walk that graph without holding it in memory. They do not get to erase the <button type="button" class="def" data-term="evidence">evidence</button> boundary underneath. You can start at a person and get to the projects they are linked to. You can start at a project and see which stories are <span class="keep"><button type="button" class="def" data-term="authorized">authorized</button>,</span> which connections are typed, and which collaborations are actually observed. You cannot start at a search snippet and treat it as the person record.</p>
+<p>This is also how 317 people profiles and 8,705 project views stay usable. Volume is not the achievement. One identity per person and one identity per project is the achievement. Volume is what that decision has to survive.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="review-gate">7. Human-and-AI memory with a review gate</h3>
-<p>Insights, corrections, questions, decision signals, and relationships can be captured as small review-required records. A conversation is provenance for the capture — not automatic proof of a role, metric, outcome, collaboration, or commitment. Nothing promotes to fact without a person.</p>
+<p>Useful knowledge shows up in conversation: a correction from a <span class="keep"><button type="button" class="def" data-term="superintendent">superintendent</button>,</span> a warning that a proposed approach is not verified past performance, a note that two people have actually run <button type="button" class="def" data-term="occupied">occupied</button> work together, a question that the library cannot answer yet. If those insights stay in chat logs, they die. If they get written straight into the people or project record, they become fake facts.</p>
+<p>The contribution layer is the compromise. Capture the smallest reusable object — an insight, a correction, a question, a decision signal, a team context, a relationship — and mark it <strong>review-required</strong>. The conversation is provenance for the capture. It is not proof of a role, a metric, an outcome, a collaboration, or a commitment.</p>
+<p>Promotion to reusable knowledge takes a person. That rule is what lets AI sit in the workflow at all. The model can help draft a packet, surface a candidate link, or notice a contradiction. It cannot author the record of record. A marketer under deadline will always be tempted to let a fluent paragraph become the <span class="keep"><button type="button" class="def" data-term="evidence">source</button>.</span> The review gate is there because I have felt that temptation.</p>
+<p>The other half of the rule is restraint about volume. Do not save the whole transcript. Save the sentence that would still matter next month.</p>
+</div></div>
+<div class="reveal"><div>
 <h3 id="maintenance">8. Maintenance that makes gaps visible</h3>
-<p>Intake checkpoints, source-availability records, link checks, generated-view validators, retrieval freshness checks, health reports, review queues, and golden retrieval tests. A clean search result is not allowed to hide missing originals, unresolved names, or <button type="button" class="def" data-term="evidence">source</button> conflicts.</p>
+<p>A knowledge base that only looks good on the day you build it is a demo. <button type="button" class="def" data-term="proposal">Proposal</button> work happens on weeks when files are missing, names conflict, and someone converted a PDF six months ago and the original left the machine.</p>
+<p>So the system spends real effort on being inspectable:</p>
+<ul>
+<li>intake checkpoints, so new material cannot skip classification</li>
+<li>source-availability records, so “we have a derivative but not the original” is a visible state</li>
+<li>link checks, so a relationship that points nowhere does not sit quietly</li>
+<li>generated-view validators, so a pretty index cannot drift from the records it claims to represent</li>
+<li>retrieval freshness checks, so yesterday’s index is not treated as today’s corpus</li>
+<li>health reports, so “is this safe to rely on” is an actual question with an actual answer</li>
+<li>review queues, so pending human judgment has a place to live</li>
+<li>golden retrieval tests, so a known question still returns the known good route</li>
+</ul>
+<p>A dated health check on this library came back <strong>Attention</strong>, not <strong>Blocked</strong>. Retrieval, navigation, maintained links, and the canonical registry were ready. <button type="button" class="def" data-term="evidence">Source</button> availability and people-quality review still had open items. That is the kind of status a serious system should be willing to show. Ready-on-one-control is not a full audit. Converted-only <button type="button" class="def" data-term="evidence">evidence</button> still has a hash and an identity; it is still not the original file.</p>
+<p>The standard is not “no gaps.” The standard is “gaps cannot hide behind a clean search result.”</p>
+</div></div>
+</section>
+<div class="reveal"><section class="project__section">
+<h2 class="project__heading" id="what-it-inherits">What IT inherits — and what stays local</h2>
+<p>The national build is not a copy of the vault. It is a copy of the rules.</p>
+<p>IT inherits the behavior contract, schemas, validators, sanitized instructions, and redacted or synthetic fixtures needed to reproduce the workflow. The proof of concept does not hand over the live vault, raw <button type="button" class="def" data-term="rfq">RFQs</button> and <span class="keep"><button type="button" class="def" data-term="proposal">proposals</button>,</span> <span class="keep"><button type="button" class="def" data-term="sheet">résumés</button>,</span> references, pricing, schedules, active <button type="button" class="def" data-term="pursuit">pursuit</button> drafts, response-evidence sidecars, complete <button type="button" class="def" data-term="local">local</button> sessions, email, chat history, credentials, contact details, or private <button type="button" class="def" data-term="local">local</button> paths.</p>
+<p>The later system can change the model, the storage layer, and the interface. It still has to preserve provenance, bounded retrieval, visible uncertainty, human story-selection gates, external-transmission controls, and independently reviewable outputs. Raw <button type="button" class="def" data-term="evidence">source</button> material remains <button type="button" class="def" data-term="local">local</button> unless separately approved.</p>
+<p>That split is part of why the work was adoptable. A marketing POC that requires IT to absorb every confidential file dies in review. A POC that can be rebuilt from behavior and fixtures can travel.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="how-it-was-used">How it was used</h2>
-<p>Primary use was Scottsdale marketing work: research for <button type="button" class="def" data-term="proposal">proposals</button> and <span class="keep"><button type="button" class="def" data-term="interview">interviews</button>.</span> When another person needed an ultra-specific, tightly sourced answer, they came to marketing rather than browsing the file tree themselves.</p>
+<p>Primary use was marketing work: research for <button type="button" class="def" data-term="proposal">proposals</button> and <span class="keep"><button type="button" class="def" data-term="interview">interviews</button>.</span> When another person needed an ultra-specific, tightly sourced answer, they came through that workflow rather than browsing the file tree themselves.</p>
 <p>Practical questions the system is built to answer:</p>
 <div class="asks">
 <p>What are the current drafts for this <button type="button" class="def" data-term="pursuit">pursuit</button> — not merely the newest file?</p>

@@ -262,7 +262,8 @@ html.projects-open .toggle__hide { opacity: 1; }
 
 html:has(.project--pursuit) { scroll-behavior: smooth; }
 
-.project--pursuit .project__section:has(> .project__heading) { margin-top: 64px; }
+.project--pursuit .project__section:has(> .project__heading),
+.project--pursuit .project__section:has(> .reveal .project__heading) { margin-top: 64px; }
 .project--pursuit .project__heading {
   color: var(--color-fg);
   font-size: 1.28rem;
@@ -620,4 +621,29 @@ html:has(.project--pursuit) { scroll-behavior: smooth; }
 
 @media (max-width: 720px) {
   .home.project .project__figure { width: 100%; }
+}
+
+.project--pursuit ol.changes {
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  counter-reset: change;
+}
+.project--pursuit ol.changes li {
+  counter-increment: change;
+  padding-left: 1.7em;
+}
+.project--pursuit ol.changes li::before {
+  content: counter(change) ".";
+  top: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  opacity: 0.72;
+  color: var(--color-fg);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
