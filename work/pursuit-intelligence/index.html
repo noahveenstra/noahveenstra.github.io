@@ -20,175 +20,318 @@
 <main class="home project project--pursuit">
 <div class="reveal"><div>
 <h1 class="project__title">Pursuit Intelligence</h1>
-<p class="project__meta">A local evidence library for AEC proposal and interview work</p>
-<p class="project__meta">Role: concept, data model, ingestion, retrieval, evidence rules</p>
-<p class="project__meta">Scope: 1,334 proposals · local-first · national IT build-out in progress</p>
+<p class="project__meta">A local <button type="button" class="def" data-term="evidence">evidence</button> library for <button type="button" class="def" data-term="aec">AEC</button> <button type="button" class="def" data-term="proposal">proposal</button> and <button type="button" class="def" data-term="interview">interview</button> work</p>
+<p class="project__meta">Role: concept, data model, ingestion, retrieval, <button type="button" class="def" data-term="evidence">evidence</button> rules</p>
+<p class="project__meta">Scope: 1,334 <button type="button" class="def" data-term="proposal">proposals</button> · <button type="button" class="def" data-term="local">local-first</button> · national IT build-out in progress</p>
 </div></div>
 <div class="reveal"><section class="project__section">
-<p>This is the most consequential thing I have built in my career. Not because it is a flashy model, but because it changed how proposal research gets done: find the story, read the bounded context, reopen the source, then decide whether the claim is safe to reuse.</p>
-<p><strong>One-liner:</strong> I designed and built a private, local-first knowledge system that turned more than a thousand proposal records — plus people, projects, pursuit history, and source documents — into a searchable, evidence-traceable decision library. The proof of concept was strong enough that IT is now building a national version.</p>
-<p><strong>Role:</strong> Marketing professional. I owned the problem, the information architecture, the ingestion, the retrieval design, the quality rules, and the operating loop. I did not hand a brief to engineering and wait. I built the working system on a local machine and used it on live marketing, proposal, pursuit, and interview work.</p>
-<p><strong>Public note:</strong> This write-up stays generic. It does not name clients or owners, quote proposal language, or publish pricing, schedules, personnel details, credentials, or unresolved internal records.</p>
+<p>This is the most consequential thing I have built in my career. Not because it is a flashy model, but because it changed how <button type="button" class="def" data-term="proposal">proposal</button> research gets done: find the story, read the bounded context, reopen the <button type="button" class="def" data-term="evidence">source</button>, then decide whether the claim is safe to reuse.</p>
+<p>I designed and built a private, <button type="button" class="def" data-term="local">local-first</button> knowledge system that turned more than a thousand <button type="button" class="def" data-term="proposal">proposal</button> records — plus people, projects, <button type="button" class="def" data-term="pursuit">pursuit</button> history, and <button type="button" class="def" data-term="evidence">source</button> documents — into a searchable, evidence-traceable decision library. The proof of concept was strong enough that IT is now building a national version.</p>
+<p>Marketing professional. I owned the problem, the information architecture, the ingestion, the retrieval design, the quality rules, and the operating loop. I did not hand a brief to engineering and wait. I built the working system on a local machine and used it on live marketing, <button type="button" class="def" data-term="proposal">proposal</button>, <button type="button" class="def" data-term="pursuit">pursuit</button>, and <button type="button" class="def" data-term="interview">interview</button> work.</p>
+<p class="note"><strong>Public note:</strong> This write-up stays generic. It does not name clients or <button type="button" class="def" data-term="owner">owners</button>, quote <button type="button" class="def" data-term="proposal">proposal</button> language, or publish pricing, schedules, personnel details, credentials, or unresolved internal records.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
-<h2 class="project__heading">If you are not in AEC</h2>
-<p>Construction firms do not usually sell from a catalog. They compete for individual jobs. An owner (the client) issues a request for qualifications or a proposal. The contractor’s marketing team writes a response that argues: we have done this kind of work, with this kind of team, in this kind of constraint. The evidence that actually lands is not a slogan. It is a <strong>project story</strong> — a specific account of what happened on a real job.</p>
-<p>That is the industry context for this system. The rest of the page uses the terms below.</p>
-<h3>Glossary</h3>
-<dl class="project__glossary">
-<dt>AEC</dt>
-<dd>Architecture, engineering, and construction. The industry this work sits in. The firm here is a contractor competing for building projects.</dd>
-<dt>Owner</dt>
-<dd>The client. A school district, hospital system, city, developer, or other organization paying for the building. In a proposal, “how we worked with the owner” means how the contractor communicated, solved problems, and protected the client’s operations while construction was underway.</dd>
-<dt>Architect</dt>
-<dd>The design firm. Contractors and architects have to coordinate constantly. A strong proposal often has to show that this contractor has already worked well with a given architect or design approach — not just that it can pour concrete.</dd>
-<dt>Pursuit</dt>
-<dd>A live chase for a specific job. From the first owner document through the written proposal and, if you advance, the interview. “Pursuit work” is the intelligence and writing tied to that chase.</dd>
-<dt>Proposal</dt>
-<dd>The formal written response. It is part marketing document, part evidence file: team résumés, project examples, schedules, safety, and answers to the owner’s exact questions.</dd>
-<dt>RFQ / RFP</dt>
-<dd>Request for Qualifications / Request for Proposals. The owner’s packet that says what they want and how they will score responses. An “RFQ-to-response record” in this system is: what they asked, how the firm answered, what evidence was used, and what limits still apply.</dd>
-<dt>Interview</dt>
-<dd>The shortlist meeting after the written proposal. Marketing and operations prepare talking points, project examples, and team chemistry. Bad or unverified stories are expensive here.</dd>
-<dt>Project story</dt>
-<dd>The reusable narrative of a real job: the constraint, what the team did in the field, how they worked with the owner and architect, how trades were coordinated, and what that proves for the next pursuit. This is the content that carries weight. A project name on a slide is not a story.</dd>
-<dt>Authorized story</dt>
-<dd>A project story that has been reviewed and cleared for reuse. In this system, thousands of projects can exist as records. Only a small set is treated as an authorized story. That gap is intentional.</dd>
-<dt>Project sheet / résumé row</dt>
-<dd>A short listing of a job on a person’s résumé or a one-page project cut sheet. Useful as a lead. Not automatically a story, and not proof that the person performed every task listed nearby.</dd>
-<dt>Project manager (PM)</dt>
-<dd>The contractor’s lead for running the job — schedule, budget, owner communication, trade coordination. Historically the person marketing called when they needed a story.</dd>
-<dt>Superintendent</dt>
-<dd>The contractor’s lead on the jobsite. Closest to what actually happened in the field. Also historically on the other end of that phone call.</dd>
-<dt>Subcontractor / trade</dt>
-<dd>Specialist firms the contractor hires (electrical, mechanical, concrete, and so on). “How we coordinated other trades” is often the difference between a generic capability claim and a believable field story.</dd>
-<dt>Business unit</dt>
-<dd>An internal division of the firm (by region, market, or type of work). Stories, people, and past pursuits belong to units. Connecting those links is part of what the system does.</dd>
-<dt>Preconstruction</dt>
-<dd>Work before groundbreaking: estimating, scheduling, constructability review, phasing, and helping the owner and architect make the job buildable. “Public-safety preconstruction” means that kind of planning on a police, fire, or similar facility.</dd>
-<dt>Occupied-campus phasing</dt>
-<dd>Building or renovating while the place stays open — a school in session, a hospital treating patients. High-stakes storytelling because the owner cares as much about not disrupting operations as about the finished building.</dd>
-<dt>Delivery method</dt>
-<dd>How the contract is structured (design-bid-build, CM at risk, design-build, and so on). Past response strategy often hinges on matching the owner’s delivery method, not just the building type.</dd>
-<dt>Evidence / source</dt>
-<dd>The governing document a claim came from: a page in an old proposal, an owner RFQ, a project fact sheet. “Verify” means reopen that page before the claim is reused.</dd>
-<dt>Local-first / on disk</dt>
-<dd>The corpus lives on a private local filesystem. It is not a shared team platform. Sensitive proposal, people, and project material is not uploaded to a cloud search product as the default workflow.</dd>
-</dl>
+<h2 class="project__heading">If you are not in <button type="button" class="def" data-term="aec">AEC</button></h2>
+<p>Construction firms do not usually sell from a catalog. They compete for individual jobs. An <button type="button" class="def" data-term="owner">owner</button> (the client) issues a <button type="button" class="def" data-term="rfq">request for qualifications</button> or a <button type="button" class="def" data-term="proposal">proposal</button>. The contractor’s marketing team writes a response that argues: we have done this kind of work, with this kind of team, in this kind of constraint. The <button type="button" class="def" data-term="evidence">evidence</button> that actually lands is not a slogan. It is a <button type="button" class="def" data-term="project-story">project story</button> — a specific account of what happened on a real job.</p>
+<p>That is the industry context for this system.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">The problem</h2>
-<p>In AEC marketing, the gold is the project story. What the company actually did in the field. How it worked with the owner. How it worked with the architect. How it coordinated other trades. Those stories carry a proposal. Capability slides do not.</p>
-<p>The firm had been writing those stories for years. It had not cataloged them. There was no reliable place to ask a specific question and get a specific, sourced answer. The shared catalog that existed was incomplete and never sharp enough from pursuit to pursuit.</p>
-<p>The real workflow was a phone call. Marketing called the project manager or superintendent, hoped they picked up, and often got pointed to another proposal someone had already been told to write. That was slow, uneven, and easy to treat as fact when it was only memory.</p>
-<p>The hidden risk was worse than slowness. Once a team starts “searching” old files with AI, it becomes easy to repeat an unsupported claim: a person who merely appeared in a proposal becomes “the PM on that job,” a résumé row becomes a project story, a shared project becomes proven collaboration, a win label becomes a causal theory. I needed something that made proposal work faster without making bad claims easier to recycle.</p>
+<p>In <button type="button" class="def" data-term="aec">AEC</button> marketing, the gold is the <button type="button" class="def" data-term="project-story">project story</button>. What the company actually did in the field. How it worked with the <button type="button" class="def" data-term="owner">owner</button>. How it worked with the <button type="button" class="def" data-term="architect">architect</button>. How it coordinated other <button type="button" class="def" data-term="trade">trades</button>. Those stories carry a <button type="button" class="def" data-term="proposal">proposal</button>. Capability slides do not.</p>
+<p>The firm had been writing those stories for years. It had not cataloged them. There was no reliable place to ask a specific question and get a specific, sourced answer. The shared catalog that existed was incomplete and never sharp enough from <button type="button" class="def" data-term="pursuit">pursuit</button> to <button type="button" class="def" data-term="pursuit">pursuit</button>.</p>
+<p>The real workflow was a phone call. Marketing called the <button type="button" class="def" data-term="pm">project manager</button> or <button type="button" class="def" data-term="superintendent">superintendent</button>, hoped they picked up, and often got pointed to another <button type="button" class="def" data-term="proposal">proposal</button> someone had already been told to write. That was slow, uneven, and easy to treat as fact when it was only memory.</p>
+<p>The hidden risk was worse than slowness. Once a team starts “searching” old files with AI, it becomes easy to repeat an unsupported claim: a person who merely appeared in a <button type="button" class="def" data-term="proposal">proposal</button> becomes “the <button type="button" class="def" data-term="pm">PM</button> on that job,” a <button type="button" class="def" data-term="sheet">résumé row</button> becomes a <button type="button" class="def" data-term="project-story">project story</button>, a shared project becomes proven collaboration, a win label becomes a causal theory. I needed something that made <button type="button" class="def" data-term="proposal">proposal</button> work faster without making bad claims easier to recycle.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">What I built</h2>
-<p>I built a private, local-first evidence and retrieval system on disk — markdown source material, structured records, and a relationship layer — organized around a simple loop:</p>
-<p><strong>SEARCH → READ → VERIFY</strong></p>
-<p>Search returns a small, decision-ready shortlist. Reading opens bounded context. Verification reopens the governing source before a fact, metric, role, story, or commitment is reused.</p>
-<p>This was not a multi-user product. It was a working library on a local computer, used for Scottsdale marketing, proposal, pursuit, and interview work. When someone outside marketing needed an ultra-specific story, they came to the person who had the system.</p>
+<p>I built a private, <button type="button" class="def" data-term="local">local-first</button> <button type="button" class="def" data-term="evidence">evidence</button> and retrieval system <button type="button" class="def" data-term="local">on disk</button> — markdown <button type="button" class="def" data-term="evidence">source</button> material, structured records, and a relationship layer — organized around a simple loop:</p>
+<p class="loop">SEARCH → READ → VERIFY</p>
+<div class="steps">
+<p>Search returns a small, decision-ready shortlist.</p>
+<p>Reading opens bounded context.</p>
+<p>Verification reopens the governing <button type="button" class="def" data-term="evidence">source</button> before a fact, metric, role, story, or commitment is reused.</p>
+</div>
+<p>This was not a multi-user product. It was a working library on a local computer, used for Scottsdale marketing, <button type="button" class="def" data-term="proposal">proposal</button>, <button type="button" class="def" data-term="pursuit">pursuit</button>, and <button type="button" class="def" data-term="interview">interview</button> work. When someone outside marketing needed an ultra-specific story, they came to the person who had the system.</p>
 <p>The system is organized around four zones:</p>
-<table class="project__table">
-<thead><tr><th>Zone</th><th>Job</th></tr></thead>
-<tbody>
-<tr><td>Intake</td><td>New material sits here until it is classified and checked</td></tr>
-<tr><td>Evidence</td><td>Converted source material and locators so a claim can be reopened</td></tr>
-<tr><td>Reusable knowledge</td><td>Controlled people, project, story, strategy, relationship, and response records</td></tr>
-<tr><td>Pursuit work</td><td>Compact pursuit intelligence and interview material; live production stays in the proposal workspace</td></tr>
-</tbody>
-</table>
-<p>It is not a task tracker. It is not the live proposal file. It is not permission to treat a search hit as client-ready copy. It is a decision library with boundaries.</p>
+<div class="zones">
+<h3>Intake</h3>
+<p>New material sits here until it is classified and checked.</p>
+<h3><button type="button" class="def" data-term="evidence">Evidence</button></h3>
+<p>Converted <button type="button" class="def" data-term="evidence">source</button> material and locators so a claim can be reopened.</p>
+<h3>Reusable knowledge</h3>
+<p>Controlled people, project, story, strategy, relationship, and response records.</p>
+<h3><button type="button" class="def" data-term="pursuit">Pursuit</button> work</h3>
+<p>Compact <button type="button" class="def" data-term="pursuit">pursuit</button> intelligence and <button type="button" class="def" data-term="interview">interview</button> material; live production stays in the <button type="button" class="def" data-term="proposal">proposal</button> workspace.</p>
+</div>
+<p>It is not a task tracker. It is not the live <button type="button" class="def" data-term="proposal">proposal</button> file. It is not permission to treat a search hit as client-ready copy. It is a decision library with boundaries.</p>
 <h3>Current scale</h3>
 <ul>
-<li>1,334 proposal records</li>
+<li>1,334 <button type="button" class="def" data-term="proposal">proposal</button> records</li>
 <li>8,705 canonical project views</li>
 <li>317 controlled people profiles</li>
-<li>9 authorized project stories (on purpose — a story is a reviewed object, not every project page)</li>
-<li>137 RFQ-to-response strategy records</li>
-<li>140 pursuit workspaces</li>
-<li>38,297 evidence files, including 37,928 markdown derivatives</li>
+<li>9 <button type="button" class="def" data-term="authorized">authorized project stories</button> (on purpose — a story is a reviewed object, not every project page)</li>
+<li>137 <button type="button" class="def" data-term="rfq">RFQ-to-response</button> strategy records</li>
+<li>140 <button type="button" class="def" data-term="pursuit">pursuit</button> workspaces</li>
+<li>38,297 <button type="button" class="def" data-term="evidence">evidence</button> files, including 37,928 markdown derivatives</li>
 </ul>
-<p>Those numbers matter less than the distinction they encode. The system can hold thousands of project views and still refuse to call something an authorized story until it earns that status.</p>
+<p>Those numbers matter less than the distinction they encode. The system can hold thousands of project views and still refuse to call something an <button type="button" class="def" data-term="authorized">authorized story</button> until it earns that status.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">What made it more than a search box</h2>
 <h3>1. A usable front door</h3>
 <p>Folder-browsing stopped being the primary experience. A plain-language question returns a shortlist instead of a pile of PDFs.</p>
 <h3>2. Storage is not authority</h3>
-<p>Original evidence, reusable knowledge, intake/health controls, historical pursuit intelligence, and live proposal production are separate. A generated registry, search card, or AI context packet cannot quietly pose as an independent source.</p>
+<p>Original <button type="button" class="def" data-term="evidence">evidence</button>, reusable knowledge, intake/health controls, historical <button type="button" class="def" data-term="pursuit">pursuit</button> intelligence, and live <button type="button" class="def" data-term="proposal">proposal</button> production are separate. A generated registry, search card, or AI context packet cannot quietly pose as an independent <button type="button" class="def" data-term="evidence">source</button>.</p>
 <h3>3. Evidence-aware retrieval</h3>
-<p>A structured relationship mesh, bounded full-text indexes, source-aware markdown records, and a local semantic-search pilot route questions about projects, people, proposals, authorized stories, relationships, and decisions. Keyword matches are not treated as equal. Private text stays local.</p>
+<p>A structured relationship mesh, bounded full-text indexes, source-aware markdown records, and a local semantic-search pilot route questions about projects, people, <button type="button" class="def" data-term="proposal">proposals</button>, <button type="button" class="def" data-term="authorized">authorized stories</button>, relationships, and decisions. Keyword matches are not treated as equal. Private text stays local.</p>
 <h3>4. Quality control is the product</h3>
 <p>The system keeps separate routes for:</p>
 <ul>
-<li>reported work vs. a person merely appearing in a proposal</li>
-<li>an authorized project story vs. a project description or résumé row</li>
+<li>reported work vs. a person merely appearing in a <button type="button" class="def" data-term="proposal">proposal</button></li>
+<li>an <button type="button" class="def" data-term="authorized">authorized project story</button> vs. a project description or <button type="button" class="def" data-term="sheet">résumé row</button></li>
 <li>a proposed team roster vs. verified direct collaboration</li>
-<li>a source fact vs. an inference, recommendation, or unresolved hypothesis</li>
+<li>a <button type="button" class="def" data-term="evidence">source</button> fact vs. an inference, recommendation, or unresolved hypothesis</li>
 <li>a current working draft vs. a file that was only edited recently</li>
 </ul>
-<p>Those distinctions are the main quality control. They stop a convenient result from becoming a stronger claim than the source supports.</p>
+<p>Those distinctions are the main quality control. They stop a convenient result from becoming a stronger claim than the <button type="button" class="def" data-term="evidence">source</button> supports.</p>
 <h3>5. Strategy is preserved, not just documents</h3>
-<p>Historical RFQ-to-response records capture what the owner asked, how the firm answered, what evidence was used, what intent was documented, and what limits remain. Past work becomes a response pattern. A win, a loss, or a folder label is not treated as proof of causation.</p>
+<p>Historical <button type="button" class="def" data-term="rfq">RFQ-to-response</button> records capture what the <button type="button" class="def" data-term="owner">owner</button> asked, how the firm answered, what <button type="button" class="def" data-term="evidence">evidence</button> was used, what intent was documented, and what limits remain. Past work becomes a response pattern. A win, a loss, or a folder label is not treated as proof of causation.</p>
 <h3>6. People, projects, and relationships are canonical</h3>
-<p>Controlled profiles and routes cover proposal-use links, worked-on links, attributed projects, architect and client connections, authorized stories, team contexts, typed relationships, and direct collaboration observations. Generated views make the graph navigable without erasing evidence boundaries.</p>
+<p>Controlled profiles and routes cover proposal-use links, worked-on links, attributed projects, <button type="button" class="def" data-term="architect">architect</button> and client connections, <button type="button" class="def" data-term="authorized">authorized stories</button>, team contexts, typed relationships, and direct collaboration observations. Generated views make the graph navigable without erasing <button type="button" class="def" data-term="evidence">evidence</button> boundaries.</p>
 <h3>7. Human-and-AI memory with a review gate</h3>
 <p>Insights, corrections, questions, decision signals, and relationships can be captured as small review-required records. A conversation is provenance for the capture — not automatic proof of a role, metric, outcome, collaboration, or commitment. Nothing promotes to fact without a person.</p>
 <h3>8. Maintenance that makes gaps visible</h3>
-<p>Intake checkpoints, source-availability records, link checks, generated-view validators, retrieval freshness checks, health reports, review queues, and golden retrieval tests. A clean search result is not allowed to hide missing originals, unresolved names, or source conflicts.</p>
+<p>Intake checkpoints, source-availability records, link checks, generated-view validators, retrieval freshness checks, health reports, review queues, and golden retrieval tests. A clean search result is not allowed to hide missing originals, unresolved names, or <button type="button" class="def" data-term="evidence">source</button> conflicts.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">How it was used</h2>
-<p>Primary use was Scottsdale marketing work: research for proposals and interviews. When another person needed an ultra-specific, tightly sourced answer, they came to marketing rather than browsing the file tree themselves.</p>
+<p>Primary use was Scottsdale marketing work: research for <button type="button" class="def" data-term="proposal">proposals</button> and <button type="button" class="def" data-term="interview">interviews</button>. When another person needed an ultra-specific, tightly sourced answer, they came to marketing rather than browsing the file tree themselves.</p>
 <p>Practical questions the system is built to answer:</p>
-<ul>
-<li>What are the current drafts for this pursuit — not merely the newest file?</li>
-<li>What is our strongest reviewed example for a construction problem (occupied-campus phasing, public-safety preconstruction, a delivery constraint)?</li>
-<li>Who has reported experience here, without collapsing a proposal appearance into performed work?</li>
-<li>How did we answer a similar RFQ question, including evidence choice and reuse limits?</li>
-<li>Where does this metric, role, result, or owner requirement live in the governing source?</li>
-<li>Can I hand another person or an AI a bounded context packet with excerpts, locators, status, constraints, and instructions to flag missing evidence instead of inventing it?</li>
-<li>Is the knowledge base healthy enough to rely on today?</li>
-</ul>
+<div class="asks">
+<p>What are the current drafts for this <button type="button" class="def" data-term="pursuit">pursuit</button> — not merely the newest file?</p>
+<p>What is our strongest reviewed example for a construction problem (<button type="button" class="def" data-term="occupied">occupied-campus phasing</button>, <button type="button" class="def" data-term="preconstruction">public-safety preconstruction</button>, a delivery constraint)?</p>
+<p>Who has reported experience here, without collapsing a <button type="button" class="def" data-term="proposal">proposal</button> appearance into performed work?</p>
+<p>How did we answer a similar <button type="button" class="def" data-term="rfq">RFQ</button> question, including <button type="button" class="def" data-term="evidence">evidence</button> choice and reuse limits?</p>
+<p>Where does this metric, role, result, or <button type="button" class="def" data-term="owner">owner</button> requirement live in the governing <button type="button" class="def" data-term="evidence">source</button>?</p>
+<p>Can I hand another person or an AI a bounded context packet with excerpts, locators, status, constraints, and instructions to flag missing <button type="button" class="def" data-term="evidence">evidence</button> instead of inventing it?</p>
+<p>Is the knowledge base healthy enough to rely on today?</p>
+</div>
 <p><strong>Before:</strong> story hunting meant calling the field and hoping.</p>
 <p><strong>After:</strong> a normal-language question, a shortlist, and a path back to the page.</p>
-<p>Time dropped from an unreliable phone tree to a few minutes. The more important change was trust. Research could move faster <em>and</em> reopen the source before a claim entered a proposal, interview, or briefing.</p>
+<p>Time dropped from an unreliable phone tree to a few minutes. The more important change was trust. Research could move faster <em>and</em> reopen the <button type="button" class="def" data-term="evidence">source</button> before a claim entered a <button type="button" class="def" data-term="proposal">proposal</button>, <button type="button" class="def" data-term="interview">interview</button>, or briefing.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">Why this was a career-defining piece of work</h2>
 <p>Most marketing systems store files. This one stores <strong>judgment rules</strong>.</p>
-<p>It made the firm’s best writing reusable without turning institutional memory into folklore. It gave marketing a front door that felt like asking a colleague, then forced the colleague to show their work. It let AI operate on local context packets — excerpts, paths, page or row locators, evidence status, review limits, omissions — without treating the model as an author of record.</p>
+<p>It made the firm’s best writing reusable without turning institutional memory into folklore. It gave marketing a front door that felt like asking a colleague, then forced the colleague to show their work. It let AI operate on local context packets — excerpts, paths, page or row locators, <button type="button" class="def" data-term="evidence">evidence</button> status, review limits, omissions — without treating the model as an author of record.</p>
 <p>It also stayed honest about what it does not prove:</p>
 <ul>
 <li>A search result identifies a place to read. It does not prove the claim.</li>
-<li>Appearing in a proposal does not mean a person performed every example project.</li>
-<li>A résumé, project sheet, or project page is not automatically a project story.</li>
+<li>Appearing in a <button type="button" class="def" data-term="proposal">proposal</button> does not mean a person performed every example project.</li>
+<li>A <button type="button" class="def" data-term="sheet">résumé</button>, <button type="button" class="def" data-term="sheet">project sheet</button>, or project page is not automatically a <button type="button" class="def" data-term="project-story">project story</button>.</li>
 <li>Sharing a project does not prove two people collaborated.</li>
-<li>A generated index, relationship edge, or AI packet is not independent evidence.</li>
-<li>A win/loss label does not explain why the pursuit was won or lost.</li>
-<li>A passing health check on one control is not a full source audit.</li>
+<li>A generated index, relationship edge, or AI packet is not independent <button type="button" class="def" data-term="evidence">evidence</button>.</li>
+<li>A win/loss label does not explain why the <button type="button" class="def" data-term="pursuit">pursuit</button> was won or lost.</li>
+<li>A passing health check on one control is not a full <button type="button" class="def" data-term="evidence">source</button> audit.</li>
 </ul>
 <p>That restraint is why the system was credible enough to grow. A POC that only “finds stuff” gets demoed. A POC that refuses to over-claim gets adopted.</p>
-<p>The working system on a private local disk was enough proof of value that <strong>IT is now building it out for national rollout</strong>. I created the model of record: the zones, the routes, the evidence rules, the people/project/story/strategy graph, and the SEARCH → READ → VERIFY loop the larger build has to honor.</p>
+<p>The working system on a private <button type="button" class="def" data-term="local">local disk</button> was enough proof of value that <strong>IT is now building it out for national rollout</strong>. I created the model of record: the zones, the routes, the <button type="button" class="def" data-term="evidence">evidence</button> rules, the people/project/story/strategy graph, and the SEARCH → READ → VERIFY loop the larger build has to honor.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading">Impact</h2>
-<ul>
-<li><strong>Scope:</strong> 1,334 proposal records; 8,705 project views; 317 people profiles; 140 pursuit workspaces; tens of thousands of evidence files</li>
-<li><strong>Form:</strong> private local-first library, not a shared team platform</li>
-<li><strong>Users:</strong> used on live marketing, proposal, pursuit, and interview work; others requested ultra-specific stories through that workflow</li>
-<li><strong>Speed:</strong> story research from an unreliable field call to minutes</li>
-<li><strong>Quality:</strong> authorized stories and verified collaboration kept separate from convenient lookalikes</li>
-<li><strong>Confidentiality:</strong> sensitive proposal, people, and project material stayed on disk</li>
-<li><strong>Outcome:</strong> internal proof of concept now being productized by IT for national use</li>
-</ul>
+<div class="zones">
+<h3>Scope</h3>
+<p>1,334 <button type="button" class="def" data-term="proposal">proposal</button> records; 8,705 project views; 317 people profiles; 140 <button type="button" class="def" data-term="pursuit">pursuit</button> workspaces; tens of thousands of <button type="button" class="def" data-term="evidence">evidence</button> files</p>
+<h3>Form</h3>
+<p>private <button type="button" class="def" data-term="local">local-first</button> library, not a shared team platform</p>
+<h3>Users</h3>
+<p>used on live marketing, <button type="button" class="def" data-term="proposal">proposal</button>, <button type="button" class="def" data-term="pursuit">pursuit</button>, and <button type="button" class="def" data-term="interview">interview</button> work; others requested ultra-specific stories through that workflow</p>
+<h3>Speed</h3>
+<p>story research from an unreliable field call to minutes</p>
+<h3>Quality</h3>
+<p><button type="button" class="def" data-term="authorized">authorized stories</button> and verified collaboration kept separate from convenient lookalikes</p>
+<h3>Confidentiality</h3>
+<p>sensitive <button type="button" class="def" data-term="proposal">proposal</button>, people, and project material stayed <button type="button" class="def" data-term="local">on disk</button></p>
+<h3>Outcome</h3>
+<p>internal proof of concept now being productized by IT for national use</p>
+</div>
 </section></div>
 <div class="reveal"><section class="project__section">
-<p>I am a marketing professional. I built the intelligence layer that connected proposals, people, projects, and pursuit strategy into something I could actually use on live work — and I designed it so speed never outran the source.</p>
+<p>I am a marketing professional. I built the intelligence layer that connected <button type="button" class="def" data-term="proposal">proposals</button>, people, projects, and <button type="button" class="def" data-term="pursuit">pursuit</button> strategy into something I could actually use on live work — and I designed it so speed never outran the <button type="button" class="def" data-term="evidence">source</button>.</p>
 </section></div>
 </main>
+<script>
+(() => {
+  const TERMS = {
+  "aec": [
+    "AEC",
+    "Architecture, engineering, and construction. The industry this work sits in. The firm here is a contractor competing for building projects."
+  ],
+  "owner": [
+    "Owner",
+    "The client. A school district, hospital system, city, developer, or other organization paying for the building. In a proposal, “how we worked with the owner” means how the contractor communicated, solved problems, and protected the client’s operations while construction was underway."
+  ],
+  "architect": [
+    "Architect",
+    "The design firm. Contractors and architects have to coordinate constantly. A strong proposal often has to show that this contractor has already worked well with a given architect or design approach — not just that it can pour concrete."
+  ],
+  "pursuit": [
+    "Pursuit",
+    "A live chase for a specific job. From the first owner document through the written proposal and, if you advance, the interview. “Pursuit work” is the intelligence and writing tied to that chase."
+  ],
+  "proposal": [
+    "Proposal",
+    "The formal written response. It is part marketing document, part evidence file: team résumés, project examples, schedules, safety, and answers to the owner’s exact questions."
+  ],
+  "rfq": [
+    "RFQ / RFP",
+    "Request for Qualifications / Request for Proposals. The owner’s packet that says what they want and how they will score responses. An “RFQ-to-response record” in this system is: what they asked, how the firm answered, what evidence was used, and what limits still apply."
+  ],
+  "interview": [
+    "Interview",
+    "The shortlist meeting after the written proposal. Marketing and operations prepare talking points, project examples, and team chemistry. Bad or unverified stories are expensive here."
+  ],
+  "project-story": [
+    "Project story",
+    "The reusable narrative of a real job: the constraint, what the team did in the field, how they worked with the owner and architect, how trades were coordinated, and what that proves for the next pursuit. This is the content that carries weight. A project name on a slide is not a story."
+  ],
+  "authorized": [
+    "Authorized story",
+    "A project story that has been reviewed and cleared for reuse. In this system, thousands of projects can exist as records. Only a small set is treated as an authorized story. That gap is intentional."
+  ],
+  "sheet": [
+    "Project sheet / résumé row",
+    "A short listing of a job on a person’s résumé or a one-page project cut sheet. Useful as a lead. Not automatically a story, and not proof that the person performed every task listed nearby."
+  ],
+  "pm": [
+    "Project manager (PM)",
+    "The contractor’s lead for running the job — schedule, budget, owner communication, trade coordination. Historically the person marketing called when they needed a story."
+  ],
+  "superintendent": [
+    "Superintendent",
+    "The contractor’s lead on the jobsite. Closest to what actually happened in the field. Also historically on the other end of that phone call."
+  ],
+  "trade": [
+    "Subcontractor / trade",
+    "Specialist firms the contractor hires (electrical, mechanical, concrete, and so on). “How we coordinated other trades” is often the difference between a generic capability claim and a believable field story."
+  ],
+  "unit": [
+    "Business unit",
+    "An internal division of the firm (by region, market, or type of work). Stories, people, and past pursuits belong to units. Connecting those links is part of what the system does."
+  ],
+  "preconstruction": [
+    "Preconstruction",
+    "Work before groundbreaking: estimating, scheduling, constructability review, phasing, and helping the owner and architect make the job buildable. “Public-safety preconstruction” means that kind of planning on a police, fire, or similar facility."
+  ],
+  "occupied": [
+    "Occupied-campus phasing",
+    "Building or renovating while the place stays open — a school in session, a hospital treating patients. High-stakes storytelling because the owner cares as much about not disrupting operations as about the finished building."
+  ],
+  "delivery": [
+    "Delivery method",
+    "How the contract is structured (design-bid-build, CM at risk, design-build, and so on). Past response strategy often hinges on matching the owner’s delivery method, not just the building type."
+  ],
+  "evidence": [
+    "Evidence / source",
+    "The governing document a claim came from: a page in an old proposal, an owner RFQ, a project fact sheet. “Verify” means reopen that page before the claim is reused."
+  ],
+  "local": [
+    "Local-first / on disk",
+    "The corpus lives on a private local filesystem. It is not a shared team platform. Sensitive proposal, people, and project material is not uploaded to a cloud search product as the default workflow."
+  ]
+};
+  const tip = document.createElement("div");
+  tip.className = "def-tip";
+  tip.id = "def-tip";
+  tip.setAttribute("role", "tooltip");
+  tip.hidden = true;
+  const title = document.createElement("strong");
+  const body = document.createElement("div");
+  tip.append(title, body);
+  document.body.appendChild(tip);
+
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  let current = null;
+  let pinned = false;
+  let hideTimer = 0;
+
+  function place(btn) {
+    const r = btn.getBoundingClientRect();
+    const w = tip.offsetWidth;
+    const h = tip.offsetHeight;
+    let left = r.left + r.width / 2 - w / 2;
+    left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
+    let top = r.bottom + 8;
+    if (top + h > window.innerHeight - 10) top = Math.max(10, r.top - h - 8);
+    tip.style.left = left + "px";
+    tip.style.top = top + "px";
+  }
+
+  function show(btn, pin) {
+    const term = TERMS[btn.getAttribute("data-term")];
+    if (!term) return;
+    window.clearTimeout(hideTimer);
+    if (current && current !== btn) {
+      current.classList.remove("is-on");
+      current.setAttribute("aria-expanded", "false");
+    }
+    current = btn;
+    pinned = !!pin;
+    title.textContent = term[0];
+    body.textContent = term[1];
+    btn.classList.add("is-on");
+    btn.setAttribute("aria-describedby", "def-tip");
+    btn.setAttribute("aria-expanded", "true");
+    tip.hidden = false;
+    place(btn);
+  }
+
+  function hide(force) {
+    if (pinned && !force) return;
+    window.clearTimeout(hideTimer);
+    tip.hidden = true;
+    pinned = false;
+    if (!current) return;
+    current.classList.remove("is-on");
+    current.removeAttribute("aria-describedby");
+    current.setAttribute("aria-expanded", "false");
+    current = null;
+  }
+
+  document.querySelectorAll(".def").forEach((btn) => {
+    btn.setAttribute("aria-expanded", "false");
+    if (fine) {
+      btn.addEventListener("pointerenter", () => show(btn, false));
+      btn.addEventListener("pointerleave", () => {
+        hideTimer = window.setTimeout(() => hide(false), 90);
+      });
+    }
+    btn.addEventListener("focus", () => show(btn, false));
+    btn.addEventListener("blur", () => { if (!pinned) hide(false); });
+    btn.addEventListener("click", (event) => {
+      if (fine) return;
+      event.preventDefault();
+      if (current === btn && pinned) hide(true);
+      else show(btn, true);
+    });
+  });
+
+  tip.addEventListener("pointerenter", () => window.clearTimeout(hideTimer));
+  tip.addEventListener("pointerleave", () => {
+    if (!pinned) hideTimer = window.setTimeout(() => hide(false), 90);
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (tip.hidden) return;
+    const t = event.target;
+    if (t.closest && (t.closest(".def") || t.closest(".def-tip"))) return;
+    hide(true);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hide(true);
+  });
+  window.addEventListener("scroll", () => hide(true), { passive: true });
+})();
+</script>
 <script>
 (() => {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {

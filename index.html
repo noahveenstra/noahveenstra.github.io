@@ -19,6 +19,7 @@
 </script>
 </head>
 <body>
+<div id="work" class="work-anchor"></div>
 <main class="home">
   <div class="stage">
     <div class="intro">
@@ -27,7 +28,7 @@
           <h1 class="lede__name">Noah Veenstra</h1>
           <p>I bring design thinking to construction marketing, brands, live production, and worship leading, and I build the systems that hold it together.</p>
           <p><span><a href="mailto:noahveenstra@icloud.com">Email</a></span><span> and <a href="https://linkedin.com/in/noahveenstra" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></p>
-          <button class="projects-toggle" type="button" aria-expanded="false" aria-controls="work" aria-label="Projects">
+          <button class="projects-toggle" type="button" aria-expanded="false" aria-controls="work-list" aria-label="Projects">
             <span class="toggle__face" aria-hidden="true">
               <span class="toggle__projects">Projects</span>
               <span class="toggle__hide">Hide Projects</span>
@@ -36,7 +37,7 @@
         </section>
       </div>
     </div>
-    <div class="panel is-parked" id="work" inert aria-hidden="true">
+    <div class="panel is-parked" id="work-list" inert aria-hidden="true">
       <section class="work" aria-label="Work">
         <article class="piece piece--lead">
           <h2 class="piece__title"><a href="/work/pursuit-intelligence/">Pursuit Intelligence</a></h2>
@@ -71,7 +72,8 @@
     </div>
   </div>
 </main>
-<noscript><style>.home:not(.project){--open:1}.home:not(.project) .panel{position:static !important;visibility:visible !important;height:auto !important;max-height:none !important;overflow:visible !important;grid-template-rows:1fr !important;pointer-events:auto !important;left:auto !important}.projects-toggle{display:none !important}</style></noscript>
+<noscript><style>.home:not(.project) .stage{transform:none !important}.home:not(.project) .panel.is-parked{position:static !important;visibility:visible !important;height:auto !important;overflow:visible !important;grid-template-rows:1fr !important;pointer-events:auto !important;left:auto !important;margin-top:56px !important}.home:not(.project) .piece{opacity:1 !important;transform:none !important;filter:none !important}.projects-toggle{display:none !important}@media (min-width:1180px){.home:not(.project) .panel.is-parked{grid-column:2 !important;width:var(--col) !important}}</style></noscript>
+<script src="/assets/gsap.min.js"></script>
 <script src="/assets/home.js"></script>
 </body>
 </html>
