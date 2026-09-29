@@ -613,15 +613,13 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 }
 
 @media (max-width: 1179px) {
-  .term-bank:not([hidden]) { bottom: 0; }
-  .term-bank__panel {
-    border-bottom: 0;
-    border-radius: 12px 12px 0 0;
-    box-shadow: none;
+  .term-bank:not([hidden]) {
+    bottom: calc(16px + env(safe-area-inset-bottom));
   }
-  .term-bank.is-open .term-bank__panel,
-  .term-bank:focus-within .term-bank__panel {
-    box-shadow: 0 -10px 28px #0000002e;
+  .term-bank__panel {
+    background: var(--color-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px #0000001f;
   }
   .term-bank__toggle,
   .term-bank__all,
@@ -629,9 +627,6 @@ html:has(.page-nav) { scroll-behavior: smooth; }
     min-height: 44px;
     padding: 12px 14px;
     font-size: 15px;
-  }
-  .term-bank__toggle {
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 }
 
