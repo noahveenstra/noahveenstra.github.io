@@ -664,6 +664,7 @@ html:has(.page-nav) { scroll-behavior: smooth; }
 }
 
 /* Quiet structural guides follow the homepage's existing columns. */
+.home:not(.project) .stage { isolation: isolate; }
 .home:not(.project) .stage::before {
   content: "";
   position: absolute;
