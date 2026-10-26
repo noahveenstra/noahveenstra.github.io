@@ -662,3 +662,29 @@ html:has(.page-nav) { scroll-behavior: smooth; }
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
+
+/* Quiet structural guides follow the homepage's existing columns. */
+.home:not(.project) .stage { isolation: isolate; }
+.home:not(.project) .stage::before {
+  content: "";
+  position: absolute;
+  inset: -128px -16px -120px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--color-hair), var(--color-hair)) 16px 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-hair), var(--color-hair)) calc(16px + var(--col) + var(--gap) / 2) 0 / 1px 100% no-repeat,
+    linear-gradient(var(--color-hair), var(--color-hair)) calc(100% - 16px) 0 / 1px 100% no-repeat;
+  opacity: .5;
+}
+@media (max-width: 1179px) {
+  .home:not(.project) .stage::before {
+    inset: -88px -12px -96px;
+    background:
+      linear-gradient(var(--color-hair), var(--color-hair)) left top / 1px 100% no-repeat,
+      linear-gradient(var(--color-hair), var(--color-hair)) right top / 1px 100% no-repeat;
+  }
+}
+@media print {
+  .home:not(.project) .stage::before { display: none; }
+}
