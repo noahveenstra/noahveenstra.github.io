@@ -15,17 +15,31 @@
 <meta name="theme-color" content="#f8f8f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
 <style>
-.pursuit-workflow { margin: 3rem 0; padding: clamp(1.3rem, 3vw, 2.5rem); border: 1px solid currentColor; border-radius: 4px; }
-.pursuit-workflow__eyebrow { font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; opacity: .7; }
-.pursuit-workflow h3 { margin: .6rem 0; font-size: clamp(1.5rem, 3vw, 2rem); }
-.pursuit-workflow__caption { font-size: .9rem; opacity: .7; }
-.pursuit-workflow__diagram { overflow-x: auto; margin: 2rem 0; }
-.pursuit-workflow__diagram svg { display: block; max-width: 100%; height: auto; margin: auto; }
-.pursuit-workflow__fallback { line-height: 1.6; padding-left: 1.5rem; }
-.pursuit-workflow__example { border-top: 1px solid currentColor; padding-top: 1.5rem; }
-.pursuit-workflow__example p { margin: .8rem 0; }
-.pursuit-workflow__example blockquote { margin: 1.3rem 0; padding: .3rem 1.2rem; border-left: 2px solid currentColor; }
-.pursuit-workflow__source { font-size: .85rem; opacity: .7; }
+.pursuit-workflow { margin: 4rem 0; padding: 2.5rem 0 0; border-top: 1px solid var(--color-hair); }
+.pursuit-workflow__eyebrow { margin: 0 0 .8rem !important; color: var(--color-muted); font-size: .72rem !important; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+.pursuit-workflow h3 { margin: 0 0 .5rem; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.2; letter-spacing: -.03em; }
+.pursuit-workflow__caption { color: var(--color-muted); font-size: .83rem !important; line-height: 1.5; }
+.pursuit-workflow__diagram { margin: 2rem 0 1rem; padding: 1.4rem .7rem; overflow-x: auto; background: #f2f1ed; border-radius: 5px; color: #202522; }
+.pursuit-workflow__diagram svg { display: block; width: 100%; height: auto; margin: auto; }
+.pursuit-workflow__diagram svg text, .pursuit-workflow__diagram svg tspan { fill: #202522 !important; color: #202522 !important; font-family: Inter, system-ui, sans-serif !important; }
+.pursuit-workflow__diagram svg .edgePath path { stroke: #85908a !important; }
+.pursuit-workflow__fallback { color: #202522; list-style: decimal; margin: 0; padding-left: 1.5rem; font-size: .9rem; line-height: 1.6; }
+.pursuit-workflow__fallback li + li { margin-top: .45rem; }
+.pursuit-workflow__outcomes { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; margin: 0 0 2rem; color: var(--color-muted); font-size: .77rem; }
+.pursuit-workflow__outcomes strong { color: var(--color-fg); font-weight: 500; }
+.pursuit-workflow__example { border-top: 1px solid var(--color-hair); padding-top: 1.5rem; }
+.pursuit-workflow__example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+.pursuit-workflow__example p { margin: 0; font-size: .9rem; line-height: 1.55; }
+.pursuit-workflow__example .pursuit-workflow__eyebrow { margin-bottom: .55rem !important; }
+.pursuit-workflow__source { margin-top: .55rem !important; color: var(--color-muted); font-size: .75rem !important; }
+.pursuit-workflow__example blockquote { margin: 0; padding: 0 0 0 1rem; border-left: 2px solid #8eaaa3; }
+.pursuit-workflow__example blockquote strong { font-weight: 600; }
+.pursuit-workflow__note { margin-top: 1.4rem !important; }
+@media (max-width: 600px) {
+  .pursuit-workflow { margin: 3rem 0; }
+  .pursuit-workflow__diagram { padding: 1.1rem; }
+  .pursuit-workflow__example-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+}
 </style>
 </head>
 <body>
@@ -37,30 +51,31 @@
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="problem">The problem</h2><p>When a team proposes a firm for a construction project, a specific account of what happened on a past job can be more useful than a general list of capabilities. But those stories were scattered across years of proposals.</p><p>During one pursuit, we needed a particularly specific example. I knew the information was likely already there, but finding it meant combing through old documents or asking colleagues who might remember it. I wanted to take that search and recall burden off the team without taking away their discernment.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">Search, read, verify</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><p class="loop">SEARCH → READ → VERIFY</p><div class="steps"><p><strong>Search:</strong> Ask for the experience or information needed.</p><p><strong>Read:</strong> Review relevant results and surrounding context.</p><p><strong>Verify:</strong> Return to the original source before deciding whether the material fits the current proposal.</p></div><figure class="pursuit-workflow" aria-labelledby="workflow-title">
   <figcaption>
-    <p class="pursuit-workflow__eyebrow">Pursuit Intelligence / Workflow</p>
+    <p class="pursuit-workflow__eyebrow">The workflow</p>
     <h3 id="workflow-title">From search to supported reuse</h3>
     <p class="pursuit-workflow__caption">Illustrative workflow · entirely synthetic content · not a product screenshot</p>
   </figcaption>
-  <div class="pursuit-workflow__diagram" id="pursuit-diagram" role="img" aria-label="A person searches, the system returns candidates, and the person reads the note, checks the original, and decides whether to reuse, narrow, or defer the claim."></div>
-  <ol class="pursuit-workflow__fallback" id="pursuit-diagram-fallback">
-    <li>Person: describe the problem.</li>
-    <li>System: return story candidates.</li>
-    <li>Person: read the cited story note.</li>
-    <li>Person: open and compare the original.</li>
-    <li>Person: decide whether to reuse supported wording with a citation, narrow the claim, or defer reuse.</li>
-  </ol>
+  <div class="pursuit-workflow__diagram" id="pursuit-diagram" role="img" aria-label="A person searches. The system returns candidates. The person reads the note, checks the original, and decides whether to reuse the claim.">
+    <ol class="pursuit-workflow__fallback" id="pursuit-diagram-fallback">
+      <li>Person: search by problem.</li>
+      <li>System: return story candidates.</li>
+      <li>Person: read the cited note.</li>
+      <li>Person: check the original source.</li>
+      <li>Person: decide what is supported.</li>
+    </ol>
+  </div>
+  <div class="pursuit-workflow__outcomes"><span><strong>Supported</strong> · reuse with citation</span><span><strong>Partly supported</strong> · narrow the claim</span><span><strong>Unresolved</strong> · defer reuse</span></div>
   <div class="pursuit-workflow__example">
-    <p class="pursuit-workflow__eyebrow">A synthetic example</p>
-    <p><strong>Search:</strong> “occupied renovation pedestrian access phasing”</p>
-    <p><strong>Candidate:</strong> Lumenwood Learning Hub — occupied renovation. Temporary partitions and a marked pedestrian route supported access during an occupied renovation.</p>
-    <p class="pursuit-workflow__source">Lumenwood Qualifications · p. 12 · Candidate; verify source before reuse.</p>
-    <p><strong>Read in context:</strong> Adjacent rooms remained in use. The story note reports no measured disruption or schedule result.</p>
-    <blockquote>
-      <p><strong>Fictional past proposal · p. 12</strong></p>
-      <p>During the renovation, <strong>temporary partitions</strong> separated work zones from rooms that remained in use. A <strong>marked pedestrian route</strong> maintained access to the main entrance. The route changed as each work zone moved.</p>
-    </blockquote>
-    <p><strong>Human decision:</strong> Reuse the documented access measures with the citation. Do not claim zero disruption or schedule savings. Defer reuse if the original is unavailable, conflicting or insufficient.</p>
-    <p class="pursuit-workflow__caption">Retrieval surfaces a candidate; it does not verify the claim or approve its reuse.</p>
+    <p class="pursuit-workflow__eyebrow">One illustrative example</p>
+    <div class="pursuit-workflow__example-grid">
+      <div><p class="pursuit-workflow__eyebrow">01 / Search</p><p>“occupied renovation pedestrian access phasing”</p></div>
+      <div><p class="pursuit-workflow__eyebrow">02 / Candidate</p><p><strong>Lumenwood Learning Hub</strong> — occupied renovation. Temporary partitions and a marked pedestrian route supported access.</p><p class="pursuit-workflow__source">Lumenwood Qualifications · p. 12 · Candidate; verify before reuse.</p></div>
+      <div><p class="pursuit-workflow__eyebrow">03 / Read the note</p><p>Adjacent rooms remained in use. The note reports no measured disruption or schedule result.</p></div>
+      <div><p class="pursuit-workflow__eyebrow">04 / Compare the source</p><blockquote><p>“During the renovation, <strong>temporary partitions</strong> separated work zones from rooms that remained in use. A <strong>marked pedestrian route</strong> maintained access to the main entrance. The route changed as each work zone moved.”</p></blockquote><p class="pursuit-workflow__source">Fictional past proposal · p. 12</p></div>
+      <div><p class="pursuit-workflow__eyebrow">05 / Human decision</p><p>Reuse the documented access measures with the citation. Do not claim zero disruption or schedule savings.</p></div>
+      <div><p class="pursuit-workflow__eyebrow">When evidence is insufficient</p><p>Defer reuse if the original is unavailable, conflicting or insufficient.</p></div>
+    </div>
+    <p class="pursuit-workflow__caption pursuit-workflow__note">Retrieval surfaces a candidate; it does not verify the claim or approve its reuse.</p>
   </div>
 </figure><p>The goal was to offload the work of remembering where information lives, while keeping a person responsible for interpreting and applying it.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="example">Finding a story that fit</h2><p>For one pursuit, we needed to know whether the firm had hosted a career fair on a previous project with a particular community context. Relevant projects were a small part of the portfolio, making it a difficult story to locate by memory.</p><p>After a few minutes, the system surfaced a relevant career-fair story from a prior proposal and adapted its wording for the current pursuit. I then asked for a screenshot of the original source page so I could compare the proposed wording with what the source actually said.</p><p>This is one example of my own use, not a measured average search time or a claim that every result is correct.</p></section></div>
@@ -152,25 +167,20 @@ window.TERM_KEY = "pursuit-known-terms";
 </script>
 <script type="module">
   const target = document.getElementById("pursuit-diagram");
-  const fallback = document.getElementById("pursuit-diagram-fallback");
-  const definition = `flowchart TD
-    A["Person: describe the problem"] --> B["System: return story candidates"]
-    B --> C["Person: read the cited story note"]
-    C --> D["Person: open and compare the original"]
-    D --> E{"Person: is the intended claim supported?"}
-    E -->|Yes| F["Reuse supported wording with citation"]
-    E -->|Partly| G["Narrow the claim"]
-    E -->|Unavailable or unresolved| H["Defer reuse"]
-    classDef human fill:#f4eee7,stroke:#a8694c,color:#242424
-    classDef system fill:#eaf3f1,stroke:#527e78,color:#242424
-    class A,C,D,E,F,G,H human
+  const definition = `flowchart ${matchMedia("(max-width: 600px)").matches ? "TD" : "LR"}
+    A("1 · PERSON: Search") --> B("2 · SYSTEM: Retrieve")
+    B --> C("3 · PERSON: Read")
+    C --> D("4 · PERSON: Verify")
+    D --> E("5 · PERSON: Decide")
+    classDef person fill:#ffffff,stroke:#c4cbc6,color:#202522
+    classDef system fill:#dcebe7,stroke:#94b6ad,color:#202522
+    class A,C,D,E person
     class B system`;
   try {
     const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
-    mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "neutral", flowchart: { useMaxWidth: true, htmlLabels: false } });
+    mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "base", themeVariables: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "15px", textColor: "#202522", lineColor: "#85908a", primaryTextColor: "#202522" }, flowchart: { useMaxWidth: true, htmlLabels: false, nodeSpacing: 16, rankSpacing: 24, padding: 12 } });
     const { svg } = await mermaid.render("pursuit-workflow-svg", definition);
     target.innerHTML = svg;
-    fallback.hidden = true;
   } catch (error) {
     console.warn("Workflow diagram unavailable; showing the text equivalent.", error);
   }
