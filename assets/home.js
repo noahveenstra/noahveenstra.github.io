@@ -79,7 +79,7 @@
 
     if (builtWide) {
       gsap.set(stage, { x: shiftAmount() });
-      gsap.set(pieces, { autoAlpha: 0, y: 16 });
+      gsap.set(pieces, { autoAlpha: 0, y: 16, filter: "blur(3px)" });
       tl.to(stage, {
         x: 0,
         duration: 0.78,
@@ -89,6 +89,7 @@
       tl.to(pieces, {
         autoAlpha: 1,
         y: 0,
+        filter: "blur(0px)",
         duration: 0.5,
         stagger: 0.038,
         ease: "power3.out",
@@ -96,10 +97,11 @@
       }, 0.1);
     } else {
       gsap.set(stage, { clearProps: "x,transform" });
-      gsap.set(pieces, { autoAlpha: 0, y: 12 });
+      gsap.set(pieces, { autoAlpha: 0, y: 12, filter: "blur(3px)" });
       tl.to(pieces, {
         autoAlpha: 1,
         y: 0,
+        filter: "blur(0px)",
         duration: 0.46,
         stagger: 0.032,
         ease: "power3.out",
