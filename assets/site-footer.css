@@ -4,8 +4,10 @@
 .site-footer__words { display:block; color:var(--color-fg); }
 .site-footer__lens { display:block; position:absolute; inset:8px 0 16px; pointer-events:none; color:transparent; clip-path:circle(var(--lens-r,0px) at var(--lens-x,50%) var(--lens-y,50%)); will-change:clip-path; }
 .site-footer__word,.site-footer__lens-word { display:inline-block; }
-.site-footer__lens-word { color:transparent; background-image:url('/assets/previews/wedding-current.webp'); background-size:auto 100%; background-repeat:repeat-x; background-position:center; background-clip:text; -webkit-background-clip:text; }
-.site-footer__lens-word:nth-of-type(even) { background-image:url('/assets/previews/saint-salt-worship.webp'); }
+.site-footer__lens-word { color:transparent; background-image:url('/assets/previews/footer-lets.webp'); background-size:cover; background-repeat:no-repeat; background-position:center; background-clip:text; -webkit-background-clip:text; }
+.site-footer__lens-word:nth-of-type(2) { background-image:url('/assets/previews/footer-build.webp'); }
+.site-footer__lens-word:nth-of-type(3) { background-image:url('/assets/previews/footer-something.webp'); }
+.site-footer__lens-word:nth-of-type(4) { background-image:url('/assets/previews/footer-awesome.webp'); }
 .site-footer__details { margin-top:24px; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:24px; font-size:14px; line-height:20px; }
 .site-footer__identity { font-size:14px; letter-spacing:-.02em; }
 .site-footer__links { display:flex; flex-wrap:wrap; gap:24px; }

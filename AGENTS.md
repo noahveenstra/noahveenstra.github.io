@@ -11,4 +11,4 @@ Current direction: a centered editorial homepage; opening Projects lifts the int
 
 Use verified experience and actual project assets. Label explanatory illustrations as illustrations. Do not invent usability testing, metrics, endorsements, or rollout outcomes. Preserve the distinction between the local Pursuit Intelligence proof of concept and the national version still in development. Keep volunteer work identified as volunteer experience.
 
-Footer imagery is fitted to individual word boxes at the text line height. Keep full photo frames proportional and repeated as needed, rather than stretching one collage across blank headline space. Saint City’s featured preview uses the Salt Company worship-leading photo, not the production-booth image.
+Footer imagery is fitted to individual word boxes. Each word gets a distinct montage of varied project photos and design work with uneven panel widths. Never tile photographs or alternate just two repeated images; keep every frame unique across the footer, with no imagery wasted behind blank headline space. Saint City’s featured preview uses the Salt Company worship-leading photo, not the production-booth image.
