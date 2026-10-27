@@ -145,7 +145,7 @@
 }
 
 .info-model { margin:2rem 0 1.5rem; }
-.info-model__canvas { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch; padding:0 0 24px; }
+.info-model__canvas { position:relative; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; align-items:stretch; padding:0 0 8px 18px; }
 .info-model__wires { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:0; }
 .info-model__wires path { fill:none; stroke:#8eaaa3; stroke-width:1.5; stroke-dasharray:var(--wire-length,1); stroke-dashoffset:var(--wire-length,1); transition:stroke-dashoffset 900ms cubic-bezier(.22,1,.36,1); }
 .info-model__wires path.is-drawn { stroke-dashoffset:0; }
@@ -154,15 +154,13 @@
 .project--pursuit .info-card h3 { margin:0; font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
 .project--pursuit .info-card p:not(.info-card__eyebrow) { margin:12px 0 0; font-size:14px; line-height:20px; }
 .project--pursuit .info-card .info-card__detail { color:var(--color-muted); }
-.info-model__relationships { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:4px; }
+ .info-model__relationships { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; margin:4px 0 0 18px; }
 .info-model__relationships p { display:flex; flex-direction:column; gap:4px; margin:0; font-size:14px; line-height:20px; }
 .info-model__relationships strong { font-weight:500; }
 .info-model__relationships span { color:var(--color-muted); }
 @media(max-width:700px) {
-.info-model__canvas { grid-template-columns:minmax(0,1fr); gap:14px; padding:0 0 8px 18px; }
 .info-model__wires { left:0; width:100%; }
 .info-card { padding:18px; }
-.info-model__relationships { grid-template-columns:1fr; gap:12px; margin-left:18px; }
 }
 @media(prefers-reduced-motion:reduce) { .info-model__wires path { transition:none; stroke-dashoffset:0; } }
 </style>
