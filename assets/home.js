@@ -17,16 +17,24 @@
     panel.inert = !open;
     panel.setAttribute('aria-hidden', String(!open));
     const after = intro.getBoundingClientRect();
-    if (!animate) return;
-    if (!reduce.matches) animations.push(intro.animate([
-      {transform: 'translateY(' + (before.top-after.top) + 'px)'},
-      {transform: 'translateY(0)'}
-    ], {duration: 500, easing:motion}));
+    if (animate) {
+      if (!reduce.matches) animations.push(intro.animate([
+        {transform: 'translateY(' + (before.top-after.top) + 'px)'},
+        {transform: 'translateY(0)'}
+      ], {duration: 500, easing:motion}));
+      if (open) {
+        animations.push(...[...panel.querySelectorAll('.piece, .work__label')].map((item, i) => item.animate([
+          {opacity: reduce.matches ? .4 : 0, transform: reduce.matches ? 'none' : 'translateY(24px)'},
+          {opacity: 1, transform: 'none'}
+        ], {duration: reduce.matches ? 200 : 500, delay: reduce.matches ? 0 : 100 + Math.min(i,5)*60, easing:motion, fill:'backwards'})));
+      }
+    }
     if (open) {
-      animations.push(...[...panel.querySelectorAll('.piece, .work__label')].map((item, i) => item.animate([
-        {opacity: reduce.matches ? .4 : 0, transform: reduce.matches ? 'none' : 'translateY(24px)'},
-        {opacity: 1, transform: 'none'}
-      ], {duration: reduce.matches ? 200 : 500, delay: reduce.matches ? 0 : 100 + Math.min(i,5)*60, easing:motion, fill:'backwards'})));
+      const target = panel.querySelector('.work__label') || panel;
+      target.scrollIntoView({
+        behavior: animate && !reduce.matches ? 'smooth' : 'auto',
+        block: 'start'
+      });
     }
   }
   setOpen(location.hash === '#work', false);
