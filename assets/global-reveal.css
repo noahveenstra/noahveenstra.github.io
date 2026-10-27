@@ -1,25 +1,22 @@
-/* Match the case-study reveal while leaving fixed image panels in control of story.js. */
+/* Use only opacity and transform for reveals: filtered block layers caused visible artifacts. */
 @media (prefers-reduced-motion: no-preference) {
   .home.project .reveal:not(.is-in):not(.reveal--enter):not(.project__shot) {
     opacity: .42;
-    filter: blur(3px);
+    filter: none;
   }
   .home:not(.project) .reveal--enter {
     animation: global-intro-reveal .7s cubic-bezier(.22,1,.36,1) both;
   }
   @keyframes global-intro-reveal {
-    from { opacity: .42; filter: blur(3px); transform: translateY(12px); }
-    to { opacity: 1; filter: none; transform: none; }
+    from { opacity: .42; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
   }
 }
-
-/* Release the filtered layer after a reveal instead of retaining a zero-radius blur. */
-.home.project .reveal.is-in:not(.project__shot),
-.home.project .reveal.reveal--enter:not(.project__shot) {
-  filter: none;
-}
-/* Metadata grids fade and rise, without rasterizing their labels and columns together. */
-.home.project .reveal.reveal--metadata,
-.home.project .reveal.reveal--metadata:not(.is-in):not(.reveal--enter) {
+/* Clear the filter in initial, animating, and settled states on every current page. */
+.home .reveal,
+.home .reveal.is-in,
+.home .reveal.reveal--enter,
+.home.project .project__shot,
+.home.project .project__shot.is-current {
   filter: none;
 }
