@@ -1,0 +1,69 @@
+/* Exact screenshot coordinates, preserving the full source files. */
+.wedding-capture {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: var(--crop-w) / var(--crop-h);
+  border-radius: 4px;
+}
+.home.project .decision-media .wedding-capture img,
+.home.project .wedding-mobile-pair .wedding-capture img {
+  position: absolute;
+  width: calc(100% * var(--source-w) / var(--crop-w));
+  max-width: none;
+  height: auto;
+  left: calc(-100% * var(--crop-x) / var(--crop-w));
+  top: calc(-100% * var(--crop-y) / var(--crop-h));
+  display: block;
+  margin: 0;
+  border-radius: 0;
+}
+.wedding-capture--home {
+  --source-w: 1898; --crop-x: 0; --crop-y: 0;
+  --crop-w: 1898; --crop-h: 890;
+}
+.wedding-capture--attendance {
+  --source-w: 1896; --crop-x: 530; --crop-y: 104;
+  --crop-w: 835; --crop-h: 716;
+}
+.wedding-capture--notes {
+  --source-w: 1898; --crop-x: 533; --crop-y: 84;
+  --crop-w: 832; --crop-h: 848;
+}
+.wedding-capture--review {
+  --source-w: 1896; --crop-x: 592; --crop-y: 65;
+  --crop-w: 707; --crop-h: 829;
+}
+.wedding-capture--admin {
+  --source-w: 1914; --crop-x: 0; --crop-y: 0;
+  --crop-w: 1914; --crop-h: 959;
+}
+.wedding-capture--inline {
+  --source-w: 1903; --crop-x: 385; --crop-y: 90;
+  --crop-w: 1130; --crop-h: 780;
+}
+.wedding-capture--mobile-home {
+  --source-w: 557; --crop-x: 0; --crop-y: 0;
+  --crop-w: 557; --crop-h: 896;
+}
+.wedding-capture--mobile-rsvp {
+  --source-w: 554; --crop-x: 0; --crop-y: 0;
+  --crop-w: 554; --crop-h: 890;
+}
+.wedding-mobile-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin: 32px 0;
+}
+.wedding-mobile-pair figure { min-width: 0; margin: 0; }
+.wedding-mobile-pair figcaption {
+  color: var(--color-muted);
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 16px;
+}
+@media (max-width: 600px) {
+  .wedding-mobile-pair { grid-template-columns: 1fr; gap: 32px; }
+}

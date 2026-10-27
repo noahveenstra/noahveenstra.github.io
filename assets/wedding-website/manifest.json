@@ -1,0 +1,72 @@
+[
+  {
+    "file": "rsvp-household",
+    "source_filename": "image(20261027-182503).png",
+    "width": 1894,
+    "height": 954,
+    "sha256": "90482f7a4e271bd2ba41b8d3bc3ba537e91fc5312bb88a7543e778ef2c0dc08a"
+  },
+  {
+    "file": "rsvp-attendance",
+    "source_filename": "image(20261027-182629).png",
+    "width": 1896,
+    "height": 951,
+    "sha256": "260ad84d0863ee925ae9234ed29b298af35176d38eb02c9d18790cc4114711d2"
+  },
+  {
+    "file": "rsvp-notes",
+    "source_filename": "image(20261027-182648).png",
+    "width": 1898,
+    "height": 954,
+    "sha256": "2312508e087edaf36f2eccfd9c0d7541be60c81539f61ef331a7826765c72f0d"
+  },
+  {
+    "file": "rsvp-review",
+    "source_filename": "image(20261027-182707).png",
+    "width": 1896,
+    "height": 956,
+    "sha256": "a015e6a66a95b71d2cd2e1eceec183c25ec4f105c3e4911feb8922fc732413dc"
+  },
+  {
+    "file": "homepage-desktop",
+    "source_filename": "image(20261027-182842).png",
+    "width": 1898,
+    "height": 952,
+    "sha256": "41505f5eb68691c40bd6ca1410a9e3157974cca59069d60a3ced8c21f2e59e89"
+  },
+  {
+    "file": "editing-mode",
+    "source_filename": "image(20261027-182901).png",
+    "width": 1900,
+    "height": 956,
+    "sha256": "3e0720d9dd278058ee07fa10c5a3af1629e62f7ba2140768ea0b3d36de722b37"
+  },
+  {
+    "file": "editing-inline",
+    "source_filename": "image(20261027-182919).png",
+    "width": 1903,
+    "height": 955,
+    "sha256": "b335dc627668e43cbe7fb6bbd08518c7d2efe59a31344176516c5451e540ef67"
+  },
+  {
+    "file": "admin-portal",
+    "source_filename": "image(20261027-182941).png",
+    "width": 1914,
+    "height": 959,
+    "sha256": "63e5aa057d208fe115299da44e5d192e91fe84bd7d480ae0ebe0b18519b8067f"
+  },
+  {
+    "file": "homepage-mobile",
+    "source_filename": "image(20261027-183010).png",
+    "width": 557,
+    "height": 956,
+    "sha256": "ef0463a0c0dd41ece2d6a886fa27f1d45315127455ba01b9bd61ef926fba9a50"
+  },
+  {
+    "file": "rsvp-mobile",
+    "source_filename": "image(20261027-183028).png",
+    "width": 554,
+    "height": 957,
+    "sha256": "bf6aa830bf9ce41efc2be8b7d9747169d5122a8ca467cfbd61c803d8b5046a38"
+  }
+]
