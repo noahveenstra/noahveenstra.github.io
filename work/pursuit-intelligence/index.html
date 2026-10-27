@@ -66,6 +66,32 @@
   .project--pursuit .project__section { margin-top: 3.5rem; }
   .project--pursuit .project__section > p { font-size: 1rem; line-height: 1.65; }
 }
+
+/* Workflow: legible labels and a single, chronological reading path. */
+.project--pursuit .pursuit-workflow__diagram { background: #eeefec; padding: 1.6rem 1rem; }
+.project--pursuit .pursuit-workflow__diagram svg { max-width: 100%; overflow: visible; }
+.project--pursuit .pursuit-workflow__diagram svg .nodeLabel,
+.project--pursuit .pursuit-workflow__diagram svg .nodeLabel *,
+.project--pursuit .pursuit-workflow__diagram svg text,
+.project--pursuit .pursuit-workflow__diagram svg tspan,
+.project--pursuit .pursuit-workflow__diagram svg foreignObject * { fill: #1d2723 !important; color: #1d2723 !important; opacity: 1 !important; }
+.project--pursuit .pursuit-workflow__example-grid { grid-template-columns: 1fr; gap: 0; }
+.project--pursuit .pursuit-workflow__example-grid > div { display: grid; grid-template-columns: 10rem minmax(0,1fr); column-gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid var(--color-hair); }
+.project--pursuit .pursuit-workflow__example-grid > div > :not(.pursuit-workflow__eyebrow) { grid-column: 2; }
+.project--pursuit .pursuit-workflow__example-grid > div > .pursuit-workflow__eyebrow { grid-column: 1; grid-row: 1 / span 3; padding-top: .15rem; }
+.project--pursuit .pursuit-workflow__example-grid p { color: var(--color-fg); font-size: .96rem; line-height: 1.65; }
+.project--pursuit .pursuit-workflow__example-grid .pursuit-workflow__eyebrow,
+.project--pursuit .pursuit-workflow__example-grid .pursuit-workflow__source { color: var(--color-muted); }
+.project--pursuit .pursuit-workflow__example-grid blockquote { border-color: #8eaaa3; }
+.project--pursuit .pursuit-workflow__example-grid .pursuit-workflow__source { font-size: .8rem !important; }
+@media (prefers-color-scheme: dark) {
+  .project--pursuit .pursuit-workflow__diagram { background: #202322; }
+  .project--pursuit .pursuit-workflow__fallback { color: #f3f2ef; }
+}
+@media (max-width: 600px) {
+  .project--pursuit .pursuit-workflow__example-grid > div { display: block; padding: 1.1rem 0; }
+  .project--pursuit .pursuit-workflow__example-grid > div > .pursuit-workflow__eyebrow { margin-bottom: .6rem !important; }
+}
 </style>
 </head>
 <body>
@@ -98,6 +124,7 @@
       <li>Person: decide what is supported.</li>
     </ol>
   </div>
+  <p class="pursuit-workflow__caption">A person searches; the system retrieves candidates. The person then reads the note, verifies the original, and makes the reuse decision.</p>
   <div class="pursuit-workflow__outcomes"><span><strong>Supported</strong> · reuse with citation</span><span><strong>Partly supported</strong> · narrow the claim</span><span><strong>Unresolved</strong> · defer reuse</span></div>
   <div class="pursuit-workflow__example">
     <p class="pursuit-workflow__eyebrow">One illustrative example</p>
@@ -201,21 +228,45 @@ window.TERM_KEY = "pursuit-known-terms";
 </script>
 <script type="module">
   const target = document.getElementById("pursuit-diagram");
-  const definition = `flowchart ${matchMedia("(max-width: 600px)").matches ? "TD" : "LR"}
-    A("1 · PERSON: Search") --> B("2 · SYSTEM: Retrieve")
-    B --> C("3 · PERSON: Read")
-    C --> D("4 · PERSON: Verify")
-    D --> E("5 · PERSON: Decide")
-    classDef person fill:#ffffff,stroke:#c4cbc6,color:#202522
-    classDef system fill:#dcebe7,stroke:#94b6ad,color:#202522
-    class A,C,D,E person
-    class B system`;
+  const fallback = target.innerHTML;
+  const dark = matchMedia("(prefers-color-scheme: dark)");
+  const narrow = matchMedia("(max-width: 600px)");
   try {
     const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
-    mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "base", themeVariables: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "15px", textColor: "#202522", lineColor: "#85908a", primaryTextColor: "#202522" }, flowchart: { useMaxWidth: true, htmlLabels: false, nodeSpacing: 16, rankSpacing: 24, padding: 12 } });
-    const { svg } = await mermaid.render("pursuit-workflow-svg", definition);
-    target.innerHTML = svg;
+    let renderNumber = 0;
+    const render = async () => {
+      const run = ++renderNumber;
+      const ink = dark.matches ? "#f3f2ef" : "#1d2723";
+      const box = dark.matches ? "#2b302e" : "#ffffff";
+      const systemBox = dark.matches ? "#34534b" : "#dcebe7";
+      const border = dark.matches ? "#778880" : "#a9b6af";
+      const direction = narrow.matches ? "TD" : "LR";
+      const definition = `flowchart ${direction}
+        A("Search") --> B("Retrieve")
+        B --> C("Read")
+        C --> D("Verify")
+        D --> E("Decide")
+        classDef person fill:${box},stroke:${border},color:${ink}
+        classDef system fill:${systemBox},stroke:${border},color:${ink}
+        class A,C,D,E person
+        class B system`;
+      mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "base", themeVariables: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "18px", textColor: ink, primaryTextColor: ink, lineColor: border }, flowchart: { useMaxWidth: true, htmlLabels: false, nodeSpacing: 24, rankSpacing: 28, padding: 14 } });
+      const result = await mermaid.render("pursuit-flow-" + run, definition);
+      if (run !== renderNumber) return;
+      target.innerHTML = result.svg;
+      // Mermaid's generated styles and the site's global theme can compete;
+      // set both SVG and HTML label colors at the highest author priority.
+      target.querySelectorAll("text, tspan, .nodeLabel, .nodeLabel *, foreignObject div, foreignObject span").forEach((label) => {
+        label.style.setProperty("fill", ink, "important");
+        label.style.setProperty("color", ink, "important");
+        label.style.setProperty("opacity", "1", "important");
+      });
+    };
+    await render();
+    dark.addEventListener("change", render);
+    narrow.addEventListener("change", render);
   } catch (error) {
+    target.innerHTML = fallback;
     console.warn("Workflow diagram unavailable; showing the text equivalent.", error);
   }
 </script>
