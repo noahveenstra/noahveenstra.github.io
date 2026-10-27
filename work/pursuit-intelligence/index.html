@@ -110,6 +110,32 @@
  .project--pursuit .pursuit-illustration__mobile li p { margin: 0; font-size: .85rem; color: #bbc7c0; line-height: 1.5; }
  .project--pursuit .pursuit-illustration__mobile-foot { padding-top: 1rem; border-top: 1px solid #44504b; color: #bbc7c0; font-size: .8rem; line-height: 1.5; }
 }
+
+/* Keep the reading column clear of the fixed section navigation. */
+@media (min-width: 1180px) {
+  .project--pursuit .page-nav {
+    right: calc(50% + 23rem + 32px);
+    width: min(220px, calc(50% - 23rem - 56px));
+  }
+}
+/* Let the introduction peek into the first viewport. */
+.home.project--pursuit { padding-top: clamp(5rem, 7vw, 6.5rem); }
+.project--pursuit .pursuit-hero { padding-bottom: clamp(2rem, 3vw, 2.75rem); }
+.project--pursuit .pursuit-role { padding: 1.35rem 0 1.5rem; }
+.project--pursuit .project__section { margin-top: 3rem; }
+/* Unrevealed sections remain perceptible, then sharpen as they enter view. */
+@media (prefers-reduced-motion: no-preference) {
+  .project--pursuit .reveal:not(.is-in):not(.reveal--enter) {
+    opacity: .42;
+    filter: blur(3px);
+  }
+}
+@media (max-width: 600px) {
+  .home.project--pursuit { padding-top: 5rem; }
+  .project--pursuit .pursuit-hero { padding-bottom: 2rem; }
+  .project--pursuit .pursuit-role { padding: 1.25rem 0; }
+  .project--pursuit .project__section { margin-top: 2.5rem; }
+}
 </style>
 </head>
 <body>
