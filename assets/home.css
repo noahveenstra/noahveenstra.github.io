@@ -20,7 +20,7 @@
 .home:not(.project) .work { display:flex; flex-direction:column; gap:0; min-height:0; width:100%; overflow:visible; margin:0; }
 .work__label { padding-top:64px; padding-bottom:32px; font-size:12px; line-height:16px; color:var(--color-muted); letter-spacing:.04em; }
 .home:not(.project) .piece { width:100%; margin:0 0 64px; opacity:1; transform:none; filter:none; }
-.piece__visual { display:block; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
+.piece .piece__visual { display:block; border:0; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
 .piece__visual img { display:block; width:100%; height:auto; aspect-ratio:auto; object-fit:contain; transition:transform .5s var(--motion-out); }
 @media(hover:hover) and (pointer:fine) { .piece__visual:hover img { transform:scale(1.025); } }
 .piece__visual--saint img { object-position:center; }
