@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#f8f8f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
 <style>
-.pursuit-workflow { margin: 4rem 0; padding: 2.5rem 0 0; border-top: 1px solid var(--color-hair); }
+.pursuit-workflow { margin: 3rem 0; padding: 0; }
 .pursuit-workflow__eyebrow { margin: 0 0 .8rem !important; color: var(--color-muted); font-size: .72rem !important; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
 .pursuit-workflow h3 { margin: 0 0 .5rem; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.2; letter-spacing: -.03em; }
 .pursuit-workflow__caption { color: var(--color-muted); font-size: .83rem !important; line-height: 1.5; }
@@ -27,7 +27,7 @@
 .pursuit-workflow__fallback li + li { margin-top: .45rem; }
 .pursuit-workflow__outcomes { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; margin: 0 0 2rem; color: var(--color-muted); font-size: .77rem; }
 .pursuit-workflow__outcomes strong { color: var(--color-fg); font-weight: 500; }
-.pursuit-workflow__example { border-top: 1px solid var(--color-hair); padding-top: 1.5rem; }
+.pursuit-workflow__example { padding-top: 1.5rem; }
 .pursuit-workflow__example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
 .pursuit-workflow__example p { margin: 0; font-size: .9rem; line-height: 1.55; }
 .pursuit-workflow__example .pursuit-workflow__eyebrow { margin-bottom: .55rem !important; }
@@ -76,7 +76,7 @@
 .project--pursuit .pursuit-workflow__diagram svg tspan,
 .project--pursuit .pursuit-workflow__diagram svg foreignObject * { fill: #1d2723 !important; color: #1d2723 !important; opacity: 1 !important; }
 .project--pursuit .pursuit-workflow__example-grid { grid-template-columns: 1fr; gap: 0; }
-.project--pursuit .pursuit-workflow__example-grid > div { display: grid; grid-template-columns: 10rem minmax(0,1fr); column-gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid var(--color-hair); }
+.project--pursuit .pursuit-workflow__example-grid > div { display: grid; grid-template-columns: 10rem minmax(0,1fr); column-gap: 1.5rem; padding: 1.2rem 0; }
 .project--pursuit .pursuit-workflow__example-grid > div > :not(.pursuit-workflow__eyebrow) { grid-column: 2; }
 .project--pursuit .pursuit-workflow__example-grid > div > .pursuit-workflow__eyebrow { grid-column: 1; grid-row: 1 / span 3; padding-top: .15rem; }
 .project--pursuit .pursuit-workflow__example-grid p { color: var(--color-fg); font-size: .96rem; line-height: 1.65; }
@@ -108,7 +108,7 @@
  .pursuit-illustration__mobile li span { display: block; font-size: .65rem; letter-spacing: .09em; font-weight: 600; color: #aebbb4; }
  .pursuit-illustration__mobile li strong { display: block; margin: .2rem 0; font-size: 1rem; font-weight: 500; line-height: 1.3; }
  .project--pursuit .pursuit-illustration__mobile li p { margin: 0; font-size: .85rem; color: #bbc7c0; line-height: 1.5; }
- .project--pursuit .pursuit-illustration__mobile-foot { padding-top: 1rem; border-top: 1px solid #44504b; color: #bbc7c0; font-size: .8rem; line-height: 1.5; }
+ .project--pursuit .pursuit-illustration__mobile-foot { padding-top: 1rem; color: #bbc7c0; font-size: .8rem; line-height: 1.5; }
 }
 
 /* Keep the reading column clear of the fixed section navigation. */
@@ -155,7 +155,7 @@
 </div></div>
 <div class="reveal"><section class="project__section"><p>What if the answer to “I think we’ve done something like this” didn’t depend on remembering which proposal it lived in?</p><p>I initiated Pursuit Intelligence to help my construction marketing team find specific project experiences buried in years of past proposals. I directed an AI-assisted build of a local research workflow that finds relevant material, shows its source, and leaves the final judgment to the person using it. I shaped the experience around a specific tension: reduce the effort of finding evidence without asking someone to trust an answer they cannot check.</p><p class="note"><strong>Public note:</strong> Examples are described without client, project, or source identifiers. National development is in progress, not a completed rollout.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="problem">The problem</h2><p>When a team proposes a firm for a construction project, a specific account of what happened on a past job can be more useful than a general list of capabilities. But those stories were scattered across years of proposals.</p><p>During one pursuit, we needed a particularly specific example. I knew the information was likely already there, but finding it meant combing through old documents or asking colleagues who might remember it. I wanted to take that search and recall burden off the team without taking away their discernment.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">Search, read, verify</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><p class="loop">SEARCH → READ → VERIFY</p><div class="steps"><p><strong>Search:</strong> Ask for the experience or information needed.</p><p><strong>Read:</strong> Review relevant results and surrounding context.</p><p><strong>Verify:</strong> Return to the original source before deciding whether the material fits the current proposal.</p></div><figure class="pursuit-workflow" aria-labelledby="workflow-title">
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">The approach</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><figure class="pursuit-workflow" aria-labelledby="workflow-title">
   <figcaption>
     <p class="pursuit-workflow__eyebrow">The workflow</p>
     <h3 id="workflow-title">From search to supported reuse</h3>
@@ -179,7 +179,7 @@
 <g fill="#9caaa4" font-size="12" font-weight="600" letter-spacing="1.2"><text x="203" y="86">01 / PERSON</text><text x="203" y="188">02 / SYSTEM</text><text x="203" y="290">03 / PERSON</text><text x="203" y="392">04 / PERSON</text><text x="203" y="494">05 / PERSON</text></g>
 <g fill="#f0f3ef" font-size="23" font-weight="500"><text x="203" y="114">Describe the problem</text><text x="203" y="216">Find a story candidate</text><text x="203" y="318">Read the cited note</text><text x="203" y="420">Check the original source</text><text x="203" y="522">Decide what is supported</text></g>
 <g fill="#bbc7c0" font-size="15"><text x="203" y="140">Search using the experience needed.</text><text x="203" y="242">Retrieve an excerpt, citation, and recorded limit.</text><text x="203" y="344">Review the passage and its surrounding context.</text><text x="203" y="446">Compare the intended claim with the source page.</text><text x="203" y="548">Reuse with citation, narrow the claim, or defer.</text></g>
-<path d="M30 585h620" stroke="#44504b" stroke-width="1"/>
+
 <text x="30" y="619" fill="#aebbb4" font-size="14">The person makes the decision. Retrieval does not verify the claim.</text>
 </g></svg>
 </div><div class="pursuit-illustration__mobile"><p class="pursuit-illustration__mobile-title">Story retrieval</p><ol><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m15.5 15.5 5 5"/></svg><div><span>01 / PERSON</span><strong>Describe the problem</strong><p>Search using the experience needed.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h13v15H4z M7 3h13v15 M7 10h7m-7 4h7"/></svg><div><span>02 / SYSTEM</span><strong>Find a story candidate</strong><p>Retrieve an excerpt, citation, and recorded limit.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c4-1 7 0 10 2 3-2 6-3 10-2v14c-4-1-7 0-10 2-3-2-6-3-10-2z M12 7v14"/></svg><div><span>03 / PERSON</span><strong>Read the cited note</strong><p>Review the passage and its surrounding context.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h11l4 4v13H4z M15 2v5h4 M7 10h7m-7 4h5"/><circle cx="17" cy="17" r="4"/><path d="m20 20 2 2"/></svg><div><span>04 / PERSON</span><strong>Check the original source</strong><p>Compare the intended claim with the source page.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z M7 9l2 2 3-4m2 2h4M7 16l2 2 3-4m2 2h4"/></svg><div><span>05 / PERSON</span><strong>Decide what is supported</strong><p>Reuse with citation, narrow the claim, or defer.</p></div></li></ol><p class="pursuit-illustration__mobile-foot">The person makes the decision. Retrieval does not verify the claim.</p></div></div>
