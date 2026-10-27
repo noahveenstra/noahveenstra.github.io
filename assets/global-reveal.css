@@ -1,0 +1,14 @@
+/* Match the case-study reveal while leaving fixed image panels in control of story.js. */
+@media (prefers-reduced-motion: no-preference) {
+  .home.project .reveal:not(.is-in):not(.reveal--enter):not(.project__shot) {
+    opacity: .42;
+    filter: blur(3px);
+  }
+  .home:not(.project) .reveal--enter {
+    animation: global-intro-reveal .7s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes global-intro-reveal {
+    from { opacity: .42; filter: blur(3px); transform: translateY(12px); }
+    to { opacity: 1; filter: blur(0); transform: none; }
+  }
+}
