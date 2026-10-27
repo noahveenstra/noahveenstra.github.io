@@ -1,24 +1,50 @@
-/* A closing invitation shared across the portfolio. */
-.site-footer { background: #181a19; color: #f4f4ef; font-family: var(--font-sans, Inter, sans-serif); }
-.site-footer__inner { width: min(46rem, calc(100% - 48px)); margin: 0 auto; padding: clamp(3.5rem, 8vw, 6rem) 0 1.6rem; }
-.site-footer__top { display:flex; justify-content:space-between; gap:1rem; color:#b4bdb6; font-size:.76rem; letter-spacing:.04em; }
-.site-footer__headline { margin: clamp(3rem, 7vw, 5.5rem) 0 2.5rem; font-size:clamp(2.8rem, 7.6vw, 5.7rem); line-height:1.03; font-weight:500; letter-spacing:-.065em; }
-.site-footer__headline span { color:#a8bcb0; }
-.site-footer__cta { display:inline-flex; align-items:center; gap:2rem; padding:.55rem .55rem .55rem 1.2rem; border:1px solid #69746d; border-radius:100px; font-size:.88rem; transition:background .2s, border-color .2s; }
-.site-footer__cta:hover { background:#303a34; border-color:#b4c8bb; }
-.site-footer__arrow { display:grid; place-items:center; width:2.5rem; height:2.5rem; border-radius:50%; background:#d1e1d5; color:#18221b; font-size:1.2rem; transition:transform .2s; }
-.site-footer__cta:hover .site-footer__arrow { transform:translate(2px,-2px); }
-.site-footer a:focus-visible { outline:2px solid #d1e1d5; outline-offset:4px; }
-.site-footer__bottom { display:flex; justify-content:space-between; align-items:center; gap:1.5rem; margin-top:clamp(5rem, 11vw, 8rem); padding-top:1.35rem; border-top:1px solid #ffffff30; font-size:.78rem; }
-.site-footer__muted { color:#a9b0aa; margin-left:.6rem; }
+/* Contact, in the same editorial palette and type as the rest of the site. */
+.site-footer { color:var(--color-fg); background:var(--color-bg); font-family:var(--font-sans, Inter, sans-serif); }
+.site-footer__inner { width:min(46rem, calc(100% - 48px)); margin:0 auto; }
+.site-footer__opening { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 13rem; align-items:center; gap:1rem; padding:clamp(4rem,8vw,6rem) 0 clamp(4.5rem,9vw,7rem); border-top:1px solid var(--color-hair); }
+.site-footer__copy { position:relative; z-index:1; }
+.site-footer__eyebrow { margin:0 0 1.5rem; color:var(--color-muted); font-size:.8rem; }
+.site-footer__spark { display:inline-block; color:var(--color-fg); margin-right:.45rem; }
+.site-footer__headline { margin:0; font-size:clamp(2.8rem,6vw,4.65rem); font-weight:500; line-height:1.04; letter-spacing:-.06em; }
+.site-footer__headline span { color:var(--color-muted); }
+.site-footer__note { margin:1.5rem 0 0; color:var(--color-muted); font-size:.95rem; line-height:1.6; }
+.site-footer__cta { display:inline-flex; align-items:center; gap:2.8rem; margin-top:2rem; padding:.8rem 0; border-bottom:1px solid var(--color-fg); font-size:.92rem; transition:gap .35s cubic-bezier(.22,1,.36,1); }
+.site-footer__cta:hover { gap:3.5rem; }
+.site-footer__arrow { display:inline-block; font-size:1.15rem; transition:transform .35s cubic-bezier(.22,1,.36,1); }
+.site-footer__cta:hover .site-footer__arrow { transform:translate(4px,-4px); }
+.site-footer a:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+.site-footer__art { width:100%; color:var(--color-fg); opacity:.65; }
+.site-footer__art svg { display:block; width:100%; overflow:visible; }
+.site-footer__orbit, .site-footer__center { transform-origin:120px 120px; }
+.site-footer__orbit ellipse { stroke:currentColor; stroke-width:.8; opacity:.48; }
+.site-footer__orbit circle { fill:var(--color-bg); stroke:currentColor; stroke-width:1; }
+.site-footer__center path, .site-footer__center circle { stroke:currentColor; stroke-width:1; }
+.site-footer__center circle { fill:var(--color-fg); }
+.site-footer__bottom { display:flex; justify-content:space-between; align-items:center; gap:1.5rem; padding:1.4rem 0 2rem; border-top:1px solid var(--color-hair); font-size:.78rem; }
+.site-footer__muted { color:var(--color-muted); margin-left:.6rem; }
 .site-footer__bottom nav { display:flex; flex-wrap:wrap; gap:1.4rem; }
-.site-footer__bottom nav a { color:#c3ccc5; transition:color .2s; }
-.site-footer__bottom nav a:hover { color:#fff; }
-.home.project { padding-bottom:clamp(5rem, 10vw, 8rem); }
+.site-footer__bottom nav a { color:var(--color-muted); transition:color .2s; }
+.site-footer__bottom nav a:hover { color:var(--color-fg); }
+.home.project { padding-bottom:clamp(5rem,10vw,8rem); }
+@media (prefers-reduced-motion:no-preference) {
+ .site-footer__orbit--one { animation:footer-orbit 22s linear infinite; }
+ .site-footer__orbit--two { animation:footer-orbit 28s linear infinite reverse; }
+ .site-footer__orbit--three { animation:footer-orbit 35s linear infinite; }
+ .site-footer__center { animation:footer-orbit 32s linear infinite reverse; }
+ .site-footer__spark { animation:footer-pulse 4s ease-in-out infinite; }
+ .site-footer--ready .site-footer__copy, .site-footer--ready .site-footer__art { opacity:.42; filter:blur(3px); transform:translateY(12px); transition:opacity .8s cubic-bezier(.22,1,.36,1), filter .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+ .site-footer--ready .site-footer__art { transition-delay:.12s; }
+ .site-footer--ready.is-visible .site-footer__copy { opacity:1; filter:none; transform:none; }
+ .site-footer--ready.is-visible .site-footer__art { opacity:.65; filter:none; transform:none; }
+ @keyframes footer-orbit { to { transform:rotate(360deg); } }
+ @keyframes footer-pulse { 50% { transform:rotate(45deg) scale(1.2); } }
+}
 @media (max-width:600px) {
  .site-footer__inner { width:calc(100% - 36px); }
- .site-footer__headline { font-size:clamp(2.5rem, 10vw, 4rem); }
- .site-footer__top span:last-child { text-align:right; }
+ .site-footer__opening { grid-template-columns:minmax(0,1fr) 6.5rem; gap:.25rem; }
+ .site-footer__headline { font-size:clamp(2.35rem,8vw,3.5rem); }
+ .site-footer__art { align-self:start; margin-top:1rem; }
  .site-footer__bottom { align-items:flex-start; flex-direction:column; }
 }
+@media (max-width:380px) { .site-footer__opening { grid-template-columns:1fr 4.5rem; } .site-footer__headline { font-size:2.25rem; } }
 @media (prefers-reduced-motion:reduce) { .site-footer__cta, .site-footer__arrow, .site-footer__bottom nav a { transition:none; } }
