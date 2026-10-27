@@ -220,31 +220,31 @@
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="information-model">The library was organized around three connected kinds of information</h2>
-<p>This was more than a search box over proposal PDFs. I designed a hierarchy of canonical People, Projects, and References pages, then worked out how those records should connect so information could be found, maintained, and traced back to evidence.</p>
+<p>This was more than a search box over proposal PDFs. I designed canonical People and Project records, then connected them to Reference records that pointed back to proposal sources. The goal was to make people, projects, stories, and evidence easy to find together without treating every mention as proof.</p>
 <div class="info-model" data-info-model>
 <div class="info-model__canvas">
 
 <article class="info-card" data-info-node="people">
 <p class="info-card__eyebrow">01 · People</p><h3>Who carried the experience?</h3>
-<p>Canonical pages for individuals, with role and experience details gathered where available. A person’s experience could be understood beyond a name appearing in a résumé row or scattered paragraph.</p>
-<p class="info-card__detail">Person records connect people to the projects they worked on.</p>
+<p>Each person record brought identity, roles, project links, proposal appearances, and supported experience into one place. I could look up a person and see the projects connected to them without reconstructing the links across separate documents.</p>
+<p class="info-card__detail">People connect to projects and the stories that describe their work.</p>
 </article>
 <article class="info-card" data-info-node="projects">
 <p class="info-card__eyebrow">02 · Projects</p><h3>Where did the work happen?</h3>
-<p>Canonical pages for jobs, with the project context and people involved organized together. A project became a stable record to explore, not an isolated mention in one old proposal.</p>
-<p class="info-card__detail">Project records connect experience to people and supporting references.</p>
+<p>Each project record brought together its context, connected people, stories, and source records. A project became a stable place to explore instead of an isolated mention in one old proposal.</p>
+<p class="info-card__detail">Projects connect people, stories, proposals, and their source records.</p>
 </article>
 <article class="info-card" data-info-node="references">
 <p class="info-card__eyebrow">03 · References</p><h3>What supports the detail?</h3>
-<p>Canonical pages for source documents and passages, such as proposal content, project sheets, and résumés. References gave users a route from a summary back to the material that described it.</p>
-<p class="info-card__detail">Reference records make the evidence inspectable.</p>
+<p>Reference records pointed to proposal material and could be associated with the proposal, client, municipality, state, and other context. They connected a result back to its source; they were records and routes, not standalone Reference detail pages.</p>
+<p class="info-card__detail">Source records connect claims to where they came from.</p>
 </article>
 </div>
 
 </div>
-<p>The relationship structure matters because a reference can mention a person and describe a project; one person can contribute to multiple projects; and a project can appear in multiple references. The system can follow those links in either direction: from a pursuit question to a candidate project, from that project to the people involved, and from either record to the source that supports the detail.</p>
-<p>It also clarifies where information belongs. A person’s experience lives with the person, project context lives with the project, and evidence lives with the reference. The links connect them without flattening everything into one giant text entry. When a detail is added or corrected, it can be managed at the record where it belongs while preserving the connections other searches depend on.</p>
-<p class="note">The canonical People, Projects, and References pages were a core part of the local system’s information architecture. The diagram explains their relationships without exposing internal records or identifiers.</p>
+<p>The relationships let me move from a person to linked projects, then into the stories and source records associated with that work. A project could lead back to its people and to the proposal material, client, municipality, state, or other context connected to it. I no longer had to guess at those connections or reconstruct them by hand across files.</p>
+<p>Before trusting a person to project link, I looked for an associated story or a proposal source marked <strong>WON</strong>. Proposed teams rarely changed after award, so that label was a useful confidence signal. It was not proof of every individual’s work. If neither a story nor a WON source supported the connection, I called to check. That manual fallback was rare because the system already had extensive project and people information.</p>
+<p class="note">The diagram shows People, Projects, and Reference records as connected information types. References point back to proposal sources; the implementation did not provide standalone Reference pages.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="workflow">A research workflow with a person in the loop</h2>
@@ -260,9 +260,9 @@
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="example">A small, specific search made the idea concrete</h2>
-<p>One pursuit needed to know whether the firm had hosted a career fair on a prior project with a particular community context. The example was specific enough that a general list of projects or a search for the word “school” would not answer it. The useful match had to connect an event, a project, and the context that made it relevant.</p>
-<p>The local workflow surfaced a career fair account from a prior proposal and adapted its wording for the current pursuit. That was a useful lead, but the generated phrasing was not the finish line. I asked for a screenshot of the original source page so I could compare the summary against the passage it came from.</p>
-<p>That check is the important part of the example. The system helped recover a story that was hard to find by memory; the source let me examine what was actually documented; and I kept responsibility for deciding whether the account fit the live pursuit. The work was discovery plus judgment, not a claim that the model independently validated the story.</p>
+<p>One live pursuit needed a story about a career fair that matched a specific community context. The local system surfaced a story from an earlier proposal that was an exact fit. A broad list of school projects would not have answered the question; the useful result was the specific event and experience.</p>
+<p>I opened the original proposal and checked the source, then pasted the story into the proposal I was working on. I changed the project title to the one we were pursuing and shortened the passage. The story itself needed no substantive rewriting.</p>
+<p>This is what made the result useful: the system found a story at the right level of detail, and the original proposal let me verify it before reuse. The source check stayed part of my work, but the content was already specific enough to carry forward.</p>
 <p class="note">The public version intentionally withholds the client, project, and source page details. This preserves the structure of the problem without exposing proposal material.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
@@ -278,13 +278,14 @@
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="iteration">Wrong matches showed what the system misunderstood</h2>
-<p>Early results sometimes surfaced project biographies, scope descriptions, or square footage as if they were project stories. These were not random errors. They exposed a category problem: the system had found information associated with a project, but had not found an account of an experience that answered the question.</p>
+<p>One search mixed two similarly named facilities and pulled in related projects as if they were the same. I corrected the project identity and clarified what “collaboration” meant in the pursuit question. The available material supported a factual project summary, but not the incident and response story the question asked for. The right result was to expose that gap rather than force a narrative.</p>
 <div class="decision-pair" aria-label="How retrieval review changed the definition of a good result">
-<div><p class="decision-pair__label">What I saw</p><h3>A fact mistaken for proof</h3><p>A project résumé, scope summary, or building size appeared in place of the real event or action the pursuit asked about.</p></div>
-<div><p class="decision-pair__label">What I changed</p><h3>A sharper test for relevance</h3><p>I compared the match with its source, explained why it missed, and refined the distinction between a project fact and an experience that actually happened.</p></div>
+<div><p class="decision-pair__label">What I saw</p><h3>Related project treated as the answer</h3><p>Similar names and related facts blurred the line between the intended project and evidence that actually addressed the question.</p></div>
+<div><p class="decision-pair__label">What I changed</p><h3>Keep identity and story evidence distinct</h3><p>I corrected the project link and clarified the test for a useful story: a specific event or problem, what the team did, and the result supported by a source.</p></div>
 </div>
-<p>I treated each wrong match as feedback about the product’s definition of relevance. I reviewed what the system returned, asked where it came from, and pointed out the gap between the query and the evidence. That repeated review helped sharpen what the workflow should surface and what a user still needed to verify.</p>
-<p>The hardest tradeoff was not simply making search broader. Broader retrieval can expose more possible leads, but it can also make a person sort through more noise. The goal was to find material with enough depth and specificity to be useful while preserving a clear path back to the source.</p>
+<p>A separate correction changed what the library counted as a story. Project descriptions had been included as narratives even when they did not describe an event or response. I set a stricter threshold, removed descriptions from the story count, and added stronger proposal derived accounts.</p>
+<p>The same feedback loop improved local retrieval fixtures. In a paired test for “occupied campus phasing,” the result changed from one all term match plus three partial matches to the all term match alone. The saved fixture checks went from 9 of 12 to 12 of 12. Those checks covered routing and evidence boundaries, not overall semantic accuracy or proposal productivity. Some sampled searches also became slower.</p>
+<p>The tradeoff was clear: broader retrieval could surface more leads, but it also added noise. The local work favored a smaller, more specific result set while keeping source checks and manual follow up available when evidence was thin.</p>
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="local">Why I started with a local evidence library</h2>
@@ -294,10 +295,10 @@
 </section></div>
 <div class="reveal"><section class="project__section">
 <h2 class="project__heading" id="outcome">The work now informs a national effort</h2>
-<p>I initiated the project and directed its development: the original problem, research workflow, definition of a useful story, information architecture, evidence expectations, and iterative review were mine. I used AI to help implement the local proof of concept, then evaluated its output against the needs of actual proposal work.</p>
-<p>I used the local system on real pursuits, and colleagues came to me for hard to find stories and data. It remained a local workflow, which made its limits visible as well as its value. After learning about the tool and seeing its ability to find specific stories in prior proposals, IT began developing a national version.</p>
-<p>I continue to contribute weekly to architecture and information flow discussions, answer pipeline questions, and share outputs from the local system. That work connects the practical questions I encountered, such as what qualifies as a story and how someone checks a source, to decisions being made for the broader tool.</p>
-<p>The next challenges are making results easier to use and improving their speed, depth, and specificity. The national version is still in development, so I do not claim measured organization wide adoption or time savings. The outcome so far is a working local research loop and a direct line from that learning into national product development.</p>
+<p>I initiated the project and directed its development: the original problem, research workflow, definition of a useful story, information architecture, evidence expectations, and iterative review were mine. I used AI to help implement the local proof of concept, then evaluated its output against actual proposal work.</p>
+<p>I used the local system on real proposal work. When the team saw it finding specific stories in older proposals, they began developing a national version. The new system is being built as a ChatGPT plugin with source material organized in SharePoint. It is still in development; I have not used the plugin yet.</p>
+<p>My upcoming role is to test it with genuine proposal questions, comparing its answers with the local tool I already trust. I will check whether it gives the exact RFQ snippets supporting an answer and the exact date the proposal was submitted. If it cannot confidently find evidence, it should say it does not know rather than guess. I want the snippet and date so I can verify the claim and retrieve the source myself when needed.</p>
+<p>The pilot has not happened, so these are evaluation criteria, not results. I continue to contribute to architecture and information flow discussions and share learning from the local system. I do not claim measured organization wide adoption, time savings, proposal wins, or national rollout.</p>
 <p class="loop">The principle I keep returning to</p>
 <p><strong>Make hard to find experience easier to discover. Make the evidence easy to inspect. Keep the judgment with the person using it.</strong></p>
 </section></div>
