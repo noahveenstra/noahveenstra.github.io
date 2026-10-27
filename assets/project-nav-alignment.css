@@ -19,3 +19,5 @@
     max-height: max(0px, calc(100vh - 425px));
   }
 }
+
+@media (min-width: 1180px) { .home.project .page-nav { top:auto; bottom:50%; max-height:calc(50vh - 112px); } }
