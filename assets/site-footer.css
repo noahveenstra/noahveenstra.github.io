@@ -1,27 +1,24 @@
 /* The final invitation uses the portfolio's own type and color system. */
 .site-footer { background:var(--color-bg); color:var(--color-fg); font-family:var(--font-sans,Inter,sans-serif); }
-.site-footer__inner { width:min(82rem,calc(100% - clamp(36px, 10vw, 144px))); min-height: min(78vh, 49rem); margin:auto; padding:clamp(5rem,11vw,10rem) 0 2rem; display:flex; flex-direction:column; }
+.site-footer__inner { width:min(82rem,calc(100% - clamp(36px, 10vw, 144px))); margin:auto; padding:clamp(5rem,11vw,10rem) 0 1.5rem; display:flex; flex-direction:column; }
 .site-footer__headline { margin:0; font-size:clamp(2.8rem,4.65vw,5.6rem); font-weight:500; letter-spacing:-.055em; line-height:1.08; }
-.site-footer__headline-link { display:inline; text-decoration:none; }
 .site-footer__words { color:var(--color-fg); }
 @supports (background-clip:text) or (-webkit-background-clip:text) {
  .site-footer--motion .site-footer__words { color:transparent; background-image:linear-gradient(90deg,var(--color-fg) 0%,var(--color-fg) var(--footer-progress,0%),var(--color-muted) calc(var(--footer-progress,0%) + 16%),var(--color-muted) 100%); background-clip:text; -webkit-background-clip:text; }
 }
-.site-footer__headline-arrow { display:inline-block; color:var(--color-muted); font-size:.43em; vertical-align:top; margin:.2em 0 0 .25em; transition:transform .45s cubic-bezier(.22,1,.36,1),color .3s; }
-.site-footer__headline-link:hover .site-footer__headline-arrow { transform:translate(.18em,-.18em); color:var(--color-fg); }
-.site-footer__details { margin:clamp(6rem,15vw,13rem) 0 0; font-size:.9rem; line-height:1.6; }
+.site-footer__details { margin:clamp(2.5rem,5vw,4rem) 0 0; font-size:.9rem; line-height:1.6; }
 .site-footer__identity { font-size:clamp(1.15rem,2vw,1.55rem); letter-spacing:-.02em; }
 .site-footer__links { display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1rem; }
 .site-footer__links a { color:var(--color-fg); text-decoration:none; }
 .site-footer__links a span { display:inline-block; transition:transform .3s cubic-bezier(.22,1,.36,1); }
 .site-footer__links a:hover span { transform:translate(3px,-3px); }
-.site-footer__copyright { display:block; margin-top:2.5rem; color:var(--color-muted); font-size:.75rem; }
+.site-footer__copyright { display:block; margin-top:1.5rem; color:var(--color-muted); font-size:.75rem; }
 .site-footer a:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
 .home.project { padding-bottom:clamp(5rem,10vw,8rem); }
 @media (min-width:900px) { .site-footer__headline { white-space:nowrap; } }
 @media (max-width:700px) {
- .site-footer__inner { width:calc(100% - 36px); min-height:0; padding:5rem 0 1.5rem; }
+ .site-footer__inner { width:calc(100% - 36px); padding:5rem 0 1.25rem; }
  .site-footer__headline { max-width:11ch; font-size:clamp(2.9rem,10vw,4.3rem); line-height:1.05; }
- .site-footer__details { margin:5rem 0 0; }
+ .site-footer__details { margin:2.5rem 0 0; }
 }
-@media (prefers-reduced-motion:reduce) { .site-footer__headline-arrow,.site-footer__details a span { transition:none; } }
+@media (prefers-reduced-motion:reduce) { .site-footer__details a span { transition:none; } }
