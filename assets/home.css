@@ -39,12 +39,11 @@
 @media(prefers-reduced-motion:reduce) { .piece__visual img,.lede__links a { transition:none; } }
 
 /* Compact featured proof stays visible on the landing screen. */
-.featured-pursuit { display:block; width:100%; padding:20px 22px; border:1px solid var(--color-hair); border-radius:4px; background:color-mix(in srgb,var(--color-fg) 3%,var(--color-bg)); color:var(--color-fg); text-decoration:none; cursor:pointer; transition:background-color .3s var(--motion-out),border-color .3s var(--motion-out); }
+.featured-pursuit { display:block; position:relative; width:100%; padding:20px 22px; border:1px solid var(--color-hair); border-radius:4px; background:color-mix(in srgb,var(--color-fg) 3%,var(--color-bg)); color:var(--color-fg); text-decoration:none; cursor:pointer; transition:background-color .3s var(--motion-out),border-color .3s var(--motion-out); }
 .featured-pursuit:hover { border-width:1px; border-color:color-mix(in srgb,var(--color-fg) 35%,var(--color-hair)); background:color-mix(in srgb,var(--color-fg) 5%,var(--color-bg)); transform:none; }
 .featured-pursuit:focus-visible { outline:2px solid var(--color-fg); outline-offset:4px; }
-.featured-pursuit__top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .featured-pursuit__label { margin:0; color:var(--color-muted); font-size:11px; line-height:16px; letter-spacing:.08em; text-transform:uppercase; }
-.featured-pursuit__link { flex:none; border-bottom:1px solid var(--color-hair); font-size:12px; line-height:18px; transition:border-color .3s var(--motion-out); }
+.featured-pursuit__link { position:absolute; top:20px; right:22px; border-bottom:1px solid var(--color-hair); font-size:12px; line-height:18px; transition:border-color .3s var(--motion-out); }
 .featured-pursuit:hover .featured-pursuit__link { border-color:currentColor; }
 .featured-pursuit__title { margin:10px 0 0; font-size:20px; line-height:26px; font-weight:500; letter-spacing:-.025em; }
 .featured-pursuit__summary { width:100%; max-width:none; margin:7px 0 0; color:var(--color-muted); font-size:14px; line-height:20px; }
@@ -52,6 +51,5 @@
 .featured-pursuit__proof strong { font-weight:500; }
 @media(max-width:600px) {
   .featured-pursuit { padding:17px 16px; }
-  .featured-pursuit__top { align-items:flex-start; flex-direction:column; gap:7px; }
-  .featured-pursuit__link { min-height:32px; display:inline-flex; align-items:center; }
+  .featured-pursuit__link { position:static; display:inline-flex; align-self:flex-start; align-items:center; min-height:32px; margin-top:12px; }
 }
