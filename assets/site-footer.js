@@ -6,12 +6,18 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   if (reduce.matches || !CSS.supports('background-clip', 'text')) return;
   const lens = document.createElement('span');
-  lens.className = 'site-footer__lens'; lens.textContent = words.textContent; lens.setAttribute('aria-hidden', 'true'); title.append(lens);
+  lens.className = 'site-footer__lens'; lens.setAttribute('aria-hidden', 'true'); title.append(lens);
   const text = words.textContent;
   const wordSpans = text.trim().split(/\s+/).map(word => {
     const span = document.createElement('span'); span.className = 'site-footer__word'; span.textContent = word; return span;
   });
   words.replaceChildren(...wordSpans.flatMap((span,i) => i ? [document.createTextNode(' '),span] : [span]));
+  // Fit each photograph to the actual text height. Repeating the full frame keeps
+  // the imagery in the lettering rather than behind the block's empty line space.
+  const lensWords = text.trim().split(/\s+/).map(word => {
+    const span = document.createElement('span'); span.className = 'site-footer__lens-word'; span.textContent = word; return span;
+  });
+  lens.replaceChildren(...lensWords.flatMap((span,i) => i ? [document.createTextNode(' '),span] : [span]));
   footer.classList.add('site-footer--reveal');
   let frame = 0, inside = false, visible = false, introStart = 0, played = false;
   let x = 0, y = 0, radius = 0, targetX = 0, targetY = 0, targetRadius = 0;

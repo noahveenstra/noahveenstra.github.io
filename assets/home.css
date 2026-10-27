@@ -23,7 +23,7 @@
 .piece__visual { display:block; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
 .piece__visual img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; transition:transform .5s var(--motion-out); }
 .piece__visual:hover img { transform:scale(1.025); }
-.piece__visual--saint img { object-position:50% 38%; }
+.piece__visual--saint img { object-position:center; }
 .home:not(.project) .piece__title { font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
 .piece__title a::after { content:' ↗'; font-size:.75em; display:inline-block; transition:transform .3s var(--motion-out); }
 .piece__title a:hover::after { transform:translate(2px,-2px); }

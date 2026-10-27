@@ -9,6 +9,17 @@
   }
   @keyframes global-intro-reveal {
     from { opacity: .42; filter: blur(3px); transform: translateY(12px); }
-    to { opacity: 1; filter: blur(0); transform: none; }
+    to { opacity: 1; filter: none; transform: none; }
   }
+}
+
+/* Release the filtered layer after a reveal instead of retaining a zero-radius blur. */
+.home.project .reveal.is-in:not(.project__shot),
+.home.project .reveal.reveal--enter:not(.project__shot) {
+  filter: none;
+}
+/* Metadata grids fade and rise, without rasterizing their labels and columns together. */
+.home.project .reveal.reveal--metadata,
+.home.project .reveal.reveal--metadata:not(.is-in):not(.reveal--enter) {
+  filter: none;
 }
