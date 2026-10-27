@@ -37,3 +37,20 @@
 .lede__links a:focus-visible,.piece a:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
 @media(max-width:600px) { .home:not(.project) { padding:80px 24px 48px; } .home:not(.project).is-open,html.projects-open .home:not(.project) { padding-top:48px; } .home:not(.project) .lede { gap:24px; } .home:not(.project) .lede__summary { font-size:24px; line-height:32px; } .work__label { padding-top:48px; } .home:not(.project) .piece { margin-bottom:48px; } }
 @media(prefers-reduced-motion:reduce) { .piece__visual img,.lede__links a { transition:none; } }
+
+/* Compact featured proof stays visible on the landing screen. */
+.featured-pursuit { width:100%; padding:20px 22px; border:1px solid var(--color-hair); border-radius:4px; background:color-mix(in srgb,var(--color-fg) 3%,var(--color-bg)); }
+.featured-pursuit__top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.featured-pursuit__label { margin:0; color:var(--color-muted); font-size:11px; line-height:16px; letter-spacing:.08em; text-transform:uppercase; }
+.featured-pursuit__link { flex:none; border-bottom:1px solid var(--color-hair); font-size:12px; line-height:18px; transition:border-color .3s var(--motion-out),transform .3s var(--motion-out); }
+.featured-pursuit__link:hover { border-color:currentColor; }
+.featured-pursuit__link:focus-visible { outline:2px solid var(--color-fg); outline-offset:4px; }
+.featured-pursuit__title { margin:10px 0 0; font-size:20px; line-height:26px; font-weight:500; letter-spacing:-.025em; }
+.featured-pursuit__summary { margin:7px 0 0; max-width:62ch; color:var(--color-muted); font-size:14px; line-height:20px; }
+.featured-pursuit__proof { margin:12px 0 0; padding-top:11px; border-top:1px solid var(--color-hair); color:var(--color-fg); font-size:13px; line-height:19px; }
+.featured-pursuit__proof strong { font-weight:500; }
+@media(max-width:600px) {
+  .featured-pursuit { padding:17px 16px; }
+  .featured-pursuit__top { align-items:flex-start; flex-direction:column; gap:7px; }
+  .featured-pursuit__link { min-height:32px; display:inline-flex; align-items:center; }
+}
