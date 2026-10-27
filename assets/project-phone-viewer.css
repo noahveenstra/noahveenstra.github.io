@@ -1,0 +1,105 @@
+@media (min-width: 760px) {
+  .project__figure.project-image--tall,
+  .decision-media.project-image--tall {
+    width: min(27rem, calc(100vw - 48px));
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .project-image--tall > img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: min(56vh, 540px);
+    margin-inline: auto;
+    object-fit: contain;
+  }
+}
+
+.project-image-expand {
+  display: block;
+  margin: 0.65rem auto 0;
+  padding: 0.2rem 0.4rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.78rem;
+  opacity: 0.68;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: zoom-in;
+}
+
+.project-image-expand:hover,
+.project-image-expand:focus-visible {
+  opacity: 1;
+}
+
+.project-image-expand:focus-visible,
+.project-image-viewer__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.project-image-viewer {
+  position: fixed;
+  inset: 0;
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  padding: 2.5rem 1rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  overflow: auto;
+}
+
+.project-image-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(4px);
+}
+
+.project-image-viewer__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 64px);
+  max-height: calc(100vh - 112px);
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.project-image-viewer__caption {
+  margin: 0.65rem auto 0;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.project-image-viewer__close {
+  position: absolute;
+  inset: 0.5rem 0.5rem auto auto;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-image-viewer[open] {
+    animation: project-image-viewer-in 160ms ease-out;
+  }
+
+  @keyframes project-image-viewer-in {
+    from { opacity: 0; transform: scale(0.985); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
