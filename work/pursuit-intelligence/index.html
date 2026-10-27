@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
 <head>
-<meta name="twitter:card" content="summary_large_image">
-<meta property="og:title" content="Noah Veenstra">
+
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/assets/styles-KFC5HpiC.css?v=3">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap">
 <title>Pursuit Intelligence — Noah Veenstra</title>
-<meta name="description" content="An AI-assisted research workflow that helps proposal teams find specific project stories and verify them against their sources.">
+<meta name="description" content="An AI assisted research workflow that helps proposal teams find specific project stories and verify them against their sources.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
@@ -139,11 +139,15 @@
 </style>
 <link rel="stylesheet" href="/assets/project-nav-alignment.css">
 <link rel="stylesheet" href="/assets/global-reveal.css">
-<link rel="stylesheet" href="/assets/site-footer.css">
+<link rel="stylesheet" href="/assets/site-footer.css?v=5">
+<link rel="stylesheet" href="/assets/decisions.css?v=5">
+<link rel="stylesheet" href="/assets/design-system.css?v=5">
+<meta property="og:title" content="Pursuit Intelligence — Noah Veenstra"><meta property="og:type" content="website"><meta property="og:image" content="http://noahveenstra.com/assets/previews/social-preview.jpg"><meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="pager"><a class="mark" href="/">Noah Veenstra</a><nav class="pager__links" aria-label="Projects"><a href="/#work">Work</a></nav></header>
-<main class="home project project--pursuit">
+<main id="main-content" class="home project project--pursuit">
 <nav class="page-nav" aria-label="On this page"><ol><li><a href="#problem">The problem</a></li><li><a href="#approach">The approach</a></li><li><a href="#example">A story found</a></li><li><a href="#trust">Designing for trust</a></li><li><a href="#iteration">Learning from wrong matches</a></li><li><a href="#outcome">Where it is now</a></li></ol></nav>
 <div class="reveal"><header class="pursuit-hero">
   <p class="pursuit-hero__eyebrow">Case study · Local proof of concept</p>
@@ -151,56 +155,16 @@
   <p class="pursuit-hero__subtitle">Helping people find the story without giving up their judgment</p>
 </header></div>
 <div class="reveal"><div class="pursuit-role">
-  <div><p class="pursuit-role__label">Role</p><p class="pursuit-role__value">Concept, product direction, information architecture, testing, and AI-assisted development</p></div>
+  <div><p class="pursuit-role__label">Role</p><p class="pursuit-role__value">Concept, product direction, information architecture, testing, and AI assisted development</p></div>
   <div><p class="pursuit-role__label">Status</p><p class="pursuit-role__value">Local proof of concept<br>National version in development</p></div>
 </div></div>
-<div class="reveal"><section class="project__section"><p>What if the answer to “I think we’ve done something like this” didn’t depend on remembering which proposal it lived in?</p><p>I initiated Pursuit Intelligence to help my construction marketing team find specific project experiences buried in years of past proposals. I directed an AI-assisted build of a local research workflow that finds relevant material, shows its source, and leaves the final judgment to the person using it. I shaped the experience around a specific tension: reduce the effort of finding evidence without asking someone to trust an answer they cannot check.</p><p class="note"><strong>Public note:</strong> Examples are described without client, project, or source identifiers. National development is in progress, not a completed rollout.</p></section></div>
+<div class="reveal"><section class="project__section"><p>What if the answer to “I think we’ve done something like this” didn’t depend on remembering which proposal it lived in?</p><p>I initiated Pursuit Intelligence to help my construction marketing team find specific project experiences buried in years of past proposals. I directed an AI assisted build of a local research workflow that finds relevant material, shows its source, and leaves the final judgment to the person using it. I shaped the experience around a specific tension: reduce the effort of finding evidence without asking someone to trust an answer they cannot check.</p><p class="note"><strong>Public note:</strong> Examples omit client, project, and source identifiers. The local proof of concept has informed national development; the national version is not yet rolled out. No aggregate time savings or adoption metrics have been measured.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="problem">The problem</h2><p>When a team proposes a firm for a construction project, a specific account of what happened on a past job can be more useful than a general list of capabilities. But those stories were scattered across years of proposals.</p><p>During one pursuit, we needed a particularly specific example. I knew the information was likely already there, but finding it meant combing through old documents or asking colleagues who might remember it. I wanted to take that search and recall burden off the team without taking away their discernment.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">The approach</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><figure class="pursuit-workflow" aria-labelledby="workflow-title">
-  <figcaption>
-    <p class="pursuit-workflow__eyebrow">The workflow</p>
-    <h3 id="workflow-title">From search to supported reuse</h3>
-    <p class="pursuit-workflow__caption">Illustrative workflow · entirely synthetic content · not a product screenshot</p>
-  </figcaption>
-  <div class="pursuit-illustration"><div class="pursuit-illustration__desktop"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 665" role="img" aria-labelledby="pi-title pi-desc">
-<title id="pi-title">From search to supported reuse</title><desc id="pi-desc">A person searches by problem. The system retrieves a story candidate. The person reads the cited note, verifies the original, and decides what is supported.</desc>
-<rect x="1" y="1" width="678" height="663" rx="8" fill="#191b1b" stroke="#52605b" stroke-width="1.4"/>
-<g font-family="Inter,Arial,sans-serif">
-<text x="30" y="42" fill="#f0f3ef" font-size="17" font-weight="600">Story retrieval</text>
-<text x="650" y="42" text-anchor="end" fill="#aebbb4" font-size="14">PERSON + SYSTEM</text>
-<path d="M91 103v423" stroke="#8ba6e5" stroke-width="1.7"/>
-<g fill="#191b1b" stroke="#8ba6e5" stroke-width="1.5"><circle cx="91" cy="105" r="4"/><circle cx="91" cy="207" r="4"/><circle cx="91" cy="309" r="4"/><circle cx="91" cy="411" r="4"/><circle cx="91" cy="513" r="4"/></g>
-<g fill="none" stroke="#cbd4d0" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
-<!-- search --> <circle cx="147" cy="95" r="14"/><path d="m157 106 11 11"/><path d="M147 89v12m-6-6h12" stroke="#8ba6e5"/>
-<!-- result --> <path d="M130 187h32v38h-32z M136 181h32v38 M142 175h32v38"/><path d="M136 195h18m-18 6h18m-18 6h12" stroke="#8ba6e5"/>
-<!-- read --> <path d="M129 289c9-3 17-1 24 3 7-4 15-6 24-3v32c-9-3-17-1-24 3-7-4-15-6-24-3z M153 292v32"/><path d="M135 297c5-1 9 0 12 2m12 0c4-2 8-3 12-2" stroke="#8ba6e5"/>
-<!-- verify --> <path d="M133 389h28l8 8v29h-36z M160 389v9h9 M139 402h13m-13 7h14m-14 7h9"/><circle cx="164" cy="417" r="9"/><path d="m170 424 7 7" stroke="#8ba6e5"/>
-<!-- decision --> <path d="M130 493h39v37h-39z M138 504l4 4 7-8m-11 18 4 4 7-8"/><path d="M154 505h9m-9 13h9" stroke="#8ba6e5"/>
-</g>
-<g fill="#9caaa4" font-size="12" font-weight="600" letter-spacing="1.2"><text x="203" y="86">01 / PERSON</text><text x="203" y="188">02 / SYSTEM</text><text x="203" y="290">03 / PERSON</text><text x="203" y="392">04 / PERSON</text><text x="203" y="494">05 / PERSON</text></g>
-<g fill="#f0f3ef" font-size="23" font-weight="500"><text x="203" y="114">Describe the problem</text><text x="203" y="216">Find a story candidate</text><text x="203" y="318">Read the cited note</text><text x="203" y="420">Check the original source</text><text x="203" y="522">Decide what is supported</text></g>
-<g fill="#bbc7c0" font-size="15"><text x="203" y="140">Search using the experience needed.</text><text x="203" y="242">Retrieve an excerpt, citation, and recorded limit.</text><text x="203" y="344">Review the passage and its surrounding context.</text><text x="203" y="446">Compare the intended claim with the source page.</text><text x="203" y="548">Reuse with citation, narrow the claim, or defer.</text></g>
-
-<text x="30" y="619" fill="#aebbb4" font-size="14">The person makes the decision. Retrieval does not verify the claim.</text>
-</g></svg>
-</div><div class="pursuit-illustration__mobile"><p class="pursuit-illustration__mobile-title">Story retrieval</p><ol><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m15.5 15.5 5 5"/></svg><div><span>01 / PERSON</span><strong>Describe the problem</strong><p>Search using the experience needed.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h13v15H4z M7 3h13v15 M7 10h7m-7 4h7"/></svg><div><span>02 / SYSTEM</span><strong>Find a story candidate</strong><p>Retrieve an excerpt, citation, and recorded limit.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c4-1 7 0 10 2 3-2 6-3 10-2v14c-4-1-7 0-10 2-3-2-6-3-10-2z M12 7v14"/></svg><div><span>03 / PERSON</span><strong>Read the cited note</strong><p>Review the passage and its surrounding context.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h11l4 4v13H4z M15 2v5h4 M7 10h7m-7 4h5"/><circle cx="17" cy="17" r="4"/><path d="m20 20 2 2"/></svg><div><span>04 / PERSON</span><strong>Check the original source</strong><p>Compare the intended claim with the source page.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z M7 9l2 2 3-4m2 2h4M7 16l2 2 3-4m2 2h4"/></svg><div><span>05 / PERSON</span><strong>Decide what is supported</strong><p>Reuse with citation, narrow the claim, or defer.</p></div></li></ol><p class="pursuit-illustration__mobile-foot">The person makes the decision. Retrieval does not verify the claim.</p></div></div>
-  <div class="pursuit-workflow__example">
-    <p class="pursuit-workflow__eyebrow">One illustrative example</p>
-    <div class="pursuit-workflow__example-grid">
-      <div><p class="pursuit-workflow__eyebrow">01 / Search</p><p>“occupied renovation pedestrian access phasing”</p></div>
-      <div><p class="pursuit-workflow__eyebrow">02 / Candidate</p><p><strong>Lumenwood Learning Hub</strong> — occupied renovation. Temporary partitions and a marked pedestrian route supported access.</p><p class="pursuit-workflow__source">Lumenwood Qualifications · p. 12 · Candidate; verify before reuse.</p></div>
-      <div><p class="pursuit-workflow__eyebrow">03 / Read the note</p><p>Adjacent rooms remained in use. The note reports no measured disruption or schedule result.</p></div>
-      <div><p class="pursuit-workflow__eyebrow">04 / Compare the source</p><blockquote><p>“During the renovation, <strong>temporary partitions</strong> separated work zones from rooms that remained in use. A <strong>marked pedestrian route</strong> maintained access to the main entrance. The route changed as each work zone moved.”</p></blockquote><p class="pursuit-workflow__source">Fictional past proposal · p. 12</p></div>
-      <div><p class="pursuit-workflow__eyebrow">05 / Human decision</p><p>Reuse the documented access measures with the citation. Do not claim zero disruption or schedule savings.</p></div>
-      <div><p class="pursuit-workflow__eyebrow">When evidence is insufficient</p><p>Defer reuse if the original is unavailable, conflicting or insufficient.</p></div>
-    </div>
-    <p class="pursuit-workflow__caption pursuit-workflow__note">Retrieval surfaces a candidate; it does not verify the claim or approve its reuse.</p>
-  </div>
-</figure><p>The goal was to offload the work of remembering where information lives, while keeping a person responsible for interpreting and applying it.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="example">Finding a story that fit</h2><p>For one pursuit, we needed to know whether the firm had hosted a career fair on a previous project with a particular community context. Relevant projects were a small part of the portfolio, making it a difficult story to locate by memory.</p><p>After a few minutes, the system surfaced a relevant career-fair story from a prior proposal and adapted its wording for the current pursuit. I then asked for a screenshot of the original source page so I could compare the proposed wording with what the source actually said.</p><p>This is one example of my own use, not a measured average search time or a claim that every result is correct.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="trust">Designing for trust</h2><p>Proposals can concern multimillion-dollar projects. An unsupported claim could put a pursuit and the firm’s reputation at risk. Even though I was building the system, I wasn’t ready to trust its answers without checking them.</p><p>I began asking for screenshots of the exact source pages behind its answers. Seeing the original made it easier to compare a rewritten story with the evidence and decide what could responsibly be used. A source is a starting point for review, not a guarantee that a claim is appropriate for a new proposal.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="iteration">Teaching the system what a story is</h2><p>Early results sometimes labeled project biographies, scope descriptions, or square footage as project stories. Those details could be useful, but they weren’t what I was looking for: an account of something that actually happened on a job.</p><p>I reviewed the output, asked where it came from, and explained why each wrong match missed the mark. I repeated that process to refine the workflow’s distinction between a project fact and an actual experience. Ease of use and trustworthy retrieval remained the hardest things to get right.</p></section></div>
-<div class="reveal"><section class="project__section"><h2 class="project__heading" id="outcome">From a local tool to a national effort</h2><p>I used the local system directly on real work; colleagues came to me when they needed hard-to-find stories or data. The original proof of concept was not a shared multi-user platform, and I haven’t measured time savings or broader adoption.</p><p>After learning about the tool and seeing its ability to find specific stories in prior proposals, IT began developing a national version. I continue to help weekly, contributing to architecture and information-flow discussions, answering pipeline questions, and sharing outputs from my system. Those conversations connect the needs I encountered in proposal work with the decisions IT is making about how the national tool will work. That work is in development.</p><p>My next priority would be making the output easier to use and improving the speed, depth, and specificity of results. The central principle stays the same: <strong>make information easier to find, and make the evidence easier for people to judge.</strong></p></section></div>
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">The approach</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><p>The goal was to offload the work of remembering where information lives, while keeping a person responsible for interpreting and applying it.</p></section></div>
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="example">Finding a story that fit</h2><p>For one pursuit, we needed to know whether the firm had hosted a career fair on a previous project with a particular community context. Relevant projects were a small part of the portfolio, making it a difficult story to locate by memory.</p><p>After a few minutes, the system surfaced a relevant career-fair story from a prior proposal and adapted its wording for the current pursuit. I then asked for a screenshot of the original source page so I could compare the proposed wording with what the source actually said.</p></section></div>
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="trust">Designing for trust</h2><p>Proposals can concern multimillion-dollar projects. An unsupported claim could put a pursuit and the firm’s reputation at risk. Even though I was building the system, I wasn’t ready to trust its answers without checking them.</p><p>I began asking for screenshots of the exact source pages behind its answers. That gave me a concrete comparison: the proposed wording beside the original passage, with a person deciding what the source supported.</p></section></div>
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="iteration">Teaching the system what a story is</h2><p>Early results sometimes labeled project biographies, scope descriptions, or square footage as project stories. Those details could be useful, but they weren’t what I was looking for: an account of something that actually happened on a job.</p><div class="decision-pair" aria-label="How wrong matches changed the workflow"><div><p class="decision-pair__label">Early output</p><h3>A project fact</h3><p>Biographies, scope descriptions, and square footage were being returned as project stories.</p></div><div><p class="decision-pair__label">My decision</p><h3>An experience with evidence</h3><p>I reviewed wrong matches against their sources and refined the distinction: a useful story describes something that actually happened on a job.</p></div></div><p>I reviewed the output, asked where it came from, and explained why each wrong match missed the mark. I repeated that process to refine the workflow’s distinction between a project fact and an actual experience. Ease of use and trustworthy retrieval remained the hardest things to get right.</p></section></div>
+<div class="reveal"><section class="project__section"><h2 class="project__heading" id="outcome">From a local tool to a national effort</h2><p>I used the local system on real proposal work, and colleagues came to me for hard to find stories and data. It remained a local workflow rather than a shared platform.</p><p>After learning about the tool and seeing its ability to find specific stories in prior proposals, IT began developing a national version. I continue to help weekly, contributing to architecture and information-flow discussions, answering pipeline questions, and sharing outputs from my system. Those conversations connect the needs I encountered in proposal work with the decisions IT is making about how the national tool will work. </p><p>My next priority would be making the output easier to use and improving the speed, depth, and specificity of results. The central principle stays the same: <strong>make information easier to find, and make the evidence easier for people to judge.</strong></p></section></div>
 
 </main>
 <footer class="site-footer" aria-labelledby="footer-title">
@@ -211,6 +175,7 @@
       <nav class="site-footer__links" aria-label="Contact">
         <a href="mailto:noahveenstra@icloud.com">Email <span aria-hidden="true">↗</span></a>
         <a href="https://linkedin.com/in/noahveenstra" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="/assets/noah-veenstra-resume.pdf" download>Résumé <span aria-hidden="true">↓</span></a>
       </nav>
       <span class="site-footer__copyright">© 2026 Noah Veenstra</span>
     </div>
@@ -256,7 +221,7 @@ window.TERM_DEFS = {
   ],
   "sheet": [
     "Project sheet / résumé row",
-    "A short listing of a job on a person’s résumé or a one-page project cut sheet. Useful as a lead. Not automatically a story, and not proof that the person performed every task listed nearby."
+    "A short listing of a job on a person’s résumé or a one page project cut sheet. Useful as a lead. Not automatically a story, and not proof that the person performed every task listed nearby."
   ],
   "pm": [
     "Project manager (PM)",
@@ -316,6 +281,6 @@ window.TERM_KEY = "pursuit-known-terms";
 </script>
 <script src="/assets/outline.js"></script>
 <script src="/assets/pager.js"></script>
-<script src="/assets/site-footer.js"></script>
+<script src="/assets/site-footer.js?v=5"></script>
 </body>
 </html>

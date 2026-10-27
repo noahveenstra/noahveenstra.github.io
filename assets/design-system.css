@@ -1,0 +1,27 @@
+/* Shared design values from elayadesign/ai-design-skills, adapted to this portfolio. */
+:root { --font-sans:'Geist',system-ui,sans-serif; --motion-out:cubic-bezier(.22,1,.36,1); }
+body { font-size:16px; line-height:24px; }
+h1,h2,h3 { text-wrap:balance; }
+p { text-wrap:pretty; }
+em,i { font-style:normal; }
+.skip-link { position:fixed; left:24px; top:16px; z-index:40; transform:translateY(-160%); background:var(--color-fg); color:var(--color-bg); padding:8px 12px; border-radius:4px; font-size:14px; line-height:20px; }
+.skip-link:focus { transform:none; outline:2px solid var(--color-fg); outline-offset:4px; }
+.pager { font-size:14px; line-height:20px; }
+.home.project .pursuit-hero .project__title { font-size:72px; line-height:1; max-width:680px; margin-inline:auto; }
+.home.project .pursuit-hero__subtitle { font-size:24px; line-height:32px; max-width:680px; }
+.home.project .pursuit-hero__eyebrow { font-size:12px; line-height:16px; }
+.home.project .pursuit-role__label { font-size:14px; line-height:20px; }
+.home.project .pursuit-role__value { font-size:14px; line-height:20px; }
+.home.project .project__heading { font-size:30px; line-height:36px; }
+.home.project .project__section > p { font-size:16px; line-height:24px; }
+.home.project .project__section > p:first-child { font-size:24px; line-height:32px; }
+.home.project .project__section > p.note { font-size:14px; line-height:20px; }
+.home.project .page-nav a { font-size:12px; line-height:16px; }
+.home.project .project__caption { font-size:12px; line-height:16px; }
+:is(.lede__name,.pursuit-hero .project__title) { background-image:linear-gradient(90deg,#000,#666); background-clip:text; -webkit-background-clip:text; color:transparent; }
+.site-footer__links a:active,.lede__links a:active { transform:translateY(1px); }
+.piece__visual:active img { transform:scale(.98); }
+.projects-toggle:active { transform:translateY(1px) !important; }
+@media(prefers-color-scheme:dark) { :root { --color-bg:#181818; --color-fg:#fff; --color-muted:#ffffff99; --color-hair:#ffffff24; } :is(.lede__name,.pursuit-hero .project__title) { background-image:linear-gradient(90deg,#fff,#9b9b9b); } }
+@media(max-width:900px) { .home.project .pursuit-hero .project__title { font-size:60px; line-height:1; } }
+@media(max-width:600px) { .home.project .pursuit-hero .project__title { font-size:48px; line-height:1; } .home.project .pursuit-hero__subtitle { font-size:20px; line-height:28px; } .home.project .project__heading { font-size:24px; line-height:32px; } .home.project .project__section > p:first-child { font-size:20px; line-height:28px; } }

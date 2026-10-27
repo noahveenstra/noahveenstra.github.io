@@ -1,0 +1,39 @@
+/* The intro stays on one horizontal axis. JavaScript animates its vertical transform. */
+.home:not(.project) { --col:46rem; display:grid; align-content:center; width:100%; min-height:100dvh; padding:96px 24px 64px; }
+.home:not(.project).is-open,html.projects-open .home:not(.project) { display:block; padding-top:64px; }
+.home:not(.project) .stage { display:block; width:min(100%,46rem); margin-inline:auto; transform:none; }
+.home:not(.project) .intro { position:static; width:100%; }
+.home:not(.project) .lede { display:flex; flex-direction:column; align-items:flex-start; gap:24px; max-width:680px; }
+.home:not(.project) .lede__name { font-size:20px; line-height:28px; letter-spacing:-.025em; }
+.home:not(.project) .lede__focus { color:var(--color-muted); font-size:12px; line-height:16px; letter-spacing:.01em; margin-top:-16px; }
+.home:not(.project) .lede__summary { font-size:30px; line-height:36px; letter-spacing:-.025em; color:var(--color-fg); max-width:680px; text-wrap:pretty; }
+.home:not(.project) .lede__context { font-size:14px; line-height:20px; color:var(--color-muted); max-width:65ch; }
+.lede__links { display:flex; flex-wrap:wrap; gap:24px; font-size:14px; line-height:20px; }
+.lede__links a { border-bottom:1px solid var(--color-hair); transition:border-color .3s var(--motion-out),transform .3s var(--motion-out); }
+.lede__links a:hover { border-color:currentColor; }
+.home:not(.project) .projects-toggle { margin-top:8px; display:block; font-size:16px; line-height:24px; font-weight:500; }
+.toggle__hide { display:none; }
+.home.is-open .toggle__projects,html.projects-open .toggle__projects { display:none; }
+.home.is-open .toggle__hide,html.projects-open .toggle__hide { display:block; opacity:1; }
+.home:not(.project) .panel,.home:not(.project) .panel.is-parked { position:static; display:none; width:100%; height:auto; margin:0; visibility:hidden; pointer-events:none; }
+.home:not(.project).is-open .panel,html.projects-open .home:not(.project) .panel { display:block; visibility:visible; pointer-events:auto; }
+.home:not(.project) .work { display:flex; flex-direction:column; gap:0; min-height:0; width:100%; overflow:visible; margin:0; }
+.work__label { padding-top:64px; padding-bottom:32px; font-size:12px; line-height:16px; color:var(--color-muted); letter-spacing:.04em; }
+.home:not(.project) .piece { width:100%; margin:0 0 64px; opacity:1; transform:none; filter:none; }
+.piece__visual { display:block; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
+.piece__visual img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; transition:transform .5s var(--motion-out); }
+.piece__visual:hover img { transform:scale(1.025); }
+.piece__visual--saint img { object-position:50% 38%; }
+.home:not(.project) .piece__title { font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
+.piece__title a::after { content:' ↗'; font-size:.75em; display:inline-block; transition:transform .3s var(--motion-out); }
+.piece__title a:hover::after { transform:translate(2px,-2px); }
+.home:not(.project) .piece__line { margin:8px 0 0; font-size:16px; line-height:24px; max-width:65ch; color:var(--color-muted); }
+.piece__meta { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 24px; margin-top:12px; font-size:12px; line-height:16px; color:var(--color-muted); }
+.home:not(.project) .piece--secondary { margin:0 0 24px; }
+.home:not(.project) .piece--secondary .piece__title { font-size:16px; line-height:24px; font-weight:400; }
+.home:not(.project) .piece--secondary .piece__line { font-size:14px; line-height:20px; margin-top:4px; }
+.home:not(.project) .piece--secondary .piece__kind { font-size:12px; line-height:16px; margin-left:12px; }
+.work__label--more { padding-top:0; padding-bottom:24px; }
+.lede__links a:focus-visible,.piece a:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
+@media(max-width:600px) { .home:not(.project) { padding:80px 24px 48px; } .home:not(.project).is-open,html.projects-open .home:not(.project) { padding-top:48px; } .home:not(.project) .lede { gap:24px; } .home:not(.project) .lede__summary { font-size:24px; line-height:32px; } .work__label { padding-top:48px; } .home:not(.project) .piece { margin-bottom:48px; } .piece__visual img { aspect-ratio:4/3; } }
+@media(prefers-reduced-motion:reduce) { .piece__visual img,.lede__links a { transition:none; } }
