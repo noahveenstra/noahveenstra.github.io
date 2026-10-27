@@ -3,3 +3,19 @@
 @media (max-width: 600px) {
   .pager { grid-template-columns: 1fr min(42rem, calc(100% - 36px)) 1fr; }
 }
+
+/* Keep both fixed rails outside the widest case-study content column. */
+@media (min-width: 1180px) {
+  .home.project .page-nav,
+  .home.project.project--editorial .term-bank:not([hidden]),
+  .home.project.project--pursuit .term-bank:not([hidden]) {
+    left: auto;
+    right: calc(50% + 23rem + 32px);
+    width: min(220px, calc(50% - 23rem - 56px));
+  }
+  .home.project .page-nav a { overflow-wrap: anywhere; }
+  /* Leave room above the expanded definitions panel as well as its toggle. */
+  .home.project:has(.term-bank.is-open:not([hidden])) .page-nav {
+    max-height: max(0px, calc(100vh - 425px));
+  }
+}
