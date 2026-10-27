@@ -57,12 +57,13 @@
 .project--pursuit .project__section > p.note { padding-left: 1rem; border-left: 2px solid var(--color-hair); color: var(--color-muted); font-size: .9rem; line-height: 1.6; }
 .project--pursuit .project__section > p.loop { margin-top: 1.7rem; color: var(--color-muted); font-size: .8rem; font-weight: 500; letter-spacing: .09em; }
 .project--pursuit .steps { margin: 1rem 0 0; }
-.project--pursuit .pursuit-sequence { list-style:none; counter-reset:pursuit-step; margin:1.5rem 0 0; padding:0; }
-.project--pursuit .pursuit-sequence li { counter-increment:pursuit-step; display:grid; grid-template-columns:2rem minmax(0,1fr); gap:1rem; margin:0; padding:1.15rem 0; }
-.project--pursuit .pursuit-sequence li::before { content:"0" counter(pursuit-step); color:var(--color-muted); font-size:.8rem; font-variant-numeric:tabular-nums; padding-top:.15rem; }
+.project--pursuit ol.pursuit-sequence { display:block !important; width:100%; max-width:none; list-style:none !important; margin:1.5rem 0 0; padding:0; }
+.project--pursuit ol.pursuit-sequence > li { display:grid; width:100%; min-width:0; grid-template-columns:2rem minmax(0,1fr); gap:1rem; margin:0; padding:1.15rem 0; list-style:none; }
+.project--pursuit .pursuit-sequence__number { display:block; color:var(--color-muted); font-size:.8rem; font-variant-numeric:tabular-nums; padding-top:.15rem; }
+.project--pursuit .pursuit-sequence li > div { grid-column:2; min-width:0; width:100%; max-width:none; }
 .project--pursuit .pursuit-sequence li strong { display:block; font-size:1rem; font-weight:500; line-height:1.4; }
-.project--pursuit .pursuit-sequence li p { margin:.4rem 0 0; color:var(--color-muted); font-size:.95rem; line-height:1.65; }
-@media (max-width:600px) { .project--pursuit .pursuit-sequence li { grid-template-columns:1.75rem minmax(0,1fr); gap:.75rem; padding:.9rem 0; } }
+.project--pursuit .pursuit-sequence li p { margin:.4rem 0 0; color:var(--color-muted); font-size:.95rem; line-height:1.65; overflow-wrap:normal; word-break:normal; }
+@media (max-width:600px) { .project--pursuit ol.pursuit-sequence > li { grid-template-columns:1.75rem minmax(0,1fr); gap:.75rem; padding:.9rem 0; } }
 .project--pursuit .steps p { margin: .5rem 0; color: var(--color-fg); font-size: 1rem; line-height: 1.6; }
 .project--pursuit .pursuit-workflow h3 { color: var(--color-fg); }
 @media (max-width: 600px) {
@@ -204,11 +205,11 @@
 <h2 class="project__heading" id="workflow">A research workflow with a person in the loop</h2>
 <p>The workflow is deliberately a sequence of research decisions, not a one click answer. A search result is a starting point. It has to survive a source check and a fit check before its language is adapted for a live pursuit.</p>
 <ol class="pursuit-sequence">
-<li><div><strong>Translate the pursuit question</strong><p>Start with the actual need in the owner’s request: a type of experience, constraint, relationship, delivery approach, or project context. Preserve the important qualifiers instead of searching only for a broad building type.</p></div></li>
-<li><div><strong>Search for candidate experiences</strong><p>Look across prior proposal material for accounts that may answer the need, even when the older document describes the work in different words. A candidate is a lead to investigate, not an approved claim.</p></div></li>
-<li><div><strong>Read the result in context</strong><p>Understand what the source was answering and what surrounding details qualify the passage. A résumé listing or project description may help identify a job without showing that the team performed the specific work being requested.</p></div></li>
-<li><div><strong>Open the original evidence</strong><p>Compare the proposed wording with the original source page. Check the language, context, and limitations before carrying anything forward.</p></div></li>
-<li><div><strong>Make the reuse decision</strong><p>The proposal writer decides whether the experience fits the new pursuit, what it supports, and how to express it accurately. If the source does not substantiate the claim, the result should not be used as proof.</p></div></li>
+<li><span class="pursuit-sequence__number">01</span><div><strong>Translate the pursuit question</strong><p>Start with the actual need in the owner’s request: a type of experience, constraint, relationship, delivery approach, or project context. Preserve the important qualifiers instead of searching only for a broad building type.</p></div></li>
+<li><span class="pursuit-sequence__number">02</span><div><strong>Search for candidate experiences</strong><p>Look across prior proposal material for accounts that may answer the need, even when the older document describes the work in different words. A candidate is a lead to investigate, not an approved claim.</p></div></li>
+<li><span class="pursuit-sequence__number">03</span><div><strong>Read the result in context</strong><p>Understand what the source was answering and what surrounding details qualify the passage. A résumé listing or project description may help identify a job without showing that the team performed the specific work being requested.</p></div></li>
+<li><span class="pursuit-sequence__number">04</span><div><strong>Open the original evidence</strong><p>Compare the proposed wording with the original source page. Check the language, context, and limitations before carrying anything forward.</p></div></li>
+<li><span class="pursuit-sequence__number">05</span><div><strong>Make the reuse decision</strong><p>The proposal writer decides whether the experience fits the new pursuit, what it supports, and how to express it accurately. If the source does not substantiate the claim, the result should not be used as proof.</p></div></li>
 </ol>
 <p class="note">The local proof of concept supported this research loop. This description does not imply that every step is automated or that the national platform already implements the full model.</p>
 </section></div>
