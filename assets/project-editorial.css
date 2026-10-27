@@ -27,3 +27,46 @@
 
 .project--editorial .project__figure { width: 100%; max-width: 100%; }
 .project--editorial .pursuit-role__value a { color: var(--color-fg); text-decoration: underline; text-underline-offset: .18em; }
+
+
+/* Keep case-study media in the article flow at every viewport size. */
+.home.project.project--editorial .project__shot,
+.home.project.project--editorial .project__shot.is-current {
+  position: static;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  padding: 0;
+  display: block;
+  pointer-events: auto;
+}
+.home.project.project--editorial .project__shot .project__figure {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0;
+}
+.home.project.project--editorial .project__shot .project__figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+}
+.home.project.project--editorial .project__shot .project__caption {
+  max-width: none;
+  margin-top: .65rem;
+  text-align: left;
+  line-height: 1.5;
+}
+/* Definition controls belong after the article, where they cannot cover copy. */
+.home.project.project--editorial .term-bank:not([hidden]) {
+  position: static;
+  width: min(42rem, 100%);
+  margin: 3rem auto 0;
+}
+.home.project.project--editorial .term-bank__panel {
+  background: var(--color-bg);
+}

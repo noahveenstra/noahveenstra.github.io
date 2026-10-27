@@ -1,6 +1,6 @@
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const wideQuery = matchMedia("(min-width: 1180px)");
+  const wideQuery = matchMedia(document.querySelector(".project--editorial") ? "not all" : "(min-width: 1180px)");
   const shots = [...document.querySelectorAll(".project__shot")];
   const marks = shots.map((shot) => {
     const mark = document.createElement("div");

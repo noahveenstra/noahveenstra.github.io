@@ -58,6 +58,7 @@
   }
 
   const bank = document.querySelector(".term-bank");
+  if (bank.parentElement.matches(".project--editorial")) bank.parentElement.appendChild(bank);
   const bankBody = document.getElementById("term-bank-body");
   const bankList = bank.querySelector("ul");
   const bankAll = bank.querySelector(".term-bank__all");
