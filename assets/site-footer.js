@@ -13,7 +13,7 @@
   });
   words.replaceChildren(...wordSpans.flatMap((span,i) => i ? [document.createTextNode(' '),span] : [span]));
   // Each word gets a distinct, art-directed montage fitted to its own bounds.
-  // The thirteen source images are used once each; the texture never tiles.
+  // The ten source photographs are used once each; the texture never tiles.
   const lensWords = text.trim().split(/\s+/).map(word => {
     const span = document.createElement('span'); span.className = 'site-footer__lens-word'; span.textContent = word; return span;
   });
