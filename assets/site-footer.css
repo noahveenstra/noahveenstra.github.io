@@ -2,9 +2,14 @@
 .site-footer__inner { width:min(82rem,calc(100% - clamp(48px,10vw,96px))); margin:auto; padding:96px 0 24px; }
 .site-footer__headline { position:relative; margin:0; padding:8px 0 16px; font-size:72px; font-weight:500; letter-spacing:-.06em; line-height:1; max-width:15ch; isolation:isolate; }
 .site-footer__words { display:block; color:var(--color-fg); }
+/* Cut the solid glyphs out under the lens so their antialiasing cannot fringe the photo glyphs. */
+.site-footer--reveal .site-footer__words {
+  -webkit-mask-image:radial-gradient(circle at var(--lens-x,50%) var(--lens-y,50%),transparent var(--lens-r,0px),#000 var(--lens-r,0px));
+  mask-image:radial-gradient(circle at var(--lens-x,50%) var(--lens-y,50%),transparent var(--lens-r,0px),#000 var(--lens-r,0px));
+}
 .site-footer__lens { display:block; position:absolute; inset:8px 0 16px; pointer-events:none; color:transparent; clip-path:circle(var(--lens-r,0px) at var(--lens-x,50%) var(--lens-y,50%)); will-change:clip-path; }
 .site-footer__word,.site-footer__lens-word { display:inline-block; }
-.site-footer__lens-word { color:transparent; background-image:url('/assets/previews/footer-lets.webp?v=10'); background-size:cover; background-repeat:no-repeat; background-position:center; background-clip:text; -webkit-background-clip:text; }
+.site-footer__lens-word { color:transparent; -webkit-text-fill-color:transparent; -webkit-text-stroke:0 transparent; text-shadow:none; background-image:url('/assets/previews/footer-lets.webp?v=10'); background-size:cover; background-repeat:no-repeat; background-position:center; background-clip:text; -webkit-background-clip:text; }
 .site-footer__lens-word:nth-of-type(2) { background-image:url('/assets/previews/footer-build.webp?v=10'); }
 .site-footer__lens-word:nth-of-type(3) { background-image:url('/assets/previews/footer-something.webp?v=10'); }
 .site-footer__lens-word:nth-of-type(4) { background-image:url('/assets/previews/footer-awesome.webp?v=10'); }
@@ -24,3 +29,5 @@
 @media(min-width:701px) and (max-width:1000px) { .site-footer__headline { font-size:60px; } }
 
 @media(prefers-reduced-motion:reduce) { .site-footer--reveal .site-footer__word { opacity:1; } }
+
+@media(prefers-reduced-motion:reduce) { .site-footer__words { -webkit-mask-image:none; mask-image:none; } }

@@ -16,3 +16,7 @@ Footer imagery is fitted to individual word boxes. Each word gets a distinct mon
 Scroll reveals must use opacity and transform only. Do not reintroduce CSS blur filters on reveal wrappers, metadata strips, or photo panels: a persistent purple edge artifact was reported during the blurred initial state, even after completed-state cleanup. Keep unrevealed content faintly visible.
 
 Footer image sources are restricted to photographs from the Saint City Chapel and wedding website stories. Do not use phone or computer mockups, Apple Music, Instagram, Nike, Disney, or other concept imagery. The wedding source must use its photographic area without website UI. Regenerate the four collages with `python scripts/build-footer-collages.py`; originals remain unchanged.
+
+Inside the footer reveal lens, mask out the solid text under the photo lettering using the same geometry. Do not stack the light solid glyphs directly beneath photo glyphs; their antialiasing creates a faint outline. Keep keyboard focus indicators on contact links intact.
+
+Homepage project thumbnails preserve their intrinsic image ratios at every breakpoint; never impose a square or 4:3 crop on mobile. Use a single photo column on narrow phones and test all nine current pages at phone, tablet, and desktop widths when changing shared layout.

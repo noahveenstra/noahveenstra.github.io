@@ -1,0 +1,24 @@
+/* Shared phone and tablet safeguards. Preserve source artwork and a single reading column. */
+.home,.home :is(.stage,.intro,.panel,.work,.piece),.home.project :is(.pursuit-role > div,.decision-pair > div) { min-width:0; }
+.home.project :is(.project__title,.project__heading,.pursuit-role__value,.project__caption,figcaption) { overflow-wrap:anywhere; }
+.home.project :is(img,video,iframe) { max-width:100%; }
+.home.project img { height:auto; }
+@media(max-width:1179px) {
+  .home.project .page-nav { max-width:100%; }
+  .home.project .page-nav ol { flex-wrap:wrap; }
+  .home.project .term-bank:not([hidden]) { left:max(16px,env(safe-area-inset-left)); right:max(16px,env(safe-area-inset-right)); width:auto; }
+}
+@media(max-width:600px) {
+  .pager { padding:16px 0; }
+  .pager__links a { display:inline-flex; align-items:center; min-height:44px; }
+  .home.project .saint-photos { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .home.project :is(.saint-photo,.saint-photos,.saint-hoodie-detail) figcaption { font-size:12px; line-height:16px; }
+  .home.project .pursuit-role { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .home.project .decision-pair { grid-template-columns:minmax(0,1fr); }
+  .lede__links a,.site-footer__links a { display:inline-flex; align-items:center; min-height:44px; }
+  .piece__meta > span { min-width:0; }
+  .home.project .term-bank__clip { max-height:min(240px,50svh); }
+}
+@media(max-width:480px) {
+  .home.project .pursuit-hero .project__title { font-size:36px; line-height:40px; }
+}

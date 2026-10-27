@@ -22,6 +22,7 @@
   let frame = 0, inside = false, visible = false, introStart = 0, played = false;
   let x = 0, y = 0, radius = 0, targetX = 0, targetY = 0, targetRadius = 0;
   function wake() { if (!frame && visible && !reduce.matches) frame = requestAnimationFrame(draw); }
+  // Both text layers inherit exactly the same lens geometry from the headline.
   function draw(now) {
     frame = 0;
     if (introStart && !inside) {
@@ -31,7 +32,7 @@
       if (progress === 1) { introStart = 0; targetRadius = 0; }
     }
     x += (targetX - x) * .13; y += (targetY - y) * .13; radius += (targetRadius - radius) * .13;
-    lens.style.setProperty('--lens-x', x + 'px'); lens.style.setProperty('--lens-y', (y - 8) + 'px'); lens.style.setProperty('--lens-r', radius + 'px');
+    title.style.setProperty('--lens-x', x + 'px'); title.style.setProperty('--lens-y', (y - 8) + 'px'); title.style.setProperty('--lens-r', radius + 'px');
     if (introStart || Math.abs(x-targetX)+Math.abs(y-targetY)+Math.abs(radius-targetRadius) > .15) wake();
   }
   title.addEventListener('pointermove', event => {
@@ -43,7 +44,7 @@
   title.addEventListener('pointerleave', () => { inside = false; targetRadius = 0; wake(); });
   const observer = new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
-    if (!visible) { cancelAnimationFrame(frame); frame = 0; inside = false; introStart = 0; targetRadius = 0; radius = 0; lens.style.setProperty('--lens-r','0px'); return; }
+    if (!visible) { cancelAnimationFrame(frame); frame = 0; inside = false; introStart = 0; targetRadius = 0; radius = 0; title.style.setProperty('--lens-r','0px'); return; }
     if (!played) { wordSpans.forEach((word,i) => word.animate([{opacity:.35},{opacity:1}], {duration:300,delay:i*60,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'})); played = true; introStart = performance.now(); x = title.clientWidth * .1; y = title.clientHeight * .6; }
     wake();
   }, {threshold:.3});

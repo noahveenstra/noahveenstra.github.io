@@ -21,8 +21,8 @@
 .work__label { padding-top:64px; padding-bottom:32px; font-size:12px; line-height:16px; color:var(--color-muted); letter-spacing:.04em; }
 .home:not(.project) .piece { width:100%; margin:0 0 64px; opacity:1; transform:none; filter:none; }
 .piece__visual { display:block; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
-.piece__visual img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; transition:transform .5s var(--motion-out); }
-.piece__visual:hover img { transform:scale(1.025); }
+.piece__visual img { display:block; width:100%; height:auto; aspect-ratio:auto; object-fit:contain; transition:transform .5s var(--motion-out); }
+@media(hover:hover) and (pointer:fine) { .piece__visual:hover img { transform:scale(1.025); } }
 .piece__visual--saint img { object-position:center; }
 .home:not(.project) .piece__title { font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
 .piece__title a::after { content:' ↗'; font-size:.75em; display:inline-block; transition:transform .3s var(--motion-out); }
@@ -35,5 +35,5 @@
 .home:not(.project) .piece--secondary .piece__kind { font-size:12px; line-height:16px; margin-left:12px; }
 .work__label--more { padding-top:0; padding-bottom:24px; }
 .lede__links a:focus-visible,.piece a:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
-@media(max-width:600px) { .home:not(.project) { padding:80px 24px 48px; } .home:not(.project).is-open,html.projects-open .home:not(.project) { padding-top:48px; } .home:not(.project) .lede { gap:24px; } .home:not(.project) .lede__summary { font-size:24px; line-height:32px; } .work__label { padding-top:48px; } .home:not(.project) .piece { margin-bottom:48px; } .piece__visual img { aspect-ratio:4/3; } }
+@media(max-width:600px) { .home:not(.project) { padding:80px 24px 48px; } .home:not(.project).is-open,html.projects-open .home:not(.project) { padding-top:48px; } .home:not(.project) .lede { gap:24px; } .home:not(.project) .lede__summary { font-size:24px; line-height:32px; } .work__label { padding-top:48px; } .home:not(.project) .piece { margin-bottom:48px; } }
 @media(prefers-reduced-motion:reduce) { .piece__visual img,.lede__links a { transition:none; } }
