@@ -8,7 +8,8 @@
   const fill = document.createElement("span");
   fill.className = "project-reading-progress__fill";
   progress.append(fill);
-  document.body.prepend(progress);
+  const header = document.querySelector(".pager");
+  (header || document.body).append(progress);
 
   let frame = 0;
   function update() {
