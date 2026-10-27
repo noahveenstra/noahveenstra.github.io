@@ -57,6 +57,12 @@
 .project--pursuit .project__section > p.note { padding-left: 1rem; border-left: 2px solid var(--color-hair); color: var(--color-muted); font-size: .9rem; line-height: 1.6; }
 .project--pursuit .project__section > p.loop { margin-top: 1.7rem; color: var(--color-muted); font-size: .8rem; font-weight: 500; letter-spacing: .09em; }
 .project--pursuit .steps { margin: 1rem 0 0; }
+.project--pursuit .pursuit-sequence { list-style:none; counter-reset:pursuit-step; margin:1.5rem 0 0; padding:0; }
+.project--pursuit .pursuit-sequence li { counter-increment:pursuit-step; display:grid; grid-template-columns:2rem minmax(0,1fr); gap:1rem; margin:0; padding:1.15rem 0; }
+.project--pursuit .pursuit-sequence li::before { content:"0" counter(pursuit-step); color:var(--color-muted); font-size:.8rem; font-variant-numeric:tabular-nums; padding-top:.15rem; }
+.project--pursuit .pursuit-sequence li strong { display:block; font-size:1rem; font-weight:500; line-height:1.4; }
+.project--pursuit .pursuit-sequence li p { margin:.4rem 0 0; color:var(--color-muted); font-size:.95rem; line-height:1.65; }
+@media (max-width:600px) { .project--pursuit .pursuit-sequence li { grid-template-columns:1.75rem minmax(0,1fr); gap:.75rem; padding:.9rem 0; } }
 .project--pursuit .steps p { margin: .5rem 0; color: var(--color-fg); font-size: 1rem; line-height: 1.6; }
 .project--pursuit .pursuit-workflow h3 { color: var(--color-fg); }
 @media (max-width: 600px) {
