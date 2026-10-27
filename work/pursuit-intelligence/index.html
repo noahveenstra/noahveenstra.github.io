@@ -146,9 +146,6 @@
 
 .info-model { margin:2rem 0 1.5rem; }
 .info-model__canvas { position:relative; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; align-items:stretch; padding:0 0 8px 18px; }
-.info-model__wires { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:0; }
-.info-model__wires path { fill:none; stroke:#8eaaa3; stroke-width:1.5; stroke-dasharray:var(--wire-length,1); stroke-dashoffset:var(--wire-length,1); transition:stroke-dashoffset 900ms cubic-bezier(.22,1,.36,1); }
-.info-model__wires path.is-drawn { stroke-dashoffset:0; }
 .info-card { position:relative; z-index:1; min-width:0; padding:20px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); border-radius:4px; }
 .info-card__eyebrow { margin:0 0 18px !important; color:var(--color-muted) !important; font-size:12px !important; line-height:16px !important; letter-spacing:.08em; text-transform:uppercase; }
 .project--pursuit .info-card h3 { margin:0; font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
@@ -162,7 +159,6 @@
 .info-model__wires { left:0; width:100%; }
 .info-card { padding:18px; }
 }
-@media(prefers-reduced-motion:reduce) { .info-model__wires path { transition:none; stroke-dashoffset:0; } }
 </style>
 <link rel="stylesheet" href="/assets/project-nav-alignment.css">
 <link rel="stylesheet" href="/assets/global-reveal.css?v=9">
@@ -227,7 +223,7 @@
 <p>This was more than a search box over proposal PDFs. I designed a hierarchy of canonical People, Projects, and References pages, then worked out how those records should connect so information could be found, maintained, and traced back to evidence.</p>
 <div class="info-model" data-info-model>
 <div class="info-model__canvas">
-<svg class="info-model__wires" aria-hidden="true"><path data-wire="people-project"></path><path data-wire="project-reference"></path></svg>
+
 <article class="info-card" data-info-node="people">
 <p class="info-card__eyebrow">01 · People</p><h3>Who carried the experience?</h3>
 <p>Canonical pages for individuals, with role and experience details gathered where available. A person’s experience could be understood beyond a name appearing in a résumé row or scattered paragraph.</p>
@@ -424,8 +420,5 @@ window.TERM_KEY = "pursuit-known-terms";
 <script src="/assets/outline.js"></script>
 <script src="/assets/pager.js"></script>
 <script src="/assets/site-footer.js?v=12"></script>
-<script>
-(()=>{const root=document.querySelector("[data-info-model]");if(!root)return;const canvas=root.querySelector(".info-model__canvas"),svg=root.querySelector(".info-model__wires");const wires=[["people-project","people","projects"],["project-reference","projects","references"]];function draw(){const box=canvas.getBoundingClientRect();svg.setAttribute("viewBox",`0 0 ${box.width} ${box.height}`);for(const [id,from,to] of wires){const a=canvas.querySelector(`[data-info-node="${from}"]`).getBoundingClientRect(),b=canvas.querySelector(`[data-info-node="${to}"]`).getBoundingClientRect();let x1,y1,x2,y2,d;if(Math.abs(b.top-a.top)<Math.abs(b.left-a.left)){x1=a.right-box.left;y1=a.top-box.top+a.height/2;x2=b.left-box.left;y2=b.top-box.top+b.height/2;const bend=Math.max(24,(x2-x1)*.42);d=`M ${x1} ${y1} C ${x1+bend} ${y1}, ${x2-bend} ${y2}, ${x2} ${y2}`;}else{x1=a.left-box.left+a.width/2;y1=a.bottom-box.top;x2=b.left-box.left+b.width/2;y2=b.top-box.top;const bend=Math.max(20,(y2-y1)*.42);d=`M ${x1} ${y1} C ${x1} ${y1+bend}, ${x2} ${y2-bend}, ${x2} ${y2}`;}const path=svg.querySelector(`[data-wire="${id}"]`);path.setAttribute("d",d);const length=path.getTotalLength();path.style.setProperty("--wire-length",length);}}
-const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;draw();new ResizeObserver(draw).observe(canvas);if(reduce){svg.querySelectorAll("path").forEach(p=>p.classList.add("is-drawn"));return;}const seen=new Set();for(const [id,,to] of wires){const target=canvas.querySelector(`[data-info-node="${to}"]`);new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&!seen.has(id)){seen.add(id);svg.querySelector(`[data-wire="${id}"]`).classList.add("is-drawn");}}, {threshold:.2}).observe(target);}})();
-</script></body>
+</body>
 </html>
