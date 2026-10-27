@@ -1,0 +1,5 @@
+/* Keep project navigation aligned with the case-study reading column. */
+.pager { grid-template-columns: 1fr min(42rem, calc(100% - 48px)) 1fr; }
+@media (max-width: 600px) {
+  .pager { grid-template-columns: 1fr min(42rem, calc(100% - 36px)) 1fr; }
+}
