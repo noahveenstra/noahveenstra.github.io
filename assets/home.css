@@ -11,7 +11,7 @@
 .lede__links { display:flex; flex-wrap:wrap; gap:24px; font-size:14px; line-height:20px; }
 .lede__links a { border-bottom:1px solid var(--color-hair); transition:border-color .3s var(--motion-out),transform .3s var(--motion-out); }
 .lede__links a:hover { border-color:currentColor; }
-.home:not(.project) .projects-toggle { margin-top:8px; display:block; font-size:16px; line-height:24px; font-weight:500; }
+.home:not(.project) .projects-toggle { margin-top:8px; display:block; font-size:14px; line-height:20px; font-weight:400; }
 .toggle__hide { display:none; }
 .home.is-open .toggle__projects,html.projects-open .toggle__projects { display:none; }
 .home.is-open .toggle__hide,html.projects-open .toggle__hide { display:block; opacity:1; }
