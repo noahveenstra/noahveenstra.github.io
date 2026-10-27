@@ -92,6 +92,24 @@
   .project--pursuit .pursuit-workflow__example-grid > div { display: block; padding: 1.1rem 0; }
   .project--pursuit .pursuit-workflow__example-grid > div > .pursuit-workflow__eyebrow { margin-bottom: .6rem !important; }
 }
+
+.pursuit-illustration { margin: 2rem 0 2.5rem; }
+.pursuit-illustration__desktop svg { width: 100%; height: auto; display: block; }
+.pursuit-illustration__mobile { display: none; }
+@media (max-width: 600px) {
+ .pursuit-illustration__desktop { display: none; }
+ .pursuit-illustration__mobile { display: block; padding: 1.25rem; background: #191b1b; color: #f0f3ef; border: 1px solid #52605b; border-radius: 8px; }
+ .project--pursuit .pursuit-illustration__mobile-title { margin: 0 0 1.3rem; font-size: 1rem; font-weight: 600; color: #f0f3ef; }
+ .pursuit-illustration__mobile ol { padding: 0; margin: 0; list-style: none; }
+ .pursuit-illustration__mobile li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; position: relative; padding: 0 0 1.35rem; }
+ .pursuit-illustration__mobile li:before { content: ''; position: absolute; top: 2rem; bottom: 0; left: .95rem; border-left: 1px solid #8ba6e5; }
+ .pursuit-illustration__mobile li:last-child:before { display: none; }
+ .pursuit-illustration__mobile li svg { width: 2rem; height: 2rem; color: #cbd4d0; }
+ .pursuit-illustration__mobile li span { display: block; font-size: .65rem; letter-spacing: .09em; font-weight: 600; color: #aebbb4; }
+ .pursuit-illustration__mobile li strong { display: block; margin: .2rem 0; font-size: 1rem; font-weight: 500; line-height: 1.3; }
+ .project--pursuit .pursuit-illustration__mobile li p { margin: 0; font-size: .85rem; color: #bbc7c0; line-height: 1.5; }
+ .project--pursuit .pursuit-illustration__mobile-foot { padding-top: 1rem; border-top: 1px solid #44504b; color: #bbc7c0; font-size: .8rem; line-height: 1.5; }
+}
 </style>
 </head>
 <body>
@@ -115,17 +133,28 @@
     <h3 id="workflow-title">From search to supported reuse</h3>
     <p class="pursuit-workflow__caption">Illustrative workflow · entirely synthetic content · not a product screenshot</p>
   </figcaption>
-  <div class="pursuit-workflow__diagram" id="pursuit-diagram" role="img" aria-label="A person searches. The system returns candidates. The person reads the note, checks the original, and decides whether to reuse the claim.">
-    <ol class="pursuit-workflow__fallback" id="pursuit-diagram-fallback">
-      <li>Person: search by problem.</li>
-      <li>System: return story candidates.</li>
-      <li>Person: read the cited note.</li>
-      <li>Person: check the original source.</li>
-      <li>Person: decide what is supported.</li>
-    </ol>
-  </div>
-  <p class="pursuit-workflow__caption">A person searches; the system retrieves candidates. The person then reads the note, verifies the original, and makes the reuse decision.</p>
-  <div class="pursuit-workflow__outcomes"><span><strong>Supported</strong> · reuse with citation</span><span><strong>Partly supported</strong> · narrow the claim</span><span><strong>Unresolved</strong> · defer reuse</span></div>
+  <div class="pursuit-illustration"><div class="pursuit-illustration__desktop"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 665" role="img" aria-labelledby="pi-title pi-desc">
+<title id="pi-title">From search to supported reuse</title><desc id="pi-desc">A person searches by problem. The system retrieves a story candidate. The person reads the cited note, verifies the original, and decides what is supported.</desc>
+<rect x="1" y="1" width="678" height="663" rx="8" fill="#191b1b" stroke="#52605b" stroke-width="1.4"/>
+<g font-family="Inter,Arial,sans-serif">
+<text x="30" y="42" fill="#f0f3ef" font-size="17" font-weight="600">Story retrieval</text>
+<text x="650" y="42" text-anchor="end" fill="#aebbb4" font-size="14">PERSON + SYSTEM</text>
+<path d="M91 103v423" stroke="#8ba6e5" stroke-width="1.7"/>
+<g fill="#191b1b" stroke="#8ba6e5" stroke-width="1.5"><circle cx="91" cy="105" r="4"/><circle cx="91" cy="207" r="4"/><circle cx="91" cy="309" r="4"/><circle cx="91" cy="411" r="4"/><circle cx="91" cy="513" r="4"/></g>
+<g fill="none" stroke="#cbd4d0" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+<!-- search --> <circle cx="147" cy="95" r="14"/><path d="m157 106 11 11"/><path d="M147 89v12m-6-6h12" stroke="#8ba6e5"/>
+<!-- result --> <path d="M130 187h32v38h-32z M136 181h32v38 M142 175h32v38"/><path d="M136 195h18m-18 6h18m-18 6h12" stroke="#8ba6e5"/>
+<!-- read --> <path d="M129 289c9-3 17-1 24 3 7-4 15-6 24-3v32c-9-3-17-1-24 3-7-4-15-6-24-3z M153 292v32"/><path d="M135 297c5-1 9 0 12 2m12 0c4-2 8-3 12-2" stroke="#8ba6e5"/>
+<!-- verify --> <path d="M133 389h28l8 8v29h-36z M160 389v9h9 M139 402h13m-13 7h14m-14 7h9"/><circle cx="164" cy="417" r="9"/><path d="m170 424 7 7" stroke="#8ba6e5"/>
+<!-- decision --> <path d="M130 493h39v37h-39z M138 504l4 4 7-8m-11 18 4 4 7-8"/><path d="M154 505h9m-9 13h9" stroke="#8ba6e5"/>
+</g>
+<g fill="#9caaa4" font-size="12" font-weight="600" letter-spacing="1.2"><text x="203" y="86">01 / PERSON</text><text x="203" y="188">02 / SYSTEM</text><text x="203" y="290">03 / PERSON</text><text x="203" y="392">04 / PERSON</text><text x="203" y="494">05 / PERSON</text></g>
+<g fill="#f0f3ef" font-size="23" font-weight="500"><text x="203" y="114">Describe the problem</text><text x="203" y="216">Find a story candidate</text><text x="203" y="318">Read the cited note</text><text x="203" y="420">Check the original source</text><text x="203" y="522">Decide what is supported</text></g>
+<g fill="#bbc7c0" font-size="15"><text x="203" y="140">Search using the experience needed.</text><text x="203" y="242">Retrieve an excerpt, citation, and recorded limit.</text><text x="203" y="344">Review the passage and its surrounding context.</text><text x="203" y="446">Compare the intended claim with the source page.</text><text x="203" y="548">Reuse with citation, narrow the claim, or defer.</text></g>
+<path d="M30 585h620" stroke="#44504b" stroke-width="1"/>
+<text x="30" y="619" fill="#aebbb4" font-size="14">The person makes the decision. Retrieval does not verify the claim.</text>
+</g></svg>
+</div><div class="pursuit-illustration__mobile"><p class="pursuit-illustration__mobile-title">Story retrieval</p><ol><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m15.5 15.5 5 5"/></svg><div><span>01 / PERSON</span><strong>Describe the problem</strong><p>Search using the experience needed.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h13v15H4z M7 3h13v15 M7 10h7m-7 4h7"/></svg><div><span>02 / SYSTEM</span><strong>Find a story candidate</strong><p>Retrieve an excerpt, citation, and recorded limit.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c4-1 7 0 10 2 3-2 6-3 10-2v14c-4-1-7 0-10 2-3-2-6-3-10-2z M12 7v14"/></svg><div><span>03 / PERSON</span><strong>Read the cited note</strong><p>Review the passage and its surrounding context.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h11l4 4v13H4z M15 2v5h4 M7 10h7m-7 4h5"/><circle cx="17" cy="17" r="4"/><path d="m20 20 2 2"/></svg><div><span>04 / PERSON</span><strong>Check the original source</strong><p>Compare the intended claim with the source page.</p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z M7 9l2 2 3-4m2 2h4M7 16l2 2 3-4m2 2h4"/></svg><div><span>05 / PERSON</span><strong>Decide what is supported</strong><p>Reuse with citation, narrow the claim, or defer.</p></div></li></ol><p class="pursuit-illustration__mobile-foot">The person makes the decision. Retrieval does not verify the claim.</p></div></div>
   <div class="pursuit-workflow__example">
     <p class="pursuit-workflow__eyebrow">One illustrative example</p>
     <div class="pursuit-workflow__example-grid">
@@ -225,50 +254,6 @@ window.TERM_DEFS = {
   ]
 };
 window.TERM_KEY = "pursuit-known-terms";
-</script>
-<script type="module">
-  const target = document.getElementById("pursuit-diagram");
-  const fallback = target.innerHTML;
-  const dark = matchMedia("(prefers-color-scheme: dark)");
-  const narrow = matchMedia("(max-width: 600px)");
-  try {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
-    let renderNumber = 0;
-    const render = async () => {
-      const run = ++renderNumber;
-      const ink = dark.matches ? "#f3f2ef" : "#1d2723";
-      const box = dark.matches ? "#2b302e" : "#ffffff";
-      const systemBox = dark.matches ? "#34534b" : "#dcebe7";
-      const border = dark.matches ? "#778880" : "#a9b6af";
-      const direction = narrow.matches ? "TD" : "LR";
-      const definition = `flowchart ${direction}
-        A("Search") --> B("Retrieve")
-        B --> C("Read")
-        C --> D("Verify")
-        D --> E("Decide")
-        classDef person fill:${box},stroke:${border},color:${ink}
-        classDef system fill:${systemBox},stroke:${border},color:${ink}
-        class A,C,D,E person
-        class B system`;
-      mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "base", themeVariables: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "18px", textColor: ink, primaryTextColor: ink, lineColor: border }, flowchart: { useMaxWidth: true, htmlLabels: false, nodeSpacing: 24, rankSpacing: 28, padding: 14 } });
-      const result = await mermaid.render("pursuit-flow-" + run, definition);
-      if (run !== renderNumber) return;
-      target.innerHTML = result.svg;
-      // Mermaid's generated styles and the site's global theme can compete;
-      // set both SVG and HTML label colors at the highest author priority.
-      target.querySelectorAll("text, tspan, .nodeLabel, .nodeLabel *, foreignObject div, foreignObject span").forEach((label) => {
-        label.style.setProperty("fill", ink, "important");
-        label.style.setProperty("color", ink, "important");
-        label.style.setProperty("opacity", "1", "important");
-      });
-    };
-    await render();
-    dark.addEventListener("change", render);
-    narrow.addEventListener("change", render);
-  } catch (error) {
-    target.innerHTML = fallback;
-    console.warn("Workflow diagram unavailable; showing the text equivalent.", error);
-  }
 </script>
 <script src="/assets/terms.js"></script>
 <script>

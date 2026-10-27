@@ -1,0 +1,29 @@
+/* Editorial hierarchy for this case study */
+.home.project--editorial { width: min(46rem, calc(100% - 48px)); padding-top: clamp(5rem, 10vw, 9rem); }
+.project--editorial .pursuit-hero { text-align: center; padding: 0 0 clamp(3rem, 6vw, 5rem); border-bottom: 1px solid var(--color-hair); }
+.project--editorial .pursuit-hero__eyebrow { margin: 0 0 1.35rem; color: var(--color-muted); font-size: .8rem; letter-spacing: .035em; }
+.project--editorial .project__title { max-width: none; margin: 0; font-size: clamp(2.7rem, 7vw, 5rem); font-weight: 500; line-height: 1.02; letter-spacing: -.055em; }
+.project--editorial .pursuit-hero__subtitle { max-width: 35rem; margin: 1.35rem auto 0; color: var(--color-fg); font-size: clamp(1.1rem, 2.1vw, 1.45rem); line-height: 1.45; letter-spacing: -.015em; text-wrap: balance; }
+.project--editorial .pursuit-role { display: grid; grid-template-columns: 1.65fr 1fr; gap: 2.5rem; padding: 1.7rem 0 2rem; border-bottom: 1px solid var(--color-hair); }
+.project--editorial .pursuit-role__label { margin: 0 0 .55rem; color: var(--color-fg); font-size: .85rem; font-weight: 500; }
+.project--editorial .pursuit-role__value { max-width: 27rem; margin: 0; color: var(--color-muted); font-size: .95rem; line-height: 1.55; }
+.project--editorial .project__section { max-width: 42rem; margin: 4.5rem auto 0; }
+.project--editorial .project__heading { margin: 0 0 1.1rem; color: var(--color-fg); font-size: clamp(1.5rem, 2.7vw, 2rem); font-weight: 500; line-height: 1.2; letter-spacing: -.035em; scroll-margin-top: 6rem; }
+.project--editorial .project__section > p { margin: 1rem 0 0; color: var(--color-fg); font-size: 1.05rem; line-height: 1.7; }
+.project--editorial .project__section > p:first-child { font-size: clamp(1.4rem, 2.5vw, 1.8rem); line-height: 1.4; letter-spacing: -.025em; }
+.project--editorial .project__section > p.note { padding-left: 1rem; border-left: 2px solid var(--color-hair); color: var(--color-muted); font-size: .9rem; line-height: 1.6; }
+.project--editorial .project__section > p.loop { margin-top: 1.7rem; color: var(--color-muted); font-size: .8rem; font-weight: 500; letter-spacing: .09em; }
+.project--editorial .steps { margin: 1rem 0 0; }
+.project--editorial .steps p { margin: .5rem 0; color: var(--color-fg); font-size: 1rem; line-height: 1.6; }
+.project--editorial .pursuit-workflow h3 { color: var(--color-fg); }
+@media (max-width: 600px) {
+  .home.project--editorial { width: calc(100% - 36px); padding-top: 5rem; }
+  .project--editorial .pursuit-hero { padding-bottom: 2.5rem; }
+  .project--editorial .pursuit-role { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem 0; }
+  .project--editorial .project__section { margin-top: 3.5rem; }
+  .project--editorial .project__section > p { font-size: 1rem; line-height: 1.65; }
+}
+
+
+.project--editorial .project__figure { width: 100%; max-width: 100%; }
+.project--editorial .pursuit-role__value a { color: var(--color-fg); text-decoration: underline; text-underline-offset: .18em; }
