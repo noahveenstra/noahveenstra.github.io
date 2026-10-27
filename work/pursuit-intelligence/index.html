@@ -151,10 +151,10 @@
 .project--pursuit .info-card h3 { margin:0; font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
 .project--pursuit .info-card p:not(.info-card__eyebrow) { margin:12px 0 0; font-size:14px; line-height:20px; }
 .project--pursuit .info-card .info-card__detail { color:var(--color-muted); }
- .info-model__relationships { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; margin:4px 0 0 18px; }
+ 
 .info-model__relationships p { display:flex; flex-direction:column; gap:4px; margin:0; font-size:14px; line-height:20px; }
 .info-model__relationships strong { font-weight:500; }
-.info-model__relationships span { color:var(--color-muted); }
+
 @media(max-width:700px) {
 .info-model__wires { left:0; width:100%; }
 .info-card { padding:18px; }
@@ -240,10 +240,7 @@
 <p class="info-card__detail">Reference records make the evidence inspectable.</p>
 </article>
 </div>
-<div class="info-model__relationships" aria-label="How the records connect">
-<p><strong>People ↔ Projects</strong><span>Who worked on which job, and what experience they brought.</span></p>
-<p><strong>Projects ↔ References</strong><span>Which source material documents the project and supports its details.</span></p>
-</div>
+
 </div>
 <p>The relationship structure matters because a reference can mention a person and describe a project; one person can contribute to multiple projects; and a project can appear in multiple references. The system can follow those links in either direction: from a pursuit question to a candidate project, from that project to the people involved, and from either record to the source that supports the detail.</p>
 <p>It also clarifies where information belongs. A person’s experience lives with the person, project context lives with the project, and evidence lives with the reference. The links connect them without flattening everything into one giant text entry. When a detail is added or corrected, it can be managed at the record where it belongs while preserving the connections other searches depend on.</p>
