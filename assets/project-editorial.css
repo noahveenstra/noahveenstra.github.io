@@ -39,6 +39,9 @@
   padding: 0;
   display: block;
   pointer-events: auto;
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 .home.project.project--editorial .project__shot .project__figure {
   display: block;
@@ -61,12 +64,10 @@
   text-align: left;
   line-height: 1.5;
 }
-/* Definition controls belong after the article, where they cannot cover copy. */
-.home.project.project--editorial .term-bank:not([hidden]) {
-  position: static;
-  width: min(42rem, 100%);
-  margin: 3rem auto 0;
-}
-.home.project.project--editorial .term-bank__panel {
-  background: var(--color-bg);
+/* Keep the definitions control in the left rail, clear of the wider article. */
+@media (min-width: 1180px) {
+  .home.project.project--editorial .term-bank:not([hidden]) {
+    right: calc(50% + 21rem + 24px);
+    width: min(220px, calc(50% - 21rem - 36px));
+  }
 }
