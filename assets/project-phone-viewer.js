@@ -14,6 +14,7 @@
     close.textContent = "×";
     const image = document.createElement("img");
     image.className = "project-image-viewer__image";
+    image.addEventListener("click", () => image.classList.toggle("project-image-viewer__image--actual-size"));
     const caption = document.createElement("p");
     caption.className = "project-image-viewer__caption";
     dialog.append(close, image, caption);
@@ -39,6 +40,7 @@
       const viewer = getDialog();
       const viewerImage = viewer.querySelector(".project-image-viewer__image");
       const caption = viewer.querySelector(".project-image-viewer__caption");
+      viewerImage.classList.remove("project-image-viewer__image--actual-size");
       viewerImage.src = img.currentSrc || img.src;
       viewerImage.alt = img.alt || "";
       caption.textContent = img.alt || "";
