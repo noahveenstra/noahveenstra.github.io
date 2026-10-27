@@ -40,13 +40,47 @@
   .pursuit-workflow__diagram { padding: 1.1rem; }
   .pursuit-workflow__example-grid { grid-template-columns: 1fr; gap: 1.3rem; }
 }
+
+/* Editorial hierarchy for this case study */
+.home.project--pursuit { width: min(46rem, calc(100% - 48px)); padding-top: clamp(5rem, 10vw, 9rem); }
+.project--pursuit .pursuit-hero { text-align: center; padding: 0 0 clamp(3rem, 6vw, 5rem); border-bottom: 1px solid var(--color-hair); }
+.project--pursuit .pursuit-hero__eyebrow { margin: 0 0 1.35rem; color: var(--color-muted); font-size: .8rem; letter-spacing: .035em; }
+.project--pursuit .project__title { max-width: none; margin: 0; font-size: clamp(2.7rem, 7vw, 5rem); font-weight: 500; line-height: 1.02; letter-spacing: -.055em; }
+.project--pursuit .pursuit-hero__subtitle { max-width: 35rem; margin: 1.35rem auto 0; color: var(--color-fg); font-size: clamp(1.1rem, 2.1vw, 1.45rem); line-height: 1.45; letter-spacing: -.015em; text-wrap: balance; }
+.project--pursuit .pursuit-role { display: grid; grid-template-columns: 1.65fr 1fr; gap: 2.5rem; padding: 1.7rem 0 2rem; border-bottom: 1px solid var(--color-hair); }
+.project--pursuit .pursuit-role__label { margin: 0 0 .55rem; color: var(--color-fg); font-size: .85rem; font-weight: 500; }
+.project--pursuit .pursuit-role__value { max-width: 27rem; margin: 0; color: var(--color-muted); font-size: .95rem; line-height: 1.55; }
+.project--pursuit .project__section { max-width: 42rem; margin: 4.5rem auto 0; }
+.project--pursuit .project__heading { margin: 0 0 1.1rem; color: var(--color-fg); font-size: clamp(1.5rem, 2.7vw, 2rem); font-weight: 500; line-height: 1.2; letter-spacing: -.035em; scroll-margin-top: 6rem; }
+.project--pursuit .project__section > p { margin: 1rem 0 0; color: var(--color-fg); font-size: 1.05rem; line-height: 1.7; }
+.project--pursuit .project__section > p:first-child { font-size: clamp(1.4rem, 2.5vw, 1.8rem); line-height: 1.4; letter-spacing: -.025em; }
+.project--pursuit .project__section > p.note { padding-left: 1rem; border-left: 2px solid var(--color-hair); color: var(--color-muted); font-size: .9rem; line-height: 1.6; }
+.project--pursuit .project__section > p.loop { margin-top: 1.7rem; color: var(--color-muted); font-size: .8rem; font-weight: 500; letter-spacing: .09em; }
+.project--pursuit .steps { margin: 1rem 0 0; }
+.project--pursuit .steps p { margin: .5rem 0; color: var(--color-fg); font-size: 1rem; line-height: 1.6; }
+.project--pursuit .pursuit-workflow h3 { color: var(--color-fg); }
+@media (max-width: 600px) {
+  .home.project--pursuit { width: calc(100% - 36px); padding-top: 5rem; }
+  .project--pursuit .pursuit-hero { padding-bottom: 2.5rem; }
+  .project--pursuit .pursuit-role { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.5rem 0; }
+  .project--pursuit .project__section { margin-top: 3.5rem; }
+  .project--pursuit .project__section > p { font-size: 1rem; line-height: 1.65; }
+}
 </style>
 </head>
 <body>
 <header class="pager"><a class="mark" href="/">Noah Veenstra</a><nav class="pager__links" aria-label="Projects"><a href="/#work">Work</a></nav></header>
 <main class="home project project--pursuit">
 <nav class="page-nav" aria-label="On this page"><ol><li><a href="#problem">The problem</a></li><li><a href="#approach">The approach</a></li><li><a href="#example">A story found</a></li><li><a href="#trust">Designing for trust</a></li><li><a href="#iteration">Learning from wrong matches</a></li><li><a href="#outcome">Where it is now</a></li></ol></nav>
-<div class="reveal"><div><h1 class="project__title">Pursuit Intelligence</h1><p class="project__meta">Helping people find the story without giving up their judgment</p><p class="project__meta">Role: concept, product direction, information architecture, testing, and AI-assisted development</p><p class="project__meta">Local proof of concept · National version in development</p></div></div>
+<div class="reveal"><header class="pursuit-hero">
+  <p class="pursuit-hero__eyebrow">Case study · Local proof of concept</p>
+  <h1 class="project__title">Pursuit Intelligence</h1>
+  <p class="pursuit-hero__subtitle">Helping people find the story without giving up their judgment</p>
+</header></div>
+<div class="reveal"><div class="pursuit-role">
+  <div><p class="pursuit-role__label">Role</p><p class="pursuit-role__value">Concept, product direction, information architecture, testing, and AI-assisted development</p></div>
+  <div><p class="pursuit-role__label">Status</p><p class="pursuit-role__value">Local proof of concept<br>National version in development</p></div>
+</div></div>
 <div class="reveal"><section class="project__section"><p>What if the answer to “I think we’ve done something like this” didn’t depend on remembering which proposal it lived in?</p><p>I initiated Pursuit Intelligence to help my construction marketing team find specific project experiences buried in years of past proposals. I directed an AI-assisted build of a local research workflow that finds relevant material, shows its source, and leaves the final judgment to the person using it. I shaped the experience around a specific tension: reduce the effort of finding evidence without asking someone to trust an answer they cannot check.</p><p class="note"><strong>Public note:</strong> Examples are described without client, project, or source identifiers. National development is in progress, not a completed rollout.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="problem">The problem</h2><p>When a team proposes a firm for a construction project, a specific account of what happened on a past job can be more useful than a general list of capabilities. But those stories were scattered across years of proposals.</p><p>During one pursuit, we needed a particularly specific example. I knew the information was likely already there, but finding it meant combing through old documents or asking colleagues who might remember it. I wanted to take that search and recall burden off the team without taking away their discernment.</p></section></div>
 <div class="reveal"><section class="project__section"><h2 class="project__heading" id="approach">Search, read, verify</h2><p>I created and directed the development of a local evidence library, using AI to help implement it. I owned the original idea, the workflow, the information architecture, the decisions about evidence, and the iterative review of its output.</p><p class="loop">SEARCH → READ → VERIFY</p><div class="steps"><p><strong>Search:</strong> Ask for the experience or information needed.</p><p><strong>Read:</strong> Review relevant results and surrounding context.</p><p><strong>Verify:</strong> Return to the original source before deciding whether the material fits the current proposal.</p></div><figure class="pursuit-workflow" aria-labelledby="workflow-title">
