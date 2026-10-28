@@ -27,20 +27,20 @@ em,i { font-style:normal; }
 @media(max-width:600px) { .home.project { padding-top:96px; } .home.project .pursuit-hero .project__title { font-size:48px; line-height:1.12; } .home.project .pursuit-hero__subtitle { font-size:20px; line-height:28px; } .home.project .project__heading { font-size:24px; line-height:32px; } .home.project .project__section > p:first-child { font-size:20px; line-height:28px; } }
 
 
-/* Theme-aware portfolio monogram. */
+/* Theme-aware monogram sized to each text line. */
 .pager .mark {
-  width: 18px;
-  height: 14px;
+  width: 1.293lh;
+  height: 1lh;
   overflow: hidden;
-  font-size: 0;
-  line-height: 0;
+  font-size: inherit;
+  line-height: inherit;
 }
 .pager .mark::before,
 .home:not(.project) .lede__name::before {
   content: "";
   display: block;
-  width: 18px;
-  height: 14px;
+  width: 1.293lh;
+  height: 1lh;
   flex: none;
   background-color: var(--color-fg);
   -webkit-mask: url("/assets/nv-mark.svg") center / contain no-repeat;
