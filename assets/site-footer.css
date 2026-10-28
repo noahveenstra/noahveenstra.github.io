@@ -9,7 +9,7 @@
 }
 .site-footer__lens { display:block; position:absolute; inset:8px 0 16px; pointer-events:none; color:transparent; clip-path:circle(var(--lens-r,0px) at var(--lens-x,50%) var(--lens-y,50%)); will-change:clip-path; }
 .site-footer__word,.site-footer__lens-word { display:inline-block; }
-.site-footer__lens-word { color:transparent; -webkit-text-fill-color:transparent; -webkit-text-stroke:0 transparent; text-shadow:none; background-image:url('/assets/previews/footer-lets.webp?v=10'); background-size:cover; background-repeat:no-repeat; background-position:center; background-clip:text; -webkit-background-clip:text; }
+.site-footer__lens-word { color:transparent; -webkit-text-fill-color:transparent; -webkit-text-stroke:0 transparent; text-shadow:none; background-image:url('/assets/previews/footer-lets.webp?v=10'); background-size:160% auto; background-repeat:no-repeat; background-position:center; background-clip:text; -webkit-background-clip:text; }
 .site-footer__lens-word:nth-of-type(2) { background-image:url('/assets/previews/footer-build.webp?v=10'); }
 .site-footer__lens-word:nth-of-type(3) { background-image:url('/assets/previews/footer-something.webp?v=10'); }
 .site-footer__lens-word:nth-of-type(4) { background-image:url('/assets/previews/footer-awesome.webp?v=10'); }
