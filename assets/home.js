@@ -4,6 +4,33 @@
   const intro = home?.querySelector('.intro');
   const panel = document.getElementById('work-list');
   if (!home || !button || !intro || !panel) return;
+
+  const sharedProjectTitles = new Set([
+    "pursuit intelligence",
+    "saint city chapel",
+    "instagram posting ui",
+    "apple music",
+    "disney world and live activities",
+    "creating a responsive website for a local chiropractor's office"
+  ]);
+  const normalizeTitle = value => value
+    .replace(/[’‘]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+
+  home.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="/work/"]');
+    if (!link) return;
+
+    const headings = home.querySelectorAll(".piece__title, .featured-pursuit__title");
+    headings.forEach(heading => heading.style.removeProperty("view-transition-name"));
+
+    const card = link.closest(".piece, .featured-pursuit");
+    const heading = card?.querySelector(".piece__title, .featured-pursuit__title");
+    if (!heading || !sharedProjectTitles.has(normalizeTitle(heading.textContent))) return;
+    heading.style.viewTransitionName = "portfolio-project-title";
+  });
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const motion = 'cubic-bezier(.22,1,.36,1)';
   let animations = [];
