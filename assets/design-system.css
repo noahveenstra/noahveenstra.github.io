@@ -55,3 +55,8 @@ em,i { font-style:normal; }
   align-items: center;
   gap: 10px;
 }
+
+.home:not(.project) .lede__name::before {
+  width: 21px;
+  height: 16px;
+}
