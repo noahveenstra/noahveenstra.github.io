@@ -120,19 +120,23 @@
   text-wrap: pretty;
 }
 .project--editorial .reading-points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin: 16px 0 0;
-  padding-left: 24px;
+  padding-left: 16px;
+  list-style: none;
 }
 .project--editorial .reading-points li {
-  margin: 16px 0;
-  padding-left: 4px;
+  margin: 0;
+  padding-left: 16px;
   color: var(--color-fg);
   font-size: 1rem;
   line-height: 1.5rem;
   text-wrap: pretty;
 }
-.project--editorial .reading-points li::marker {
-  color: var(--color-muted);
+.project--editorial .reading-points li::before {
+  background: var(--color-muted);
 }
 .project--editorial .reading-two-up {
   display: grid;
