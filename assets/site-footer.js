@@ -28,7 +28,7 @@
     if (introStart && !inside) {
       const progress = Math.min(1, (now - introStart) / 2000);
       targetX = title.clientWidth * (.1 + .8 * progress); targetY = title.clientHeight * .6;
-      targetRadius = Math.sin(progress * Math.PI) * Math.min(220, title.clientWidth * .36);
+      targetRadius = Math.sin(progress * Math.PI) * Math.min(145, title.clientWidth * .24);
       if (progress === 1) { introStart = 0; targetRadius = 0; }
     }
     x += (targetX - x) * .13; y += (targetY - y) * .13; radius += (targetRadius - radius) * .13;
@@ -39,7 +39,7 @@
     if (event.pointerType === 'touch') return;
     const rect = title.getBoundingClientRect(); targetX = event.clientX - rect.left; targetY = event.clientY - rect.top;
     if (!inside) { x = targetX; y = targetY; }
-    inside = true; introStart = 0; targetRadius = Math.min(220, rect.width * .36); wake();
+    inside = true; introStart = 0; targetRadius = Math.min(145, rect.width * .24); wake();
   });
   title.addEventListener('pointerleave', () => { inside = false; targetRadius = 0; wake(); });
   const observer = new IntersectionObserver(entries => {
