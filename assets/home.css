@@ -37,7 +37,7 @@
 .piece__outcome { margin-top:24px; }
 .piece__outcome h3 { font-size:14px; line-height:20px; font-weight:500; }
 .piece__outcome p { margin-top:8px; font-size:14px; line-height:20px; color:var(--color-muted); }
-.piece__status { margin-top:16px; font-size:12px; line-height:16px; color:var(--color-muted); }
+.piece__status { margin-top:16px; font-size:14px; line-height:20px; color:var(--color-muted); }
 .piece__cta { display:inline-block; margin-top:16px; font-size:14px; line-height:20px; }
 .piece .piece__visual { display:block; border:0; overflow:hidden; border-radius:4px; background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg)); margin-bottom:16px; }
 .piece__visual img { display:block; width:100%; height:auto; aspect-ratio:auto; object-fit:contain; transition:transform .5s var(--motion-out); }
