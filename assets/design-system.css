@@ -46,6 +46,17 @@ em,i { font-style:normal; }
   -webkit-mask: url("/assets/nv-mark.svg") center / contain no-repeat;
   mask: url("/assets/nv-mark.svg") center / contain no-repeat;
 }
+.pager {
+  align-items: center;
+}
+.pager .mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pager__links {
+  align-items: center;
+}
 .pager .mark:focus-visible {
   outline: 2px solid var(--color-fg);
   outline-offset: 4px;
