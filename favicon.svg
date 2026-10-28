@@ -3,7 +3,7 @@
     .bg { fill: #f8f8f7 }
     .fg { fill: none; stroke: #000; stroke-width: 20; stroke-linecap: square }
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #141413 }
+      .bg { fill: #181818 }
       .fg { stroke: #f3f2ef }
     }
   </style>
