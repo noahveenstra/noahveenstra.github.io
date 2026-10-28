@@ -25,7 +25,7 @@
 @media(hover:hover) and (pointer:fine) { .piece__visual:hover img { transform:scale(1.025); } }
 .piece__visual--saint img { object-position:center; }
 .home:not(.project) .piece__title { font-size:20px; line-height:28px; font-weight:500; letter-spacing:-.025em; }
-.piece__title a::after { content:' ↗'; font-size:.75em; display:inline-block; transition:transform .3s var(--motion-out); }
+.piece__title a::after { content:'↗'; margin-left:.25em; font-size:.75em; display:inline-block; transition:transform .3s var(--motion-out); }
 .piece__title a:hover::after { transform:translate(2px,-2px); }
 .home:not(.project) .piece__line { margin:8px 0 0; font-size:16px; line-height:24px; max-width:65ch; color:var(--color-muted); }
 .piece__meta { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 24px; margin-top:12px; font-size:12px; line-height:16px; color:var(--color-muted); }
