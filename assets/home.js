@@ -25,17 +25,14 @@
       ], {duration: 500, easing:motion}));
       if (open) {
         animations.push(...[...panel.querySelectorAll('.piece, .work__label')].map((item, i) => item.animate([
-          {opacity: reduce.matches ? .4 : 0, transform: reduce.matches ? 'none' : 'translateY(24px)'},
+          {opacity: .4, transform: reduce.matches ? 'none' : 'translateY(24px)'},
           {opacity: 1, transform: 'none'}
         ], {duration: reduce.matches ? 200 : 500, delay: reduce.matches ? 0 : 100 + Math.min(i,5)*60, easing:motion, fill:'backwards'})));
       }
     }
-    if (open) {
-      const target = panel.querySelector('.work__label') || panel;
-      target.scrollIntoView({
-        behavior: animate && !reduce.matches ? 'smooth' : 'auto',
-        block: 'start'
-      });
+    if (animate) {
+      // Keep the compact introduction in view when revealing the project grid.
+      window.scrollTo({top: 0, behavior: reduce.matches ? 'auto' : 'smooth'});
     }
   }
   setOpen(location.hash === '#work', false);
