@@ -71,3 +71,115 @@
     width: min(220px, calc(50% - 21rem - 36px));
   }
 }
+
+
+/* Reading breaks for long case studies */
+.project--editorial .reading-quote {
+  max-width: 42rem;
+  margin: 32px auto;
+  padding: 16px 0 16px 24px;
+  border-left: 2px solid var(--color-fg);
+  color: var(--color-fg);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.project--editorial .reading-quote p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+.project--editorial .reading-subheading {
+  margin: 32px 0 8px;
+  color: var(--color-fg);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.project--editorial .reading-group {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-hair);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+.project--editorial .reading-highlight,
+.project--editorial .reading-standout {
+  display: block;
+  margin: 16px 0;
+  color: var(--color-fg);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.project--editorial .reading-points {
+  margin: 16px 0 0;
+  padding-left: 24px;
+}
+.project--editorial .reading-points li {
+  margin: 16px 0;
+  padding-left: 4px;
+  color: var(--color-fg);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-wrap: pretty;
+}
+.project--editorial .reading-points li::marker {
+  color: var(--color-muted);
+}
+.project--editorial .reading-two-up {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+  border-top: 1px solid var(--color-hair);
+}
+.project--editorial .reading-two-up > div {
+  padding-top: 16px;
+}
+.project--editorial .reading-two-up .reading-subheading {
+  margin-top: 0;
+}
+.project--editorial .reading-two-up p {
+  margin: 8px 0 0;
+  color: var(--color-fg);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-wrap: pretty;
+}
+.project--editorial .reading-label {
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.project--editorial .reading-stat {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .project--editorial .reading-quote {
+    margin: 24px auto;
+    padding-left: 16px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .project--editorial .reading-group {
+    margin-top: 40px;
+  }
+  .project--editorial .reading-two-up {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
