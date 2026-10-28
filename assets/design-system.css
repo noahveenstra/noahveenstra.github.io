@@ -25,3 +25,33 @@ em,i { font-style:normal; }
 @media(prefers-color-scheme:dark) { :root { --color-bg:#181818; --color-fg:#fff; --color-muted:#ffffff99; --color-hair:#ffffff24; } }
 @media(max-width:900px) { .home.project .pursuit-hero .project__title { font-size:60px; line-height:1.12; } }
 @media(max-width:600px) { .home.project { padding-top:96px; } .home.project .pursuit-hero .project__title { font-size:48px; line-height:1.12; } .home.project .pursuit-hero__subtitle { font-size:20px; line-height:28px; } .home.project .project__heading { font-size:24px; line-height:32px; } .home.project .project__section > p:first-child { font-size:20px; line-height:28px; } }
+
+
+/* Theme-aware portfolio monogram. */
+.pager .mark {
+  width: 26px;
+  height: 20px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+.pager .mark::before,
+.home:not(.project) .lede__name::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 20px;
+  flex: none;
+  background-color: var(--color-fg);
+  -webkit-mask: url("/assets/nv-mark.svg") center / contain no-repeat;
+  mask: url("/assets/nv-mark.svg") center / contain no-repeat;
+}
+.pager .mark:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 4px;
+}
+.home:not(.project) .lede__name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
