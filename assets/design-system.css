@@ -29,8 +29,8 @@ em,i { font-style:normal; }
 
 /* Theme-aware portfolio monogram. */
 .pager .mark {
-  width: 26px;
-  height: 20px;
+  width: 21px;
+  height: 16px;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
@@ -39,8 +39,8 @@ em,i { font-style:normal; }
 .home:not(.project) .lede__name::before {
   content: "";
   display: block;
-  width: 26px;
-  height: 20px;
+  width: 21px;
+  height: 16px;
   flex: none;
   background-color: var(--color-fg);
   -webkit-mask: url("/assets/nv-mark.svg") center / contain no-repeat;
@@ -54,9 +54,4 @@ em,i { font-style:normal; }
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.home:not(.project) .lede__name::before {
-  width: 21px;
-  height: 16px;
 }
