@@ -22,13 +22,9 @@
 }
 
 
-/* Cross-document transitions keep navigation simple while the shared title carries context. */
+/* Cross-document transitions keep navigation continuous and understated. */
 @view-transition {
   navigation: auto;
-}
-
-.home.project .project__title {
-  view-transition-name: portfolio-project-title;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -42,13 +38,6 @@
   /* Reuse the site's established, restrained entrance for each incoming page. */
   ::view-transition-new(root) {
     animation-name: global-intro-reveal;
-  }
-
-  ::view-transition-group(portfolio-project-title),
-  ::view-transition-old(portfolio-project-title),
-  ::view-transition-new(portfolio-project-title) {
-    animation-duration: .5s;
-    animation-timing-function: cubic-bezier(.22, 1, .36, 1);
   }
 }
 
@@ -67,16 +56,5 @@
 
   ::view-transition-new(root) {
     animation-name: global-page-fade;
-  }
-
-  /* Keep the title connection as a dissolve without moving it across the page. */
-  ::view-transition-group(portfolio-project-title) {
-    animation: none;
-  }
-
-  ::view-transition-old(portfolio-project-title),
-  ::view-transition-new(portfolio-project-title) {
-    animation-duration: 160ms;
-    animation-timing-function: linear;
   }
 }
