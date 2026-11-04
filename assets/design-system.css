@@ -1,5 +1,6 @@
 /* Shared design values from elayadesign/ai-design-skills, adapted to this portfolio. */
-:root { --font-sans:'Geist',system-ui,sans-serif; --motion-out:cubic-bezier(.22,1,.36,1); }
+:root { --font-sans:'Geist',system-ui,sans-serif; --font-pixel:'Geist Pixel','Geist',system-ui,sans-serif; --motion-out:cubic-bezier(.22,1,.36,1); }
+:is(.work__label,.piece__eyebrow,.piece__kind,.pursuit-hero__eyebrow,.info-card__eyebrow) { font-family:var(--font-pixel); font-variation-settings:'ELSH' 40; font-weight:400; }
 body { font-size:16px; line-height:24px; }
 h1,h2,h3 { text-wrap:balance; }
 p { text-wrap:pretty; }
