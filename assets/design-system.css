@@ -1,5 +1,5 @@
 /* Shared design values from elayadesign/ai-design-skills, adapted to this portfolio. */
-:root { --font-sans:'Geist',system-ui,sans-serif; --font-pixel:'Geist Pixel','Geist',system-ui,sans-serif; --motion-out:cubic-bezier(.22,1,.36,1); }
+:root { --font-sans:'Geist',system-ui,sans-serif; --font-pixel:'Geist Pixel','Geist',system-ui,sans-serif; --font-serif:'Geist Serif','Geist',Georgia,serif; --motion-out:cubic-bezier(.22,1,.36,1); }
 :is(.work__label,.piece__eyebrow,.piece__kind,.pursuit-hero__eyebrow,.info-card__eyebrow) { font-family:var(--font-pixel); font-variation-settings:'ELSH' 40; font-weight:400; }
 body { font-size:16px; line-height:24px; }
 h1,h2,h3 { text-wrap:balance; }
@@ -68,3 +68,20 @@ em,i { font-style:normal; }
   align-items: center;
   gap: 10px;
 }
+
+
+/* Geist Serif adds an editorial voice to the portfolio identity and case studies. */
+@font-face {
+  font-family: 'Geist Serif';
+  src: url('/fonts/GeistSerif-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.home:not(.project) .lede__name,
+.home.project .project__title,
+.project--editorial :is(.reading-quote, blockquote) {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+.home.project .project__title { letter-spacing: -.035em; }
