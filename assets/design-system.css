@@ -82,6 +82,7 @@ em,i { font-style:normal; }
 .home.project .project__title,
 .project--editorial :is(.reading-quote, blockquote) {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 600;
+  font-synthesis: weight;
 }
 .home.project .project__title { letter-spacing: -.035em; }
